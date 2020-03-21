@@ -15,11 +15,12 @@ print (('Listening on {}:{}').format(bind_ip, bind_port))
 def handle_client_connection(client_socket):
     client_socket.send('Connected'.encode())
     _protocol = protocol()
-    request = client_socket.recv(1024)
-    print (('Received {}').format(request))
-    #client_socket.send('Connected'.encode())
-    _protocol.execute(request.decode('utf-8'))
-    #client_socket.close()
+    while _protocol.terminate==False:
+        request = client_socket.recv(1024)
+        print (('Received {}').format(request))
+        response=_protocol.execute(request.decode('utf-8'))
+        client_sock.send(response.encode())
+    client_socket.close()
 
 
 while True:

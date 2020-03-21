@@ -1,16 +1,27 @@
 class protocol:
+    terminate=False
+
     def execute(self,command):
+        response=command
         print("the command is: {}".format(command))
         if command=='germany':
             print(command)        
-        if command=='england':
+        elif command=='england':
             print(command)        
-        if command=='italy':
+        elif command=='italy':
             print(command)        
-        if command=='spain':
+        elif command=='spain':
             print(command)        
-        if command=='franch':
-            print(command)        
+        elif command=='franch':
+            print(command)
+        elif command=='disconnect':
+            print(command)
+            self.terminate=True
+            response='Disconnected'
+        else:
+            print(command)
+            response='Invalid command'
+        return response
 
 
                              

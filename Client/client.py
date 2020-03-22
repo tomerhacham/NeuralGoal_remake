@@ -39,7 +39,7 @@ class Client:
                                         print('You already logged out')
                         else:
                                 self.send(_input)
-
+        # comment
         def connect(self):
                 self.client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
                 self.client.connect(('25.105.215.94', 443))

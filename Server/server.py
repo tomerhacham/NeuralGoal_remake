@@ -2,8 +2,8 @@ import socket
 import threading
 from Server.protocol import protocol
 
-bind_ip = '127.0.0.1'
-bind_port = 7777
+bind_ip = '192.168.1.146'
+bind_port = 443
 
 server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 server.bind((bind_ip, bind_port))

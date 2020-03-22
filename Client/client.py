@@ -42,7 +42,7 @@ class Client:
 
         def connect(self):
                 self.client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-                self.client.connect(('127.0.0.1', 7777))
+                self.client.connect(('176.230.151.201', 443))
                 response = self.client.recv(4096)
                 print(response.decode("utf-8"))
                 if response.decode('utf-8')=='Connected':

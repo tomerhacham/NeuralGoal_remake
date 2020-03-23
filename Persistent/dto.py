@@ -1,6 +1,6 @@
 # Data Transfer Objects:
 class match:
-    def __init__(self,match_id,leauge,date,round,
+    def __init__(self,match_id,leauge,date,
         home_team_name,away_team_name,
         home_team_rank,away_team_rank,
         home_team_scored,away_team_scored,
@@ -14,7 +14,6 @@ class match:
         self.match_id=match_id
         self.league=leauge
         self.date=date
-        self.round=round
         self.home_team_name=home_team_name
         self.away_team_name=away_team_name
         self.home_team_rank=home_team_rank

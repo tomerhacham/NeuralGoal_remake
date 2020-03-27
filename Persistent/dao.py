@@ -41,7 +41,7 @@ class main_table:
 
     def select_by_league_name(self,league,as_dataframe=True):
         query="""
-                SELECT * FROM main_table WHERE leauge=(?)
+            SELECT *  FROM main_table WHERE leauge=(?)
                 """
         parameters=[league]
         if as_dataframe==True:

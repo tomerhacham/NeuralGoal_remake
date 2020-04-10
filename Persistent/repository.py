@@ -31,37 +31,35 @@ class Repository():
     def create_tables(self):
         self.conn.executescript("""
         CREATE TABLE main_table (
-            match_id           INTEGER     PRIMARY KEY AUTOINCREMENT,
-            leauge             TEXT         NOT NULL,
-            date               DATE        NOT NULL,
-            round              INTEGER        NOT NULL,
-            home_team_name      TEXT     NOT NULL,
-            away_team_name      TEXT     NOT NULL,
-            home_team_rank      INTEGER     NOT NULL,
-            away_team_rank      INTEGER     NOT NULL,
-            home_team_scored  FLOAT     NOT NULL,
-            away_team_scored  FLOAT     NOT NULL,
-            home_team_received  FLOAT     NOT NULL,
-            away_team_received  FLOAT     NOT NULL,
-            home_att  INTEGER     NOT NULL,
-            away_att  INTEGER     NOT NULL,
-            home_def  INTEGER     NOT NULL,
-            away_def  INTEGER     NOT NULL,
-            home_mid  INTEGER     NOT NULL,
-            away_mid  INTEGER     NOT NULL,
-            home_odds_n  FLOAT     NOT NULL,
-            draw_odds_n  FLOAT     NOT NULL,
-            away_odds_n  FLOAT     NOT NULL,
-            result  TEXT     NOT NULL
+            league             VARCHAR(100)     NOT NULL   ,
+            date               DATE      NOT NULL   ,
+            round              INTEGER      NOT NULL   ,
+            home_team_name      VARCHAR(100)    NOT NULL   ,
+            away_team_name      VARCHAR(100)   NOT NULL    ,
+            home_team_rank      INTEGER   NOT NULL   ,
+            away_team_rank      INTEGER  NOT NULL    ,
+            home_team_scored  FLOAT   NOT NULL   ,
+            away_team_scored  FLOAT   NOT NULL   ,
+            home_team_received  FLOAT   NOT NULL   ,
+            away_team_received  FLOAT  NOT NULL    ,
+            home_att  INTEGER   NOT NULL   ,
+            away_att  INTEGER  NOT NULL    ,
+            home_def  INTEGER    NOT NULL  ,
+            away_def  INTEGER   NOT NULL   ,
+            home_mid  INTEGER  NOT NULL    ,
+            away_mid  INTEGER  NOT NULL    ,
+            home_odds_n  FLOAT  NOT NULL    ,
+            draw_odds_n  FLOAT   NOT NULL   ,
+            away_odds_n  FLOAT   NOT NULL   ,
+            result  CHAR  NOT NULL    
         );
  
         CREATE TABLE upcoming_games (
-            match_id           INTEGER     PRIMARY KEY,
-            leauge             TEXT         NOT NULL,
+            league             VARCHAR(100)          NOT NULL,
             date               DATE        NOT NULL,
             round              INTEGER        NOT NULL,
-            home_team_name      TEXT     NOT NULL,
-            away_team_name      TEXT     NOT NULL,
+            home_team_name      VARCHAR(100)      NOT NULL,
+            away_team_name      VARCHAR(100)      NOT NULL,
             home_team_rank      INTEGER     NOT NULL,
             away_team_rank      INTEGER     NOT NULL,
             home_team_scored  FLOAT     NOT NULL,
@@ -80,13 +78,11 @@ class Repository():
         );
  
         CREATE TABLE odds_details (
-            match_id           INTEGER     PRIMARY KEY,
             home_odds  FLOAT     NOT NULL,
             draw_odds  FLOAT     NOT NULL,
             away_odds  FLOAT     NOT NULL,
             home_odds_plus1  FLOAT    ,
-            away_odds_plus1 FLOAT     ,
-            FOREIGN KEY (match_id)     REFERENCES upcoming_games(match_id)
+            away_odds_plus1 FLOAT     
 
         );
     """)

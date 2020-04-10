@@ -8,8 +8,8 @@ from Persistent.Data import _UpcomingBettingOddsWithAPI  # 7
 from Persistent.Data import _updateFiles  # 8
 import os
 
-# [ Serie , PremierLeague , Bundesliga , Laliga ]
-League = "Serie"
+# [ Serie , PremierLeague , Bundesliga , Laliga , Ligue1 , Jupiler ]
+League = "Jupiler"
 
 years = [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19]
 # years = [5]
@@ -24,6 +24,11 @@ for year in years:
 
     if League == "Bundesliga":
         _round = 34
+    elif League == "Jupiler":
+        if startYear <= 8:
+            _round = 34
+        else:
+            _round = 30
     else:
         _round = 38
 

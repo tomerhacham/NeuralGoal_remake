@@ -25,6 +25,11 @@ def run(leagueName,round,startYear,endYear):
         _Range = 0
         if leagueName == "Bundesliga":
             _Range = 36
+        elif leagueName == "Jupiler":
+            if startYear <= 8:
+                _Range = 36
+            else:
+                _Range = 32
         else:
             _Range = 40
         t = []
@@ -87,6 +92,11 @@ def run(leagueName,round,startYear,endYear):
             _leaguRound = 0
             if leagueName == "Bundesliga":
                 _leaguRound = 9
+            elif leagueName == "Jupiler":
+                if startYear <= 8:
+                    _leaguRound = 9
+                else:
+                    _leaguRound = 8
             else:
                 _leaguRound = 10
             if index % _leaguRound == 0 and index != 0:

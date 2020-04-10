@@ -117,7 +117,7 @@ def run(leagueName,round,startYear,endYear):
             if awayNameTeam == "Verona":
                 awayNameTeam = "Hellas"
 
-            #16-17
+            #Laliga
             if homeNameTeam == "La Coruna":
                 homeNameTeam = "RC Deportivo"
             if awayNameTeam == "La Coruna":
@@ -158,11 +158,70 @@ def run(leagueName,round,startYear,endYear):
             if awayNameTeam == "FC Barcelona":
                 awayNameTeam = "FC Barcelona&league=53"
         
-        
+            #Ligue1
 
-            
-            
-            
+            if homeNameTeam == "Paris SG":
+                homeNameTeam = "Paris"
+            if awayNameTeam == "Paris SG":
+                awayNameTeam = "Paris"
+
+            if homeNameTeam == "Rennes":
+                homeNameTeam = "Renn"
+            if awayNameTeam == "Rennes":
+                awayNameTeam = "Renn"
+
+            if homeNameTeam == "Lille":
+                homeNameTeam = "Osc"
+            if awayNameTeam == "Lille":
+                awayNameTeam = "Osc"
+
+            if homeNameTeam == "St Etienne":
+                homeNameTeam = "Etienne"
+            if awayNameTeam == "St Etienne":
+                awayNameTeam = "Etienne"
+
+            if homeNameTeam == "Bastia":
+                homeNameTeam = "SC Bastia"
+            if awayNameTeam == "Bastia":
+                awayNameTeam = "SC Bastia"
+
+            if homeNameTeam == "Angers":
+                homeNameTeam = "Angers SCO"
+            if awayNameTeam == "Angers":
+                awayNameTeam = "Angers SCO"
+
+            if homeNameTeam == "Ajaccio GFCO":
+                homeNameTeam = "Ajaccio&league=16"
+            if awayNameTeam == "Ajaccio GFCO":
+                awayNameTeam = "Ajaccio&league=16"
+
+            #Jupiler
+
+            if homeNameTeam == "FC Brussels":
+                homeNameTeam = "Brussels"
+            if awayNameTeam == "FC Brussels":
+                awayNameTeam = "Brussels"
+
+            if homeNameTeam == "St Truiden":
+                homeNameTeam = "Truiden"
+            if awayNameTeam == "St Truiden":
+                awayNameTeam = "Truiden"
+
+            if homeNameTeam == "Bergen":
+                homeNameTeam = "Mons"
+            if awayNameTeam == "Bergen":
+                awayNameTeam = "Mons"
+
+            if homeNameTeam == "Germinal":
+                homeNameTeam = "Beerschot"
+            if awayNameTeam == "Germinal":
+                awayNameTeam = "Beerschot"
+
+            if homeNameTeam == "Mouscron-Peruwelz":
+                homeNameTeam = "Mouscron"
+            if awayNameTeam == "Mouscron-Peruwelz":
+                awayNameTeam = "Mouscron"
+
             if int(end_year) < 10 :
                 urlHomeTeam = MAIN_URL + "0" + str(eY) + "/?name=" + homeNameTeam
                 urlAwayTeam = MAIN_URL + "0" + str(eY) + "/?name=" + awayNameTeam

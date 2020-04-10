@@ -6,7 +6,6 @@ import requests
 import time
 
 
-
 def getTeamName(nameToFind):
     # Bundesliga
     if nameToFind == "Bayern München":  return "Bayern Munich"
@@ -22,9 +21,9 @@ def getTeamName(nameToFind):
     if nameToFind == "Hamburger SV":  return "Hamburg"
     if nameToFind == "1. FSV Mainz 05":  return "Mainz"
     if nameToFind == "Bayer Leverkusen":  return "Leverkusen"
-    if nameToFind == "SC Freiburg":  return "Freiburg"           
+    if nameToFind == "SC Freiburg":  return "Freiburg"
     if nameToFind == "FC Schalke 04":  return "Schalke 04"
-    if nameToFind == "FC Augsburg":  return "Augsburg"        
+    if nameToFind == "FC Augsburg":  return "Augsburg"
     if nameToFind == "SV Darmstadt 98":  return "Darmstadt"
     if nameToFind == "Werder Bremen":  return "Werder Bremen"
     if nameToFind == "Hannover 96": return "Hannover"
@@ -155,24 +154,94 @@ def getTeamName(nameToFind):
     if nameToFind == "Real Zaragoza": return "Zaragoza"
     if nameToFind == "Cádiz CF": return "Cadiz"
     if nameToFind == "Racing Santander": return "Santander"
-    if nameToFind == "GimnÃ stic" : return "Gimnastic"
-    if nameToFind == "Recreativo Huelva" : return "Recreativo"
-    if nameToFind == "UD Almería" : return "Almeria"
-    if nameToFind == "Real Murcia" : return "Murcia"
-    if nameToFind == "CD Numancia" : return "Numancia"
-    if nameToFind == "Xerez CD" : return "Xerez"
-    if nameToFind == "CD Tenerife" : return "Tenerife"
-    if nameToFind == "Hércules CF" : return "Hercules"
-    if nameToFind == "Elche CF" : return "Elche"
-    if nameToFind == "Córdoba CF" : return "Cordoba"
+    if nameToFind == "GimnÃ stic": return "Gimnastic"
+    if nameToFind == "Recreativo Huelva": return "Recreativo"
+    if nameToFind == "UD Almería": return "Almeria"
+    if nameToFind == "Real Murcia": return "Murcia"
+    if nameToFind == "CD Numancia": return "Numancia"
+    if nameToFind == "Xerez CD": return "Xerez"
+    if nameToFind == "CD Tenerife": return "Tenerife"
+    if nameToFind == "Hércules CF": return "Hercules"
+    if nameToFind == "Elche CF": return "Elche"
+    if nameToFind == "Córdoba CF": return "Cordoba"
+    # ligue1
+    if nameToFind == "Olympique Lyon": return "Lyon"
+    if nameToFind == "Girondins Bordeaux": return "Bordeaux"
+    if nameToFind == "Lille OSC": return "Lille"
+    if nameToFind == "RC Lens": return "Lens"
+    if nameToFind == "Olympique Marseille": return "Marseille"
+    if nameToFind == "AJ Auxerre": return "Auxerre"
+    if nameToFind == "Stade Rennes": return "Rennes"
+    if nameToFind == "OGC Nice": return "Nice"
+    if nameToFind == "Paris Saint-Germain": return "Paris SG"
+    if nameToFind == "AS Monaco": return "Monaco"
+    if nameToFind == "Le Mans UC 72": return "Le Mans"
+    if nameToFind == "AS Nancy": return "Nancy"
+    if nameToFind == "AS Saint-Étienne": return "St Etienne"
+    if nameToFind == "FC Nantes": return "Nantes"
+    if nameToFind == "FC Sochaux": return "Sochaux"
+    if nameToFind == "Toulouse FC": return "Toulouse"
+    if nameToFind == "ESTAC Troyes": return "Troyes"
+    if nameToFind == "AC Ajaccio": return "Ajaccio"
+    if nameToFind == "RC Strasbourg": return "Strasbourg"
+    if nameToFind == "FC Metz": return "Metz"
+    if nameToFind == "FC Lorient": return "Lorient"
+    if nameToFind == "Valenciennes FC": return "Valenciennes"
+    if nameToFind == "CS Sedan": return "Sedan"
+    if nameToFind == "SM Caen": return "Caen"
+    if nameToFind == "Grenoble Foot 38": return "Grenoble"
+    if nameToFind == "Le Havre AC": return "Le Havre"
+    if nameToFind == "US Boulogne": return "Boulogne"
+    if nameToFind == "Montpellier HSC": return "Montpellier"
+    if nameToFind == "Stade Brest": return "Brest"
+    if nameToFind == "AC Arles-Avignon": return "Arles"
+    if nameToFind == "Dijon FCO": return "Dijon"
+    if nameToFind == "Évian Thonon Gaillard": return "Evian Thonon Gaillard"
+    if nameToFind == "Stade Reims": return "Reims"
+    if nameToFind == "EA Guingamp": return "Guingamp"
+    if nameToFind == "GFC Ajaccio": return "Ajaccio GFCO"
+    if nameToFind == "Angers SCO": return "Angers"
+    if nameToFind == "Amiens SC": return "Amiens"
+    if nameToFind == "Nîmes Olympique": return "Nimes"
+    if nameToFind == "SC Bastia": return "Bastia"
+    # Jupiler
+    if nameToFind == "RSC Anderlecht": return "Anderlecht"
+    if nameToFind == "Standard Liège": return "Standard"
+    if nameToFind == "Club Brugge KV": return "Club Brugge"
+    if nameToFind == "KAA Gent": return "Gent"
+    if nameToFind == "KRC Genk": return "Genk"
+    if nameToFind == "Germinal Beerschot": return "Germinal"
+    if nameToFind == "SV Zulte Waregem": return "Waregem"
+    if nameToFind == "Sporting Lokeren": return "Lokeren"
+    if nameToFind == "FC Brussels": return "FC Brussels"
+    if nameToFind == "KVC Westerlo": return "Westerlo"
+    if nameToFind == "Sporting Charleroi": return "Charleroi"
+    if nameToFind == "KSV Roeselare": return "Roeselare"
+    if nameToFind == "Excelsior Mouscron": return "Mouscron"
+    if nameToFind == "Cercle Brugge": return "Cercle Brugge"
+    if nameToFind == "Sint-Truidense VV": return "St Truiden"
+    if nameToFind == "KSK Beveren": return "Beveren"
+    if nameToFind == "Lierse SK": return "Lierse"
+    if nameToFind == "RAA La Louviéroise": return "Louvieroise"
+    if nameToFind == "RAEC Mons": return "Bergen"
+    if nameToFind == "KV Mechelen": return "Mechelen"
+    if nameToFind == "FCV Dender EH": return "Dender"
+    if nameToFind == "KV Kortrijk": return "Kortrijk"
+    if nameToFind == "AFC Tubize": return "Tubize"
+    if nameToFind == "AS Eupen": return "Eupen"
+    if nameToFind == "Beerschot AC": return "Germinal"
+    if nameToFind == "Oud-Heverlee Leuven": return "Oud-Heverlee Leuven"
+    if nameToFind == "Waasland-Beveren": return "Waasland-Beveren"
+    if nameToFind == "KV Oostende": return "Oostende"
+    if nameToFind == "Royal Mouscron-Péruwelz": return "Mouscron-Peruwelz"
+    if nameToFind == "Royal Excel Mouscron": return "Mouscron"
+    if nameToFind == "Royal Antwerp FC": return "Antwerp"
+    if nameToFind == "Royal Excel Mouscron Péruwelz": return "Mouscron"
 
-
-    
-    
     return nameToFind + " not found"
 
-def run(leagueName,round,startYear,endYear):
 
+def run(leagueName, round, startYear, endYear):
     startY = [startYear]
     endY = [endYear]
 
@@ -200,73 +269,83 @@ def run(leagueName,round,startYear,endYear):
             _le = "bundesliga-"
         elif leagueName == "Laliga":
             _le = "esp-primera-division-"
-            #_round = _round + 1
         elif leagueName == "PremierLeague":
             _le = "eng-premier-league-"
-            #_round = _round + 2
         elif leagueName == "Serie":
             _le = "ita-serie-a-"
-            #_round = _round
+        elif leagueName == "Ligue1":
+            _le = "fra-ligue-1-"
+        elif leagueName == "Jupiler":
+            if int(startYear) <= 10:
+                _le = "bel-jupiler-league-"
+            elif int(startYear) <= 12:
+                _le = "bel-jupiler-pro-league-"
+            elif int(startYear) <= 16:
+                _le = "bel-eerste-klasse-"
+            else:
+                _le = "bel-eerste-klasse-a-"
 
-
-        for x in range(1,_round+1):
+        for x in range(1, _round + 1):
 
             try:
                 if leagueName == "Laliga" and sY == "16":
-                    data = requests.get("https://www.worldfootball.net/schedule/" + _le + "20{}-20{}-spieltag_2/".format(sY,eY) + str(x))
+                    data = requests.get(
+                        "https://www.worldfootball.net/schedule/" + _le + "20{}-20{}-spieltag_2/".format(sY, eY) + str(
+                            x))
                 else:
-                    data = requests.get("https://www.worldfootball.net/schedule/" + _le + "20{}-20{}-spieltag/".format(sY,eY) + str(x))
+                    data = requests.get(
+                        "https://www.worldfootball.net/schedule/" + _le + "20{}-20{}-spieltag/".format(sY, eY) + str(x))
                 teamData = data.content
                 d = {}
-                teamData = BeautifulSoup(teamData,"html.parser").find_all("div",{"class":"box"})[1].find("table",{"class":"standard_tabelle"}).find_all("tr",{"":""})
+                teamData = BeautifulSoup(teamData, "html.parser").find_all("div", {"class": "box"})[1].find("table", {
+                    "class": "standard_tabelle"}).find_all("tr", {"": ""})
             except:
                 continue
             _lastRoundScored = 0
-            _lastRoundRecived = 0 
+            _lastRoundRecived = 0
             _round = 1
             print(x)
             for team in teamData:
-                if(counter == 0):
+                if (counter == 0):
                     try:
-                        data = team.find("a",{"":""})
+                        data = team.find("a", {"": ""})
                         teams_name = data.text
                         team_name = getTeamName(teams_name)
-                        
+
                         try:
-                            a = team.find_all("td",{"":""})[7].text
+                            a = team.find_all("td", {"": ""})[7].text
                             goalsScored = a.split(":")[0]
-                            goalsRecived = a.split(":")[1] 
+                            goalsRecived = a.split(":")[1]
                             d[team_name + " scored"] = goalsScored
                             d[team_name + " received"] = goalsRecived
                         except:
                             goalsScored = -1
-                            goalsRecived = -1 
+                            goalsRecived = -1
                             d[team_name + " scored"] = goalsScored
                             d[team_name + " received"] = goalsRecived
                     except:
                         continue
                 else:
                     try:
-                        data = team.find("a",{"":""})
+                        data = team.find("a", {"": ""})
                         teams_name = data.text
                         team_name = getTeamName(teams_name)
-                        
-                        a = team.find_all("td",{"":""})[7].text
+
+                        a = team.find_all("td", {"": ""})[7].text
                         goalsScored = a.split(":")[0]
                         goalsRecived = a.split(":")[1]
                         d[team_name + " scored"] = int(goalsScored)
                         d[team_name + " received"] = int(goalsRecived)
                     except:
-                        continue  
+                        continue
             counter = counter + 1
             t_t.append(d)
             table.append(d)
-        
+
         if startY[year] < 10:
             sY = str(startY[year])
         if endY[year] < 10:
             eY = str(endY[year])
 
-
         df = pandas.DataFrame(table)
-        df.to_csv("standing-" + sY + "-"+ eY + ".csv")
+        df.to_csv("standing-" + sY + "-" + eY + ".csv")

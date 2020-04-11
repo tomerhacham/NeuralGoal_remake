@@ -222,6 +222,33 @@ def run(leagueName,round,startYear,endYear):
             if awayNameTeam == "Mouscron-Peruwelz":
                 awayNameTeam = "Mouscron"
 
+            # Eredivisie
+
+            if homeNameTeam == "PSV Eindhoven":
+                homeNameTeam = "PSV"
+            if awayNameTeam == "PSV Eindhoven":
+                awayNameTeam = "PSV"
+
+            if homeNameTeam == "Nijmegen":
+                homeNameTeam = "N.E.C."
+            if awayNameTeam == "Nijmegen":
+                awayNameTeam = "N.E.C."
+
+            if homeNameTeam == "VVV Venlo":
+                homeNameTeam = "Venlo"
+            if awayNameTeam == "VVV Venlo":
+                awayNameTeam = "Venlo"
+
+            if homeNameTeam == "For Sittard":
+                homeNameTeam = "Sittard"
+            if awayNameTeam == "For Sittard":
+                awayNameTeam = "Sittard"
+
+            if homeNameTeam == "AZ Alkmaar":
+                homeNameTeam = "AZ&league=10"
+            if awayNameTeam == "AZ Alkmaar":
+                awayNameTeam = "AZ&league=10"
+
             if int(end_year) < 10 :
                 urlHomeTeam = MAIN_URL + "0" + str(eY) + "/?name=" + homeNameTeam
                 urlAwayTeam = MAIN_URL + "0" + str(eY) + "/?name=" + awayNameTeam

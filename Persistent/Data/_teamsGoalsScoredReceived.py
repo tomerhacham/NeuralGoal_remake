@@ -237,6 +237,35 @@ def getTeamName(nameToFind):
     if nameToFind == "Royal Excel Mouscron": return "Mouscron"
     if nameToFind == "Royal Antwerp FC": return "Antwerp"
     if nameToFind == "Royal Excel Mouscron Péruwelz": return "Mouscron"
+    # Eredivisie
+    if nameToFind == "NEC Nijmegen": return "Nijmegen"
+    if nameToFind == "AFC Ajax": return "Ajax"
+    if nameToFind == "Roda JC Kerkrade": return "Roda"
+    if nameToFind == "PSV Eindhoven": return "PSV Eindhoven"
+    if nameToFind == "AZ Alkmaar": return "AZ Alkmaar"
+    if nameToFind == "Heracles Almelo": return "Heracles"
+    if nameToFind == "NAC Breda": return "NAC Breda"
+    if nameToFind == "FC Volendam": return "Volendam"
+    if nameToFind == "Go Ahead Eagles": return "Go Ahead Eagles"
+    if nameToFind == "FC Dordrecht": return "Dordrecht"
+    if nameToFind == "ADO Den Haag": return "Den Haag"
+    if nameToFind == "FC Utrecht": return "Utrecht"
+    if nameToFind == "FC Twente": return "Twente"
+    if nameToFind == "VVV-Venlo": return "VVV Venlo"
+    if nameToFind == "SC Cambuur": return "Cambuur"
+    if nameToFind == "FC Emmen": return "FC Emmen"
+    if nameToFind == "RKC Waalwijk": return "Waalwijk"
+    if nameToFind == "SBV Excelsior": return "Excelsior"
+    if nameToFind == "FC Groningen": return "Groningen"
+    if nameToFind == "Sparta Rotterdam": return "Sparta Rotterdam"
+    if nameToFind == "PEC Zwolle": return "Zwolle"
+    if nameToFind == "Feyenoord": return "Feyenoord"
+    if nameToFind == "RBC Roosendaal": return "Roosendaal"
+    if nameToFind == "De Graafschap": return "Graafschap"
+    if nameToFind == "Fortuna Sittard": return "For Sittard"
+    if nameToFind == "Willem II": return "Willem II"
+    if nameToFind == "sc Heerenveen": return "Heerenveen"
+    if nameToFind == "Vitesse": return "Vitesse"
 
     return nameToFind + " not found"
 
@@ -284,6 +313,8 @@ def run(leagueName, round, startYear, endYear):
                 _le = "bel-eerste-klasse-"
             else:
                 _le = "bel-eerste-klasse-a-"
+        elif leagueName == "Eredivisie":
+            _le = "ned-eredivisie-"
 
         for x in range(1, _round + 1):
 

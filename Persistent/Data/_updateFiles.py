@@ -26,6 +26,8 @@ def run(leagueName, startYear, endYear):
         url = baseURL + "{}{}/F1.csv".format(startYear, endYear)
     if leagueName == "Jupiler":
         url = baseURL + "{}{}/B1.csv".format(startYear, endYear)
+    if leagueName == "Eredivisie":
+        url = baseURL + "{}{}/N1.csv".format(startYear,endYear)
 
     startYear = str(startYear)
     endYear = str(endYear)

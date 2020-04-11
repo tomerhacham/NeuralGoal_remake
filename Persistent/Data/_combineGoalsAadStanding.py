@@ -23,7 +23,7 @@ def run(leagueName,round,startYear,endYear):
         for index, row in team_standing.iterrows():
             rows.append(row)
         _Range = 0
-        if leagueName == "Bundesliga":
+        if leagueName == "Bundesliga" or leagueName == "Eredivisie":
             _Range = 36
         elif leagueName == "Jupiler":
             if startYear <= 8:
@@ -90,7 +90,7 @@ def run(leagueName,round,startYear,endYear):
             except:
                 continue
             _leaguRound = 0
-            if leagueName == "Bundesliga":
+            if leagueName == "Bundesliga" or leagueName == "Eredivisie":
                 _leaguRound = 9
             elif leagueName == "Jupiler":
                 if startYear <= 8:

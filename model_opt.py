@@ -27,29 +27,21 @@ def get_weights(x):
     return weights, x
 
 
-df=pd.read_csv('all_leagues.csv')
+df=pd.read_csv('itally_full_dates.csv')
 null_columns=df.columns[df.isnull().any()]
 print(df[df.isnull().any(axis=1)][null_columns].head())
 #print(df.isnull().sum())
 #labelencoder = LabelEncoder()
 
-x,y =data_preprocessor.preprocess(dataset=df,test_and_split=False)
-#y = df.loc[:, 'result':]
-#x=df.loc[:,'home_att':'away_team_received']
-#y['result'] = labelencoder.fit_transform(y['result'])  # X:2 ,2:1, 1:0
+x_train, x_test, y_train, y_test, =data_preprocessor.preprocess(dataset=df,test_and_split=True,test_size=0.25)
 
-#print('#result label Encoding')
-#le_name_mapping = dict(zip(labelencoder.classes_, labelencoder.transform(labelencoder.classes_)))
-#print(le_name_mapping)
-#y = pd.get_dummies(y['result'], prefix="result")
-
-print(x.shape[1])
+print(x_train.shape[1])
 #weight,x=get_weights(x)
 
 decending_layers=[0,1]
 hidden_layers=[1,2,3]
-layer_sizes=[16,32,64]
-batch_sizes=[8,16,32]
+layer_sizes=[16,32,64,512]
+batch_sizes=[10]
 
 #hidden_layer=2
 #layer_size=16
@@ -66,10 +58,10 @@ for mod in decending_layers:
             for batch_size in batch_sizes:
                 NAME = "{}-nw-{}-layer-{}-size-{}-batch-{}".format(mod_name,hidden_layer,layer_size,batch_size,(int)(time.time()))
                 #print(NAME)
-                tensorboard = TensorBoard(log_dir='logs\\all_leagues\\{}'.format(NAME))
+                tensorboard = TensorBoard(log_dir='logs\\italy_0804experiment\\{}'.format(NAME))
 
                 model = Sequential()
-                model.add(Dense(input_dim=x.shape[1], units=layer_size, kernel_initializer='uniform', activation='relu'))
+                model.add(Dense(input_dim=x_train.shape[1], units=layer_size, kernel_initializer='uniform', activation='relu'))
 
                 for l in range(hidden_layer):
                     if mod==1:
@@ -83,5 +75,5 @@ for mod in decending_layers:
                 model.add(Dense(units=3, kernel_initializer='uniform', activation='softmax'))
                 model.compile(loss='categorical_crossentropy', optimizer='adam', metrics=['accuracy'])
 
-                model.fit(x, y, batch_size=batch_size, epochs=200, validation_split=0.25,callbacks=[tensorboard])
+                model.fit(x_train, y_train, batch_size=batch_size, epochs=100, validation_data=(x_test,y_test),callbacks=[tensorboard])
 

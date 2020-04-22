@@ -37,23 +37,21 @@ class neuralnet():
     #endregion
     #region Model Essence
     def build(self, optimizer='adam'):
-        self.model = Sequential()
-        self.model.add(Dense(input_dim=self.input, units=self.nodesinfirstlayer,  kernel_initializer='uniform', activation='relu' ))
-        self.model.add(Dense(units=self.nodesinsecondlayer , kernel_initializer='uniform', activation='relu'))
-        self.model.add(Dense(units=3, kernel_initializer='uniform', activation='softmax'))
-        self.model.compile(loss='categorical_crossentropy', optimizer=optimizer, metrics=['accuracy'])
-        print("# Build ANN in the following architecture:\n "+str(self.input)+'>'+str(self.nodesinfirstlayer)+">"+str(self.nodesinsecondlayer)+">"+str(self.output))
-        self.batch_size = batch_size_calc.FindBatchSize(self.model)
+        self.model=Sequential()
+        self.model.add(Dense(units=256,input_dim=x_train.shape[1]))
+        self.model.add(Activation('relu'))
+        self.model.add(Dense(units=128))
+        self.model.add(Activation('relu'))
+        self.model.add(Dense(units=32))
+        self.model.add(Activation('relu'))
+        self.model.add(Dense(units=3))
+        self.model.add(Activation("softmax"))
+        self.model.compile(loss='categorical_crossentropy', optimizer='adam', metrics=['accuracy']) 
         return self.model
 
-    def train(self,x,y,epochs):
-        print('# Fit model on training data')
-        weights, x = self.get_weights(x)
-        #history = self.model.fit(x,y,batch_size=self.batch_size,epochs=epochs,sample_weight=weights,validation_split=0.2,callbacks=[tensorboard])
-        history = self.model.fit(x,y,batch_size=self.batch_size,epochs=epochs,validation_split=0.2,callbacks=[tensorboard])
-        #print('\nhistory dict:', history.history)
-        #print_plot(history)
-
+    def train(self,x,y,_epochs):
+        self.model.fit(x,y, batch_size=10, epochs=_epochs)
+     
     def evaluate(self,x_test,y_test):
         weights, x_test = self.get_weights(x_test)
         # Evaluate the model on the test data using `evaluate`

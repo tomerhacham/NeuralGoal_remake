@@ -10,7 +10,7 @@ class main_table:
 
     def insert(self, match):
         self._conn.execute("""
-               INSERT INTO main_table (leauge,date,
+               INSERT INTO main_table (league,date,
                                     home_team_name,away_team_name,
                                     home_team_rank,away_team_rank,
                                     home_team_scored,away_team_scored,
@@ -21,7 +21,7 @@ class main_table:
                                     home_odds_n,draw_odds_n,away_odds_n)
                                     VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)
                                     """,
-        [match.leauge,match.date,
+        [match.league,match.date,
         match.home_team_name,match.away_team_name,
         match.home_team_rank,match.away_team_rank,
         match.home_team_scored,match.away_team_scored,
@@ -41,9 +41,19 @@ class main_table:
 
     def select_by_league_name(self,league,as_dataframe=True):
         query="""
-            SELECT *  FROM main_table WHERE leauge=(?)
+            SELECT *  FROM main_table WHERE league=(?) 
                 """
         parameters=[league]
+        if as_dataframe==True:
+            return return_as_dataframe(query,self._conn,parameters)
+        else:
+            return return_as_tuple(query,self._conn,parameters)
+
+    def select_by_league_name_last_seasons(self,league,number_of_seasons=3,as_dataframe=True):
+        query="""
+            SELECT *  FROM main_table WHERE league=(?) ORDER BY date DESC LIMIT 380*(?) 
+                """
+        parameters=[league,number_of_seasons]
         if as_dataframe==True:
             return return_as_dataframe(query,self._conn,parameters)
         else:
@@ -54,7 +64,7 @@ class main_table:
     #@return: return the matched from @league that has took plave between @date to 'NOW'
     def select_by_date(self,league,date,as_dataframe=True):
         query="""
-            SELECT * FROM main_table WHERE leauge=(?) AND date<=DATE('NOW') AND date>=(?)
+            SELECT * FROM main_table WHERE league=(?) AND date<=DATE('NOW') AND date>=(?)
             """
         parameters = [league,date]
         if as_dataframe==True:
@@ -79,7 +89,7 @@ class upcomig_games:
 
     def insert(self, match):
         self._conn.execute("""
-               INSERT INTO upcoming_games (leauge,date,
+               INSERT INTO upcoming_games (league,date,
                                     home_team_name,away_team_name,
                                     home_team_rank,away_team_rank,
                                     home_team_scored,away_team_scored,
@@ -90,7 +100,7 @@ class upcomig_games:
                                     home_odds_n,draw_odds_n,away_odds_n)
                                     VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)
                                     """,
-        [match.leauge,match.date,
+        [match.league,match.date,
         match.home_team_name,match.away_team_name,
         match.home_team_rank,match.away_team_rank,
         match.home_team_scored,match.away_team_scored,
@@ -110,7 +120,7 @@ class upcomig_games:
 
     def select_by_league_name(self,league,as_dataframe=True):
         query="""
-            SELECT * FROM upcoming_games WHERE leauge=(?)
+            SELECT * FROM upcoming_games WHERE league=(?)
             """
         parameters=[league]
         if as_dataframe==True:
@@ -123,7 +133,7 @@ class upcomig_games:
     #@return: return the matched from @league that has took plave between @date to 'NOW'
     def select_by_date(self,league,date,as_dataframe=True):
         query="""
-            SELECT * FROM upcoming_games WHERE leauge=(?) AND date<=DATE('NOW') AND date>=(?)
+            SELECT * FROM upcoming_games WHERE league=(?) AND date<=DATE('NOW') AND date>=(?)
             """
         parameters=[league,date]
         if as_dataframe==True:

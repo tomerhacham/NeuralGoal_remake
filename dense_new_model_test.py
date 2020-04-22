@@ -1,9 +1,3 @@
-#rp= Repository()
-#df=rp.main_table.select_all(as_dataframe=True)
-#y = df['result']
-#df.groupby('result').count()
-#print(df.groupby('result').count())
-
 from keras.callbacks import TensorBoard
 from Persistent.repository import main_table
 from Persistent.repository import Repository
@@ -30,11 +24,11 @@ def training_predict(model, x_test,y_test,threshold,verbose): #prediction for te
     y_pred = pd.DataFrame(prediction)
     columns_names = y_test.columns
     y_pred.columns=columns_names
-    return binary_classification_with_prob_threshold(y_test,y_pred,threshold,verbose)
+    return binary_classification_with_prob_threshold(target_true=y_test,target_predicts=y_pred,threshold=threshold,verbose=verbose)
 
 def binary_classification_with_prob_threshold(y_test,y_pred, threshold,verbose=1):
     binary_prediction = (y_pred>threshold)
-    acc = calculate_accuracy(y_test, binary_prediction,verbose)
+    acc = calculate_accuracy(y_test, binary_prediction,verbose=verbose)
     return binary_prediction,acc
 
 def calculate_accuracy(y_test,y_pred,verbose=1):
@@ -45,13 +39,13 @@ def calculate_accuracy(y_test,y_pred,verbose=1):
     return accuracy_score(y_test,y_pred)
 
 def get_confustion_metrix(target_test,target_predicts):
-    from sklearn.metrics import multilabel_confusion_matrix
+    from sklearn.metrics import confusion_matrix
     target_predicts = pd.DataFrame(target_predicts)
     columns_names = target_test.columns
     target_predicts.columns=columns_names
     #return confusion_matrix(target_test.idxmax(axis=1), target_predicts.argmax(axis=1))
     #return confusion_matrix(target_test.idxmax(axis=1), target_predicts.idxmax(axis=1))
-    return multilabel_confusion_matrix(target_test, target_predicts)
+    return confusion_matrix(target_test, target_predicts)
 
 #params prediction - numpy array of the prediction
 def prediction_to_excel(self, prediction,path):
@@ -61,12 +55,6 @@ def prediction_to_excel(self, prediction,path):
     file = path+'prediction_'+self.model_name+"_"+str(date.today())+'.xlsx'
     df.to_excel(file, index=False)
 #endregion
-
-def list_to_csv(list):
-    import csv
-    with open('accuracy_list', 'w', newline='') as myfile:
-        wr = csv.writer(myfile, quoting=csv.QUOTE_ALL)
-        wr.writerow(list)
 
 rp= Repository()
 df=rp.main_table.select_all(as_dataframe=True)
@@ -88,51 +76,38 @@ sc = MinMaxScaler()
 
 x_train, x_test, y_train, y_test = train_test_split(x,y,test_size=0.2,random_state=2,shuffle=True)
 
-decending_layers=[0,1]
-hidden_layers=[1,2,3]
-layer_sizes=[16,32,64,512]
-batch_sizes=[10]
+model=Sequential()
+#act=PReLU()
+model.add(Dense(units=256,input_dim=x_train.shape[1]))
+model.add(Activation('relu'))
 
-model_acc=[]
+model.add(Dense(units=128))
+model.add(Activation('relu'))
 
-#hidden_layer=2
-#layer_size=16
-#batch_size=8
-#mod=0
-#mod_name='fully'
+model.add(Dense(units=32))
+model.add(Activation('relu'))
 
+#model.add(Dense(units=math.ceil(CalculateNodesInFirstLayer(x_train.shape[1],3)),activation='relu'))
+#model.add(Dense(units=math.ceil(CalculateNodesInSecondLayer(x_train.shape[1],3)),activation='relu'))
+#model.add(Dropout(0.2))
+#model.add(Dense(units=12))
+#model.add(Activation('relu'))
+#model.add(Dropout(0.25))
 
-for mod in decending_layers:
-    if mod==0:
-        mod_name='full'
-    else:
-        mod_name='dec'
-    for hidden_layer in hidden_layers:
-        for layer_size in layer_sizes:
-            for batch_size in batch_sizes:
-                NAME = "{}-nw-{}-layer-{}-size-{}-batch-{}".format(mod_name,hidden_layer,layer_size,batch_size,(int)(time.time()))
-                #print(NAME)
-                tensorboard = TensorBoard(log_dir='logs\\italy_0804experiment\\{}'.format(NAME))
+model.add(Dense(units=3))
+model.add(Activation("softmax"))
 
-                model = Sequential()
-                model.add(Dense(input_dim=x_train.shape[1], units=layer_size, kernel_initializer='uniform', activation='relu'))
+model.compile(loss='categorical_crossentropy', optimizer='adam', metrics=['accuracy'])
+NAME = "128-{}".format((int)(time.time()))
+# print(NAME)
+tensorboard = TensorBoard(log_dir='logs\\acc_explor\\{}'.format(NAME))
+#model.fit(x, y, batch_size=10, epochs=100, validation_split=0.2, callbacks=[tensorboard])
+#model.fit(x_train, y_train, batch_size=10, epochs=100, validation_data=(x_test,y_test), callbacks=[tensorboard])
+model.fit(x_train, y_train, batch_size=10, epochs=10, callbacks=[tensorboard])
+#score, acc = model.evaluate(x_test,y_test,verbose=1)
+#print('score:{}'.format(score))
+#print('accuracy:{}'.format(acc))
 
-                for l in range(hidden_layer):
-                    if mod==1:
-                        units=(int)(layer_size/math.ceil((math.pow(2,hidden_layer))))
-                    else:
-                        units=(int)(layer_size)
-                    #print('units:',units)
-                    model.add(Dense(units=units, kernel_initializer='uniform', activation='relu'))
+print(training_predict(model=model,feature_test=x_test,target_test=y_test,threshold=0.75,verbose=1))
 
-
-                model.add(Dense(units=3, kernel_initializer='uniform', activation='softmax'))
-                model.compile(loss='categorical_crossentropy', optimizer='adam', metrics=['accuracy'])
-
-                model.fit(x_train, y_train, batch_size=batch_size, epochs=100, validation_data=(x_test,y_test),callbacks=[tensorboard])
-                mat, acc = training_predict(model,x_test,y_test,0.75,1)
-                new_record = [NAME,acc]
-                model_acc.append(new_record)
-
-list_to_csv(model_acc)
 

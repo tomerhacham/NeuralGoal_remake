@@ -1,6 +1,8 @@
 import keras, math,os,logging
 from keras.models import Sequential
 from keras.layers import Dense, Dropout
+from tensorflow_core.python.keras.layers.core import Activation
+
 from NeuralNetwork import batch_size_calc,weight_generator
 from keras.callbacks import TensorBoard
 import time
@@ -10,20 +12,16 @@ tensorboard = TensorBoard(log_dir='logs\\{}'.format(LOGGIN_NAME))
 
 class neuralnet():
     model = None
-    cls=None
     input=0
     output=0
-    batch_size=0
     nodesinfirstlayer=None
     nodesinsecondlayer=None
-    best_parameters=None
-    best_accuracy=None
 
     def __init__(self,input_dim,tf_verbose=3):
         self.input=input_dim
         self.output=int(3)
-        self.nodesinfirstlayer = math.ceil(self.CalculateNodesInFirstLayer(self.input,self.output))
-        self.nodesinsecondlayer = math.ceil(self.CalculateNodesInSecondLayer(self.input,self.output))
+        #self.nodesinfirstlayer = math.ceil(self.CalculateNodesInFirstLayer(self.input,self.output))
+        #self.nodesinsecondlayer = math.ceil(self.CalculateNodesInSecondLayer(self.input,self.output))
         self.build()
         set_tf_loglevel(tf_verbose)
 
@@ -38,7 +36,7 @@ class neuralnet():
     #region Model Essence
     def build(self, optimizer='adam'):
         self.model=Sequential()
-        self.model.add(Dense(units=256,input_dim=x_train.shape[1]))
+        self.model.add(Dense(units=256,input_dim=self.input_dim))
         self.model.add(Activation('relu'))
         self.model.add(Dense(units=128))
         self.model.add(Activation('relu'))

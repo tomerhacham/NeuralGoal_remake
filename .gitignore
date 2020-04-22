@@ -177,3 +177,5 @@ fabric.properties
 .idea/
 Server/__pycache__/
 /accuracy records/
+/accuracy records/no scailing/
+/accuracy records/with scaling/

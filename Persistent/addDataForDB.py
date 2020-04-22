@@ -4,10 +4,10 @@ import os
 import pandas
 
 from Persistent import dto, repository
-# [ Serie , PremierLeague , Bundesliga , Laliga , Ligue1, Jupiler ]
-leagueName = "Jupiler"
+# [ Serie , PremierLeague , Bundesliga , Laliga , Ligue1, Jupiler, Eredivisie ]
+leagueName = "Eredivisie"
 repo = repository.Repository()
-years = [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18]
+years = [8, 9, 11, 12, 13, 14, 15, 16, 17, 18]
 
 
 for year in years:

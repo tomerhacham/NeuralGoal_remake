@@ -3,6 +3,7 @@ from keras.models import Sequential
 from keras.layers import Dense
 
 from keras.callbacks import TensorBoard
+from NeuralNetwork.DataProccess import batch_size_calc
 import time
 
 LOGGIN_NAME ="ann-{}".format((int)(time.time()))
@@ -13,7 +14,7 @@ class neuralnet():
     input=0
     output=0
 
-    def __init__(self,input_dim,tf_verbose=3):
+    def __init__(self,input_dim,tf_verbose=1):
         self.input=input_dim
         self.output=int(3)
         self.build()
@@ -28,7 +29,7 @@ class neuralnet():
         self.model.compile(loss='categorical_crossentropy', optimizer='adam', metrics=['accuracy'])
 
     def train(self,x,y,_epochs):
-        self.model.fit(x,y, batch_size=10, epochs=_epochs)
+        self.model.fit(x,y, batch_size=batch_size_calc.FindBatchSize(self.model), epochs=_epochs)
 
     def predict(self,x): #return array of prediction per the features
         prediction=self.model.predict_proba(x)

@@ -28,8 +28,8 @@ x,y = data_preprocessor.train_preprocess(data)
 to_predict = data_preprocessor.prediction_preprocess(toPredit)
 #endregion
 #region ANN
-avg = 1
-epoc = 5;
+avg = 30
+epoc = 30
 for i in range(0,avg):
     ann = neuralnet.neuralnet(x.shape[1])
     ann.train(x,y,epoc)
@@ -49,11 +49,11 @@ for line in range(lines):
 #region Converting avgPrediction to pandas DataFrame
 pred_df = pd.DataFrame(avgPrediction)
 pred_df.columns = {'Pred 1','Pred 2','Pred X'}
-pred_df.reset_index(drop=True, inplace=True)
+pred_df.reset_index(drop=False, inplace=True)
 toPredict = toPredit.loc[:, 'league':'away_team_name']
-toPredict.reset_index(drop=True, inplace=True)
+toPredict.reset_index(drop=False, inplace=True)
 final = pd.concat([toPredict,pred_df],axis=1)
-final.to_csv('outputs\\predictions-{}.csv'.format((int)(time.time())))
+final.to_csv('outputs\\predictions-{}.csv'.format((int)(time.time())),index=False)
 #endregion
 
 

@@ -31,7 +31,8 @@ class neuralnet():
         self.model.fit(x,y, batch_size=10, epochs=_epochs)
 
     def predict(self,x): #return array of prediction per the features
-        return self.model.predict_proba(x)
+        prediction=self.model.predict_proba(x)
+        return prediction
     #endregion
 
     #region Evaluate

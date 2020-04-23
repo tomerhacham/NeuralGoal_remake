@@ -82,7 +82,7 @@ class main_table:
             return return_as_tuple(query,self._conn)
 
 
-class upcomig_games:
+class upcoming_games:
     def __init__(self, conn):
         self._conn = conn
         self.name = "upcoming_games"

@@ -18,7 +18,7 @@ premierLeagueUpcomingGames = repo.upcoming_games.select_by_league_name_limited("
 serieUpcomingGames = repo.upcoming_games.select_by_league_name_limited("Serie",10)
 
 toPredit = [BundesligaUpcomingGames,eredivisiteUpcomingGames,jupilerUpcomingGames,laligaUpcomingGames,laligaUpcomingGames,ligue1UpcomingGames,premierLeagueUpcomingGames,serieUpcomingGames]
-toPredit = pd.concat(toPredit,ignore_index=True)
+toPredit = pd.concat(toPredit,ignore_index=False)
 toPredit.to_csv('test',index=False)
 
 x,y = data_preprocessor.train_preprocess(data)

@@ -9,6 +9,18 @@ leagueName = "Bundesliga"
 repo = repository.Repository()
 years = [19]
 
+BundesligaUpcomingGames = repo.upcoming_games.select_by_league_name_limited("Bundesliga",9)
+eredivisiteUpcomingGames = repo.upcoming_games.select_by_league_name_limited("Eredivisie",9)
+jupilerUpcomingGames = repo.upcoming_games.select_by_league_name_limited("Jupiler",10)
+laligaUpcomingGames = repo.upcoming_games.select_by_league_name_limited("Laliga",10)
+ligue1UpcomingGames = repo.upcoming_games.select_by_league_name_limited("Ligue1",10)
+premierLeagueUpcomingGames = repo.upcoming_games.select_by_league_name_limited("PremierLeague",10)
+serieUpcomingGames = repo.upcoming_games.select_by_league_name_limited("Serie",10)
+
+toPredit = [BundesligaUpcomingGames,eredivisiteUpcomingGames,jupilerUpcomingGames,laligaUpcomingGames,laligaUpcomingGames,ligue1UpcomingGames,premierLeagueUpcomingGames,serieUpcomingGames]
+toPredit = pandas.concat(toPredit,ignore_index=True)
+toPredit.to_csv('test',index=False)
+
 
 for year in years:
 

@@ -49,7 +49,7 @@ class main_table:
     def select_by_league_name(self, league):
         c = self._conn.cursor()
         c.execute("""
-            SELECT * FROM main_table WHERE leauge=(?)
+            SELECT * FROM main_table WHERE league=(?)
             """, [league])
         # TODO: make a list of the DTO object
         return c.fetchall()
@@ -60,7 +60,7 @@ class main_table:
     def select_by_date(self, league, date):
         c = self._conn.cursor()
         c.execute("""
-            SELECT * FROM main_table WHERE leauge=(?) AND date<=DATE('NOW') AND date>=(?)
+            SELECT * FROM main_table WHERE league=(?) AND date<=DATE('NOW') AND date>=(?)
             """, [league, date])
         # TODO: make a list of the DTO object
         return c.fetchall()
@@ -112,7 +112,7 @@ class upcoming_games:
     def select_by_league_name(self, league):
         c = self._conn.cursor()
         c.execute("""
-            SELECT * FROM upcoming_games WHERE leauge=(?)
+            SELECT * FROM upcoming_games WHERE league=(?)
             """, [league])
         # TODO: make a list of the DTO object
         return c.fetchall()
@@ -120,9 +120,8 @@ class upcoming_games:
     def select_by_league_name_limited(self, league,limit):
         c = self._conn.cursor()
         c.execute("""
-            SELECT * FROM upcoming_games WHERE leauge=(?) Limit (?)
+            SELECT * FROM upcoming_games WHERE league=(?) Limit (?)
             """, [league,limit])
-        # TODO: make a list of the DTO object
         return c.fetchall()
 
     # @param: league= the league of the game
@@ -131,7 +130,7 @@ class upcoming_games:
     def select_by_date(self, league, date):
         c = self._conn.cursor()
         c.execute("""
-            SELECT * FROM upcoming_games WHERE leauge=(?) AND date<=DATE('NOW') AND date>=(?)
+            SELECT * FROM upcoming_games WHERE league=(?) AND date<=DATE('NOW') AND date>=(?)
             """, [league, date])
         # TODO: make a list of the DTO object
         return c.fetchall()

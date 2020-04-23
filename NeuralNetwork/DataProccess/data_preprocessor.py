@@ -19,9 +19,9 @@ def train_preprocess(df, test_and_split=False, test_size=0.2):
     #endregion
     if test_and_split:
         x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.2, random_state=2, shuffle=True)
-        return  x_train, x_test, y_train, y_test
+        return x_train, x_test, y_train, y_test
     else:
-        x,y
+        return x,y
 
 def prediction_preprocess(upcoming_df):
     return upcoming_df.loc[:, 'home_team_rank':'away_odds_n']

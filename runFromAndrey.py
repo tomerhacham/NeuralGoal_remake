@@ -9,16 +9,16 @@ from Persistent.repository import Repository
 
 predictions=[]
 repo=Repository()
-Number_Of_Runs=1
+Number_Of_Runs=30
 
 #region Data
-data=repo.main_table.select_by_league_name_last_seasons('Serie')
+data=repo.main_table.select_all(as_dataframe=True)
 x_train, x_test, y_train, y_test = data_preprocessor.train_preprocess(data,True)
 #endregion
 #region ANN
 for i in range(0,Number_Of_Runs):
     ann = neuralnet.neuralnet(x_train.shape[1])
-    ann.train(x_train,y_train,50)
+    ann.train(x_train,y_train,100)
     predictions.append(ann.predict(x_test))
 #endregion
 #region Calculate avg of predictions
@@ -39,7 +39,7 @@ pred_df.columns = {'Pred 1','Pred 2','Pred X'}
 y_test.columns = {'Actual 1', 'Actual 2', 'Actual X'}
 pred_df.reset_index(drop=True, inplace=True)
 y_test.reset_index(drop=True, inplace=True)
-#x_test.reset_index(drop=True, inplace=True)
+upcomingGame = df.loc[:, 'home_team_rank':'away_odds_n']
 final = pd.concat([pred_df,y_test],axis=1)
 final.to_csv('outputs\\predictions-{}.csv'.format((int)(time.time())))
 #endregion

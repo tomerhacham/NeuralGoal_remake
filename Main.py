@@ -1,3 +1,5 @@
+import time
+
 import numpy as np
 import pandas as pd
 from Persistent.repository import Repository
@@ -6,7 +8,7 @@ from NeuralNetwork import neuralnet
 predictions=[]
 repo=Repository()
 #region Data
-#data=repo.main_table.select_all()
+data=repo.main_table.select_all()
 #upcoming_games = repo.upcoming_games()
 
 BundesligaUpcomingGames = repo.upcoming_games.select_by_league_name_limited("Bundesliga",9)
@@ -17,18 +19,20 @@ ligue1UpcomingGames = repo.upcoming_games.select_by_league_name_limited("Ligue1"
 premierLeagueUpcomingGames = repo.upcoming_games.select_by_league_name_limited("PremierLeague",10)
 serieUpcomingGames = repo.upcoming_games.select_by_league_name_limited("Serie",10)
 
-toPredit = [BundesligaUpcomingGames,eredivisiteUpcomingGames,jupilerUpcomingGames,laligaUpcomingGames,laligaUpcomingGames,ligue1UpcomingGames,premierLeagueUpcomingGames,serieUpcomingGames]
+toPredit = [BundesligaUpcomingGames,eredivisiteUpcomingGames,jupilerUpcomingGames,laligaUpcomingGames,
+            ligue1UpcomingGames,premierLeagueUpcomingGames,serieUpcomingGames]
 toPredit = pd.concat(toPredit,ignore_index=False)
-toPredit.to_csv('test',index=False)
+toPredit.to_csv('test.csv',index=False)
 
 x,y = data_preprocessor.train_preprocess(data)
-to_predict = data_preprocessor.prediction_preprocess(upcoming_games)
-#TODO:complite script to load relevent game each batch
+to_predict = data_preprocessor.prediction_preprocess(toPredit)
 #endregion
 #region ANN
-for i in range(0,50):
+avg = 1
+epoc = 5;
+for i in range(0,avg):
     ann = neuralnet.neuralnet(x.shape[1])
-    ann.train(x,y,300)
+    ann.train(x,y,epoc)
     predictions.append(ann.predict(to_predict))
 #endregion
 #region Calculate avg of predictions
@@ -40,12 +44,16 @@ for line in range(lines):
         sum = 0
         for prediction in predictions:
             sum = sum + prediction[line, cell]
-        avgPrediction[line, cell] = sum/50
+        avgPrediction[line, cell] = sum/avg
 #endregion
 #region Converting avgPrediction to pandas DataFrame
-avgPrediction.T[[1, 2]] = avgPrediction.T[[2, 1]] #flipping the X with 2 so the output is 1|x|2
 pred_df = pd.DataFrame(avgPrediction)
-pred_df.columns = {'1','X','2'}
+pred_df.columns = {'Pred 1','Pred 2','Pred X'}
+pred_df.reset_index(drop=True, inplace=True)
+toPredict = toPredit.loc[:, 'league':'away_team_name']
+toPredict.reset_index(drop=True, inplace=True)
+final = pd.concat([toPredict,pred_df],axis=1)
+final.to_csv('outputs\\predictions-{}.csv'.format((int)(time.time())))
 #endregion
 
 

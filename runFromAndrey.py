@@ -1,76 +1,38 @@
-from keras.callbacks import TensorBoard
-from Persistent.repository import main_table
-from Persistent.repository import Repository
-from keras.layers.core import Dense,Activation,Dropout
-from keras.models import Sequential
-import time
+import numpy as np
 import pandas as pd
-from sklearn.model_selection import train_test_split
-from sklearn.preprocessing import LabelEncoder, MinMaxScaler,RobustScaler,StandardScaler
-from NeuralNetwork.neuralnet import neuralnet;
-import math
 
-def makeLog(filename,df, conf_metrix, acc):
-    import numpy as np
-    with open('{}.txt'.format(filename), 'w+') as f:
-        f.write(np.array2string(conf_metrix, separator=', '))
-        f.write('\n'+str(df.groupby('result').size())+'\n')
-        f.write('accuracy: {}'.format(acc))
-        f.close()
+from NeuralNetwork import neuralnet
+from NeuralNetwork.DataProccess import data_preprocessor
+from Persistent.repository import Repository
 
-def training_predict(model, x_test,y_test): #prediction for test phase
-    #print("# Make Prediction in Training mode")
-    prediction = model.predict_proba(x_test)
-    y_pred = pd.DataFrame(prediction)
-    columns_names = y_test.columns
-    y_pred.columns=columns_names
-    return calculate_accuracy(y_test,y_pred)
-   # return binary_classification_with_prob_threshold(y_test,y_pred,threshold,verbose)
+predictions=[]
+repo=Repository()
 
-def binary_classification_with_prob_threshold(y_test,y_pred, threshold):
-    #binary_prediction = (y_pred>threshold)
-    #acc = calculate_accuracy(y_test, binary_prediction,verbose)
-    cm,acc = calculate_accuracy(y_test, y_pred,)
-    return cm, acc
-
-def calculate_accuracy(y_test,y_pred):
-    from sklearn.metrics import accuracy_score
-    import numpy as np
-    cm =get_confustion_metrix(y_test,y_pred)
-    acc = accuracy_score(y_test.idxmax(axis=1),y_pred.idxmax(axis=1))
-    print (cm)
-    print ("Accuracy: ",acc )
-    return cm,acc
-
-def get_confustion_metrix(target_test,target_predicts):
-    from sklearn.metrics import multilabel_confusion_matrix,confusion_matrix
-    #target_predicts = pd.DataFrame(target_predicts)
-    #columns_names = target_test.columns
-    #target_predicts.columns=columns_names
-    #return confusion_matrix(target_test.idxmax(axis=1), target_predicts.argmax(axis=1))
-    #return confusion_matrix(target_test.idxmax(axis=1), target_predicts.idxmax(axis=1))
-    target_predicts=target_predicts.idxmax(axis=1)
-    target_test=target_test.idxmax(axis=1)
-    return confusion_matrix(target_test,target_predicts)
-    #return multilabel_confusion_matrix(target_test, target_predicts)
-
-#region data
-rp= Repository()
-df=rp.main_table.select_all(as_dataframe=True)
-#df=rp.main_table.select_by_league_name_last_seasons(league='Serie')
-x=df.loc[:,'home_team_rank':'away_odds_n']
-y=df.loc[:, 'result':]
-labelencoder = LabelEncoder()
-y['result'] = labelencoder.fit_transform(y['result'])  # X:2 ,2:1, 1:0
-print('#result label Encoding')
-le_name_mapping = dict(zip(labelencoder.classes_, labelencoder.transform(labelencoder.classes_)))
-print(le_name_mapping)
-y = pd.get_dummies(y['result'], prefix="result")
+#region Data
+data=repo.main_table.select_all()
+x_train, x_test, y_train, y_test = data_preprocessor.train_preprocess(data,True)
+#endregion
+#region ANN
+for i in range(0,50):
+    ann = neuralnet.neuralnet(x_train.shape[1])
+    ann.train(x_train,y_train,300)
+    predictions.append(ann.predict(x_test))
+#endregion
+#region Calculate avg of predictions
+lines = predictions[0].shape[0]
+columns = predictions[0].shape[1]
+avgPrediction = np.zeros((lines, columns))
+for line in range(lines):
+    for cell in range(columns):
+        sum = 0
+        for prediction in predictions:
+            sum = sum + prediction[line, cell]
+        avgPrediction[line, cell] = sum/50
+#endregion
+#region Converting avgPrediction to pandas DataFrame
+avgPrediction.T[[1, 2]] = avgPrediction.T[[2, 1]] #flipping the X with 2 so the output is 1|x|2
+pred_df = pd.DataFrame(avgPrediction)
+pred_df.columns = {'1','X','2'}
 #endregion
 
-an = neuralnet(input_dim=x.shape[1])
-x_train, x_test, y_train, y_test = train_test_split(x,y,test_size=0.2,random_state=2,shuffle=True)
-an.train(x_train,y_train,200)
 
-cm,acc = training_predict(an.model,x_test,y_test)
-makeLog("output",df,cm,acc)

@@ -4,7 +4,7 @@ from Persistent.Data import _teamsGoalsScoredReceivedNormal  # 3
 from Persistent.Data import _combineStanding  # 4
 from Persistent.Data import _combineGoalsAadStanding  # 5
 from Persistent.Data import _GetCorrentRound  # 6
-from Persistent.Data import _UpcomingBettingOddsWithAPI  # 7
+#from Persistent.Data import _UpcomingBettingOddsWithAPI  # 7
 from Persistent.Data import _updateFiles  # 8
 from Persistent.Data import newLeagueValidation  # for adding new leagues
 import os

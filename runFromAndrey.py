@@ -1,3 +1,5 @@
+import time
+
 import numpy as np
 import pandas as pd
 
@@ -33,6 +35,10 @@ for line in range(lines):
 avgPrediction.T[[1, 2]] = avgPrediction.T[[2, 1]] #flipping the X with 2 so the output is 1|x|2
 pred_df = pd.DataFrame(avgPrediction)
 pred_df.columns = {'1','X','2'}
+pred_df.reset_index(drop=True, inplace=True)
+y_test.reset_index(drop=True, inplace=True)
+final = pd.concat([pred_df,y_test],axis='column')
+final.to_csv('predictions {}.csv'.format((int)(time.time())))
 #endregion
 
 

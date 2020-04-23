@@ -2,7 +2,6 @@ import keras, math,os,logging
 from keras.models import Sequential
 from keras.layers import Dense
 
-from NeuralNetwork import batch_size_calc,weight_generator
 from keras.callbacks import TensorBoard
 import time
 

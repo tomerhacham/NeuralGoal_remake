@@ -41,7 +41,7 @@ pred_df.reset_index(drop=True, inplace=True)
 y_test.reset_index(drop=True, inplace=True)
 #x_test.reset_index(drop=True, inplace=True)
 final = pd.concat([pred_df,y_test],axis=1)
-final.to_csv('predictions {}.csv'.format((int)(time.time())))
+final.to_csv('outputs\\predictions-{}.csv'.format((int)(time.time())))
 #endregion
 
 

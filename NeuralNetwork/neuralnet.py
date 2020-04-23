@@ -23,9 +23,8 @@ class neuralnet():
     #region Model Essence
     def build(self):
         self.model=Sequential()
-        self.model.add(Dense(units=256,input_dim=self.input_dim, activation='relu'))
-        self.model.add(Dense(units=128,activation='relu'))
-        self.model.add(Dense(units=32, activation='relu'))
+        self.model.add(Dense(units=CalculateNodesInFirstLayer(self.input,self.output),input_dim=self.input, activation='relu'))
+        self.model.add(Dense(units=CalculateNodesInSecondLayer(self.input,self.output),activation='relu'))
         self.model.add(Dense(units=3, activation='softmax'))
         self.model.compile(loss='categorical_crossentropy', optimizer='adam', metrics=['accuracy'])
 
@@ -92,11 +91,11 @@ def prediction_to_excel(prediction,path):
     df.to_excel(file, index=False)
 
 #region Calculationg number of nodes in layers
-def CalculateNodesInFirstLayer( n,m):
-    return math.sqrt(n*(m+2)) + 2*math.sqrt(n/(m+2))-1
+def CalculateNodesInFirstLayer(n,m):
+    return math.ceil(math.sqrt(n*(m+2)) + 2*math.sqrt(n/(m+2))-1)
 
-def CalculateNodesInSecondLayer( n,m):
-    return m*math.sqrt(n/(m+2))-1
+def CalculateNodesInSecondLayer(n,m):
+    return math.ceil(m*math.sqrt(n/(m+2))-1)
 #endregion
 
 #endregion

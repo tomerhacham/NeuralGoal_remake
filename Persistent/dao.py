@@ -66,7 +66,7 @@ class main_table:
         return c.fetchall()
 
 
-class upcomig_games:
+class upcoming_games:
     def __init__(self, conn):
         self._conn = conn
         self.name = "upcoming_games"
@@ -84,7 +84,7 @@ class upcomig_games:
                                     home_odds_n,draw_odds_n,away_odds_n)
                                     VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)
                                     """,
-                           [match.leauge, match.date, match.round,
+                           [match.league, match.date, match.round,
                             match.home_team_name, match.away_team_name,
                             match.home_team_rank, match.away_team_rank,
                             match.home_team_scored, match.away_team_scored,

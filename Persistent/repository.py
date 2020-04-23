@@ -8,7 +8,7 @@ class Repository():
     #Fields
     conn = None
     main_table= None
-    upcomig_games = None
+    upcoming_games = None
     odds_details=None;
     
     def __init__(self):
@@ -16,11 +16,11 @@ class Repository():
         if not os.path.isfile('NeuralGoal.db'):
             db = open('NeuralGoal.db', "w")
             db.close()
-            print ("Creating Database")
+            print("Creating Database")
         self.conn = sqlite3.connect('NeuralGoal.db')
 
         self.main_table = main_table(self.conn)
-        self.upcoming_games = upcomig_games(self.conn)
+        self.upcoming_games = upcoming_games(self.conn)
         self.odds_details = odds_details(self.conn)
 
 

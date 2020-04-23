@@ -5,9 +5,9 @@ import pandas
 
 from Persistent import dto, repository
 # [ Serie , PremierLeague , Bundesliga , Laliga , Ligue1, Jupiler, Eredivisie ]
-leagueName = "Eredivisie"
+leagueName = "Bundesliga"
 repo = repository.Repository()
-years = [8, 9, 11, 12, 13, 14, 15, 16, 17, 18]
+years = [19]
 
 
 for year in years:
@@ -52,11 +52,13 @@ for year in years:
         _draw_odds_n = row[11]
         _away_odds_n = row[12]
         _result = row[13]
+
         gameToAdd = dto.match(leagueName, _date, _round, _home_team_name, _away_team_name,
                               _home_team_rank, _away_team_rank, _home_team_scored, _away_team_scored,
                               _home_team_received, _away_team_received, _home_att, _away_att, _home_def, _away_def,
                               _home_mid, _away_mid, _home_odds_n, _draw_odds_n, _away_odds_n, _result)
         try:
-            repo.main_table.insert(gameToAdd)
+            repo.upcoming_games.insert(gameToAdd)
+            #repo.main_table.insert(gameToAdd)
         except:
             continue

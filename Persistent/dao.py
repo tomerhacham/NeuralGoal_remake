@@ -117,6 +117,14 @@ class upcoming_games:
         # TODO: make a list of the DTO object
         return c.fetchall()
 
+    def select_by_league_name_limited(self, league,limit):
+        c = self._conn.cursor()
+        c.execute("""
+            SELECT * FROM upcoming_games WHERE leauge=(?) Limit (?)
+            """, [league,limit])
+        # TODO: make a list of the DTO object
+        return c.fetchall()
+
     # @param: league= the league of the game
     # @param: date= from date until 'NOW'
     # @return: return the matched from @league that has took plave between @date to 'NOW'

@@ -36,14 +36,14 @@ class neuralnet():
     #region Model Essence
     def build(self, optimizer='adam'):
         self.model=Sequential()
-        self.model.add(Dense(units=256,input_dim=self.input_dim))
-        self.model.add(Activation('relu'))
-        self.model.add(Dense(units=128))
-        self.model.add(Activation('relu'))
-        self.model.add(Dense(units=32))
-        self.model.add(Activation('relu'))
-        self.model.add(Dense(units=3))
-        self.model.add(Activation("softmax"))
+        self.model.add(Dense(units=256,input_dim=self.input,activation="relu"))
+        #self.model.add(Activation('relu',activation="relu"))
+        self.model.add(Dense(units=128,activation="relu"))
+        #self.model.add(Activation('relu'))
+        self.model.add(Dense(units=32,activation="relu"))
+        #self.model.add(Activation('relu'))
+        self.model.add(Dense(units=3,activation="softmax"))
+        #self.model.add(Activation("softmax"))
         self.model.compile(loss='categorical_crossentropy', optimizer='adam', metrics=['accuracy']) 
         return self.model
 

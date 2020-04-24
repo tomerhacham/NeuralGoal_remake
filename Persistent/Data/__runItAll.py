@@ -10,10 +10,10 @@ from Persistent.Data import newLeagueValidation  # for adding new leagues
 import os
 
 # [ Serie , PremierLeague , Bundesliga , Laliga , Ligue1 , Jupiler ,  Eredivisie ]
-League = "Eredivisie"
+League = "PremierLeague"
 
 # years = [5, 6, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19]
-years = [16, 17, 18, 19]
+years = [19]
 
 for year in years:
     try:

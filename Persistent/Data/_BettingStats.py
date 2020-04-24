@@ -289,8 +289,11 @@ def run(leagueName,round,startYear,endYear):
             _drawOdds = 0
             _awayWinOdds = 0
             
-            # FIXME 
-            startI = 22
+            # FIXME
+            if leagueName == "PremierLeague":
+                startI = 23
+            else:
+                startI = 22
             if int(start_year) == 4:
                 startI == 10
             if  int(start_year) == 5 or int(start_year) == 6:

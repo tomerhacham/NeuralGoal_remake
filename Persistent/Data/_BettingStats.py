@@ -1,9 +1,15 @@
 import pandas
 import csv
-import numpy
+import numpy as np
 from bs4 import BeautifulSoup
 import requests
 import time
+
+def column_index(df, query_cols):
+    cols = df.columns.values
+    sidx = np.argsort(cols)
+    return sidx[np.searchsorted(cols,query_cols,sorter=sidx)]
+
 
 def run(leagueName,round,startYear,endYear):
 
@@ -60,9 +66,9 @@ def run(leagueName,round,startYear,endYear):
             user_agent='Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_1) AppleWebKit/602.2.14 (KHTML, like Gecko) Version/10.0.1 Safari/602.2.14'
             headers = {'User-Agent': user_agent,'Accept':'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8'}
 
-            gameDate = str(row[1])
-            homeNameTeam = str(row[2])
-            awayNameTeam = str(row[3])
+            gameDate = str(row[int(column_index(team_stat, ['Date'])[0])])
+            homeNameTeam = str(row[int(column_index(team_stat, ['HomeTeam'])[0])])
+            awayNameTeam = str(row[int(column_index(team_stat, ['AwayTeam'])[0])])
 
             # Bundesliga
             if homeNameTeam == "Ein Frankfurt":
@@ -272,8 +278,8 @@ def run(leagueName,round,startYear,endYear):
             
             d = {}
             d["Game Date"] = gameDate
-            d["Home Team"] = row[2]
-            d["Away Team"] = row[3]
+            d["Home Team"] = homeNameTeam
+            d["Away Team"] = awayNameTeam
 
             try:
                 d["Home ATT"] = homeTeamData.find("td",{"data-title":"ATT"}).text
@@ -288,16 +294,8 @@ def run(leagueName,round,startYear,endYear):
             _homeWinOdds = 0
             _drawOdds = 0
             _awayWinOdds = 0
-            
-            # FIXME
-            if leagueName == "PremierLeague":
-                startI = 23
-            else:
-                startI = 22
-            if int(start_year) == 4:
-                startI = 10
-            if  int(start_year) == 5 or int(start_year) == 6:
-                startI = 23
+
+            startI = int(column_index(team_stat, ['B365H'])[0])
             Counter = 0
             for x in range(startI, startI+(6*3), 3):
                 if not pandas.isna(team_stat.iloc[index,x]):
@@ -317,13 +315,15 @@ def run(leagueName,round,startYear,endYear):
             d["Draw Odds"] = DrawOdds
             d["Away Win Odds"] = AwinOdds
 
-            d["Winner"] = getWinner(row[4],row[5])
+            FTHG = int(row[int(column_index(team_stat, ['FTHG'])[0])])
+            FTAG = int(row[int(column_index(team_stat, ['FTAG'])[0])])
+            d["Winner"] = getWinner(FTHG,FTAG)
 
             d["Home win Odds not normal"] = (_homeWinOdds/Counter)
             d["Draw Odds not normal"] = (_drawOdds/Counter)
             d["Away win Odds not normal"] = (_awayWinOdds/Counter)
 
-            print(index,row[2],row[3])
+            print(index,homeNameTeam,awayNameTeam)
 
             table.append(d)
 

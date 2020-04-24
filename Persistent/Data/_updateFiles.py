@@ -32,12 +32,12 @@ def run(leagueName, startYear, endYear):
     startYear = str(startYear)
     endYear = str(endYear)
 
-    urllib.request.urlretrieve(url, currentDirectory + "\\" + leagueName + "-" + startYear + "-" + endYear + ".csv")
+    urllib.request.urlretrieve(url, str(currentDirectory) + "//" + leagueName + "-" + startYear + "-" + endYear + ".csv")
 
-    df = pd.read_csv(leagueName + "-" + startYear + "-" + endYear + ".csv")
-    if startYear == "19":
-        df.drop('Time', axis=1, inplace=True)
-    df.to_csv(leagueName + "-" + startYear + "-" + endYear + ".csv", index=False)
+    #df = pd.read_csv(leagueName + "-" + startYear + "-" + endYear + ".csv")
+    #if startYear == "19":
+    #    df.drop('Time', axis=1, inplace=True)
+    #df.to_csv(leagueName + "-" + startYear + "-" + endYear + ".csv", index=False)
 
 
 def cleanAllFile(leagueName, startYear, endYear):
@@ -53,8 +53,8 @@ def cleanAllFile(leagueName, startYear, endYear):
              leagueName + "-" + startYear + "-" + endYear + "-Final-Stats.csv"]
     for file in files:
         try:
-            sourcePath = sPath + "\\" + file
-            destinationPath = sPath + "\\" + leagueName + " stats\\Stats For {}-{}\\".format(startYear, endYear) + file
+            sourcePath = sPath + "//" + file
+            destinationPath = sPath + "//" + leagueName + " stats//Stats For {}-{}//".format(startYear, endYear) + file
             shutil.move(sourcePath, destinationPath)
         except:
             continue
@@ -62,8 +62,8 @@ def cleanAllFile(leagueName, startYear, endYear):
     # move the final to final destention
     file = leagueName + "-" + startYear + "-" + endYear + "-Final.csv"
 
-    sourcePath = sPath + "\\" + file
-    destinationPath = sPath + "\\" + leagueName + " stats\\Final\\" + file
+    sourcePath = sPath + "//" + file
+    destinationPath = sPath + "//" + leagueName + " stats//Final//" + file
 
     shutil.move(sourcePath, destinationPath)
 
@@ -87,4 +87,4 @@ def combineToFinal(leagueName, startYear, endYear):
 
     finalTable = pd.concat([dfDestiantionFile, dfSourceFile], axis=1, sort=False)
 
-    finalTable.to_csv(sPath + "\\" + leagueName + "-" + startYear + "-" + endYear + "-Final.csv")
+    finalTable.to_csv(sPath + "//" + leagueName + "-" + startYear + "-" + endYear + "-Final.csv")

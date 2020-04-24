@@ -295,7 +295,7 @@ def run(leagueName,round,startYear,endYear):
             else:
                 startI = 22
             if int(start_year) == 4:
-                startI == 10
+                startI = 10
             if  int(start_year) == 5 or int(start_year) == 6:
                 startI = 23
             Counter = 0

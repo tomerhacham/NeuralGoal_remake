@@ -9,7 +9,7 @@ from Persistent.repository import Repository
 
 predictions=[]
 repo=Repository()
-Number_Of_Runs=30
+Number_Of_Runs=1
 
 #region Data
 data=repo.main_table.select_all(as_dataframe=True)
@@ -18,7 +18,7 @@ x_train, x_test, y_train, y_test = data_preprocessor.train_preprocess(data,True)
 #region ANN
 for i in range(0,Number_Of_Runs):
     ann = neuralnet.neuralnet(x_train.shape[1])
-    ann.train(x_train,y_train,100)
+    ann.train(x_train,y_train,1)
     predictions.append(ann.predict(x_test))
 #endregion
 #region Calculate avg of predictions
@@ -35,14 +35,15 @@ for line in range(lines):
 #region Converting avgPrediction to pandas DataFrame
 #avgPrediction.T[[1, 2]] = avgPrediction.T[[2, 1]] #flipping the X with 2 so the output is 1|x|2
 pred_df = pd.DataFrame(avgPrediction)
-pred_df.columns = {'Pred 1','Pred 2','Pred X'}
-y_test.columns = {'Actual 1', 'Actual 2', 'Actual X'}
-pred_df.reset_index(drop=False, inplace=True)
-y_test.reset_index(drop=False, inplace=True)
-x_test.reset_index(drop=False, inplace=True)
+pred_df.columns = {'p_HOME','p_AWAY','p_X'}
+y_test.columns = {'a_1', 'a_2', 'a_X'}
+
+pred_df.to_csv('outputs\\predictions-all-db-{}.csv'.format((int)(time.time())))
+y_test.to_csv('outputs\\actuals-all-db-{}.csv'.format((int)(time.time())))
+
 #upcomingGame = df.loc[:, 'home_team_rank':'away_odds_n']
-final = pd.concat([x_test,pred_df,y_test],axis=1)
-final.to_csv('outputs\\predictions-{}.csv'.format((int)(time.time())))
+#final = pd.concat([y_test,pred_df],axis=1)
+#final.to_csv('outputs\\predictions-all-db-{}.csv'.format((int)(time.time())))
 #endregion
 
 

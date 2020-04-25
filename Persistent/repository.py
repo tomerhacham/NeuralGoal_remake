@@ -13,13 +13,13 @@ class Repository():
     
     def __init__(self):
         currentDirectory = os.getcwd()
-        if not os.path.isfile(currentDirectory + '\\NeuralGoal.db'):
-            db = open(currentDirectory + '\\NeuralGoal.db', "w")
+        if not os.path.isfile(currentDirectory + '\\Persistent\\NeuralGoal.db'):
+            db = open(currentDirectory + '\\Persistent\\NeuralGoal.db', "w")
             db.close()
             print("Creating Database")
-            self.conn = sqlite3.connect(currentDirectory + '\\NeuralGoal.db')
-            self.create_tables()
-        self.conn = sqlite3.connect(currentDirectory + '\\NeuralGoal.db')
+            #self.conn = sqlite3.connect(currentDirectory + '\\NeuralGoal.db')
+            #self.create_tables()
+        self.conn = sqlite3.connect(currentDirectory + '\\Persistent\\NeuralGoal.db')
 
 
         self.main_table = main_table(self.conn)

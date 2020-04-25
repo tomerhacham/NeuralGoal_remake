@@ -275,6 +275,9 @@ def run(leagueName,round,startYear,endYear):
             except:
                 print("EXCEPTION " + homeNameTeam + " " + awayNameTeam)
                 continue
+
+            homeNameTeam = str(row[int(column_index(team_stat, ['HomeTeam'])[0])])
+            awayNameTeam = str(row[int(column_index(team_stat, ['AwayTeam'])[0])])
             
             d = {}
             d["Game Date"] = gameDate

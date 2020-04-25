@@ -10,7 +10,7 @@ class main_table:
 
     def insert(self, match):
         self._conn.execute("""
-               INSERT INTO main_table (league,date,
+               INSERT INTO main_table (league,date,round,
                                     home_team_name,away_team_name,
                                     home_team_rank,away_team_rank,
                                     home_team_scored,away_team_scored,
@@ -18,10 +18,10 @@ class main_table:
                                     home_att,away_att,
                                     home_def,away_def,
                                     home_mid,away_mid,
-                                    home_odds_n,draw_odds_n,away_odds_n)
-                                    VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)
+                                    home_odds_n,draw_odds_n,away_odds_n,result)
+                                    VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)
                                     """,
-        [match.league,match.date,
+        [match.league,match.date,match.round,
         match.home_team_name,match.away_team_name,
         match.home_team_rank,match.away_team_rank,
         match.home_team_scored,match.away_team_scored,
@@ -29,7 +29,7 @@ class main_table:
         match.home_att,match.away_att,
         match.home_def,match.away_def,
         match.home_mid,match.away_mid,
-        match.home_odds_n,match.draw_odds_n,match.away_odds_n])
+        match.home_odds_n,match.draw_odds_n,match.away_odds_n,match.result])
         self._conn.commit()
 
     def update(self, date,home_team_name,away_team_name,result):
@@ -89,7 +89,7 @@ class upcoming_games:
 
     def insert(self, match):
         self._conn.execute("""
-               INSERT INTO upcoming_games (league,date,
+               INSERT INTO upcoming_games (league,date,round,
                                     home_team_name,away_team_name,
                                     home_team_rank,away_team_rank,
                                     home_team_scored,away_team_scored,
@@ -98,9 +98,9 @@ class upcoming_games:
                                     home_def,away_def,
                                     home_mid,away_mid,
                                     home_odds_n,draw_odds_n,away_odds_n)
-                                    VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)
+                                    VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)
                                     """,
-        [match.league,match.date,
+        [match.league,match.date,match.round,
         match.home_team_name,match.away_team_name,
         match.home_team_rank,match.away_team_rank,
         match.home_team_scored,match.away_team_scored,
@@ -118,9 +118,9 @@ class upcoming_games:
           """, [result,date,home_team_name,away_team_name])
         self._conn.commit()
 
-    def select_by_league_name_limited(self, league,limit):
-        query = """ SELECT * FROM upcoming_games WHERE league=(?) Limit (?) """
-        parameters = [league,limit]
+    def select_by_league_name_limited(self, league,round):
+        query = """ SELECT * FROM upcoming_games WHERE league=(?) AND round=(?) """
+        parameters = [league,round]
         return return_as_dataframe(query,self._conn,parameters)
 
     def select_by_league_name(self,league,as_dataframe=True):

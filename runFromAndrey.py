@@ -37,10 +37,11 @@ for line in range(lines):
 pred_df = pd.DataFrame(avgPrediction)
 pred_df.columns = {'Pred 1','Pred 2','Pred X'}
 y_test.columns = {'Actual 1', 'Actual 2', 'Actual X'}
-pred_df.reset_index(drop=True, inplace=True)
-y_test.reset_index(drop=True, inplace=True)
-upcomingGame = df.loc[:, 'home_team_rank':'away_odds_n']
-final = pd.concat([pred_df,y_test],axis=1)
+pred_df.reset_index(drop=False, inplace=True)
+y_test.reset_index(drop=False, inplace=True)
+x_test.reset_index(drop=False, inplace=True)
+#upcomingGame = df.loc[:, 'home_team_rank':'away_odds_n']
+final = pd.concat([x_test,pred_df,y_test],axis=1)
 final.to_csv('outputs\\predictions-{}.csv'.format((int)(time.time())))
 #endregion
 

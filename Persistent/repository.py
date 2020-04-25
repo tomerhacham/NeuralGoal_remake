@@ -17,7 +17,10 @@ class Repository():
             db = open(currentDirectory + '\\NeuralGoal.db', "w")
             db.close()
             print("Creating Database")
+            self.conn = sqlite3.connect(currentDirectory + '\\NeuralGoal.db')
+            self.create_tables()
         self.conn = sqlite3.connect(currentDirectory + '\\NeuralGoal.db')
+
 
         self.main_table = main_table(self.conn)
         self.upcoming_games = upcoming_games(self.conn)
@@ -48,10 +51,10 @@ class Repository():
             away_def  INTEGER   NOT NULL   ,
             home_mid  INTEGER  NOT NULL    ,
             away_mid  INTEGER  NOT NULL    ,
-            home_odds_n  FLOAT  NOT NULL    ,
+            home_odds_n  FLOAT  NOT NULL   ,
             draw_odds_n  FLOAT   NOT NULL   ,
             away_odds_n  FLOAT   NOT NULL   ,
-            result  CHAR  NOT NULL    
+            result  CHAR  NOT NULL    ,
             PRIMARY KEY("date","home_team_name","away_team_name")
         );
  
@@ -75,7 +78,7 @@ class Repository():
             away_mid  INTEGER     NOT NULL,
             home_odds_n  FLOAT     NOT NULL,
             draw_odds_n  FLOAT     NOT NULL,
-            away_odds_n  FLOAT     NOT NULL
+            away_odds_n  FLOAT     NOT NULL,
             PRIMARY KEY("date","home_team_name","away_team_name")
         );
  

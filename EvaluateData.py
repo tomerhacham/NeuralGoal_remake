@@ -7,6 +7,13 @@ from NeuralNetwork import neuralnet
 from NeuralNetwork.DataProccess import data_preprocessor
 from Persistent.repository import Repository
 
+#y_pred is numpy array
+#y_test is pandas dataframe
+def apply_indexes(y_pred, y_test):
+    indexes = list(y_test.index.values.tolist())
+    y_pred_df = pd.DataFrame(data=y_pred, index=indexes, columns=['pred_1(0)','pred_2(1)','pred_X(2)'])
+    return y_pred_df,indexes
+
 predictions=[]
 repo=Repository()
 Number_Of_Runs=1
@@ -33,17 +40,12 @@ for line in range(lines):
         avgPrediction[line, cell] = sum/Number_Of_Runs
 #endregion
 #region Converting avgPrediction to pandas DataFrame
-#avgPrediction.T[[1, 2]] = avgPrediction.T[[2, 1]] #flipping the X with 2 so the output is 1|x|2
-pred_df = pd.DataFrame(avgPrediction)
-pred_df.columns = {'p_HOME','p_AWAY','p_X'}
-y_test.columns = {'a_1', 'a_2', 'a_X'}
 
-pred_df.to_csv('outputs\\predictions-all-db-{}.csv'.format((int)(time.time())))
-y_test.to_csv('outputs\\actuals-all-db-{}.csv'.format((int)(time.time())))
-
-#upcomingGame = df.loc[:, 'home_team_rank':'away_odds_n']
-#final = pd.concat([y_test,pred_df],axis=1)
-#final.to_csv('outputs\\predictions-all-db-{}.csv'.format((int)(time.time())))
+y_pred,indexes = apply_indexes(avgPrediction,y_test)
+details=data.iloc[indexes]
+details=details[['league','date','home_team_name','away_team_name','result']]
+final = pd.concat([details,y_pred,y_test],axis=1,sort=False)
+final.to_csv('outputs\\predictions-all-db-{}.csv'.format((int)(time.time())))
 #endregion
 
 

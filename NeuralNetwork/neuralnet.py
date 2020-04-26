@@ -14,7 +14,7 @@ class neuralnet():
     input=0
     output=0
 
-    def __init__(self,input_dim,tf_verbose=1):
+    def __init__(self,input_dim,tf_verbose=3):
         self.input=input_dim
         self.output=int(3)
         self.build()

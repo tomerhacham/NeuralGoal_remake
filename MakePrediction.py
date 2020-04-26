@@ -7,6 +7,16 @@ from NeuralNetwork.DataProccess import data_preprocessor
 from NeuralNetwork import neuralnet
 predictions=[]
 repo=Repository()
+
+
+#y_pred is numpy array
+#y_test is pandas dataframe
+def apply_indexes(y_pred, y_test):
+    indexes = list(y_test.index.values.tolist())
+    y_pred_df = pd.DataFrame(data=y_pred, index=indexes, columns=['pred_1','pred_2','pred_X'])
+    return y_pred_df,indexes
+
+
 #region Data
 data=repo.main_table.select_all()
 #upcoming_games = repo.upcoming_games()
@@ -28,8 +38,8 @@ x,y = data_preprocessor.train_preprocess(data)
 to_predict = data_preprocessor.prediction_preprocess(toPredit)
 #endregion
 #region ANN
-avg = 30
-epoc = 30
+avg = 1
+epoc = 10
 for i in range(0,avg):
     ann = neuralnet.neuralnet(x.shape[1])
     ann.train(x,y,epoc)
@@ -47,12 +57,10 @@ for line in range(lines):
         avgPrediction[line, cell] = sum/avg
 #endregion
 #region Converting avgPrediction to pandas DataFrame
-pred_df = pd.DataFrame(avgPrediction)
-pred_df.columns = {'Pred 1','Pred 2','Pred X'}
-pred_df.reset_index(drop=False, inplace=True)
-toPredict = toPredit.loc[:, 'league':'away_team_name']
-toPredict.reset_index(drop=False, inplace=True)
-final = pd.concat([toPredict,pred_df],axis=1)
+y_pred, indexes =apply_indexes(avgPrediction,toPredit)
+details=toPredit.iloc[indexes]
+details=details[['league','date','home_team_name','away_team_name']]
+final = pd.concat([details,y_pred],axis=1,sort=False)
 final.to_csv('outputs\\predictions-{}.csv'.format((int)(time.time())),index=False)
 #endregion
 

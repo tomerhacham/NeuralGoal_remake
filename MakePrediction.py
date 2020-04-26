@@ -23,13 +23,13 @@ def apply_indexes(y_pred, y_test):
 data=repo.main_table.select_all()
 #upcoming_games = repo.upcoming_games()
 
-BundesligaUpcomingGames = repo.upcoming_games.select_by_league_name_limited("Bundesliga",9)
-eredivisiteUpcomingGames = repo.upcoming_games.select_by_league_name_limited("Eredivisie",9)
-jupilerUpcomingGames = repo.upcoming_games.select_by_league_name_limited("Jupiler",10)
-laligaUpcomingGames = repo.upcoming_games.select_by_league_name_limited("Laliga",10)
-ligue1UpcomingGames = repo.upcoming_games.select_by_league_name_limited("Ligue1",10)
-premierLeagueUpcomingGames = repo.upcoming_games.select_by_league_name_limited("PremierLeague",10)
-serieUpcomingGames = repo.upcoming_games.select_by_league_name_limited("Serie",10)
+BundesligaUpcomingGames = repo.upcoming_games.select_by_league_name_limited("Bundesliga",1)
+eredivisiteUpcomingGames = repo.upcoming_games.select_by_league_name_limited("Eredivisie",1)
+jupilerUpcomingGames = repo.upcoming_games.select_by_league_name_limited("Jupiler",1)
+laligaUpcomingGames = repo.upcoming_games.select_by_league_name_limited("Laliga",1)
+ligue1UpcomingGames = repo.upcoming_games.select_by_league_name_limited("Ligue1",1)
+premierLeagueUpcomingGames = repo.upcoming_games.select_by_league_name_limited("PremierLeague",1)
+serieUpcomingGames = repo.upcoming_games.select_by_league_name_limited("Serie",1)
 
 toPredit = [BundesligaUpcomingGames,eredivisiteUpcomingGames,jupilerUpcomingGames,laligaUpcomingGames,
             ligue1UpcomingGames,premierLeagueUpcomingGames,serieUpcomingGames]

@@ -3,6 +3,7 @@ from .dao import *
 import sqlite3
 import os
 import atexit
+import platform
 
 class Repository():
     #Fields
@@ -13,13 +14,16 @@ class Repository():
     
     def __init__(self):
         currentDirectory = os.getcwd()
-        if not os.path.isfile(currentDirectory + '\\Persistent\\NeuralGoal.db'):
-            db = open(currentDirectory + '\\Persistent\\NeuralGoal.db', "w")
+        slashDirection = "\\"
+        if platform.system() == "Darwin":
+            slashDirection = "//"
+        if not os.path.isfile(currentDirectory + '{}Persistent{}NeuralGoal.db'.format(slashDirection,slashDirection)):
+            db = open(currentDirectory + '{}Persistent{}NeuralGoal.db'.format(slashDirection,slashDirection), "w")
             db.close()
             print("Creating Database")
             #self.conn = sqlite3.connect(currentDirectory + '\\NeuralGoal.db')
             #self.create_tables()
-        self.conn = sqlite3.connect(currentDirectory + '\\Persistent\\NeuralGoal.db')
+        self.conn = sqlite3.connect(currentDirectory + '{}Persistent{}NeuralGoal.db'.format(slashDirection,slashDirection))
 
 
         self.main_table = main_table(self.conn)

@@ -40,8 +40,8 @@ x,y = data_preprocessor.train_preprocess(data)
 to_predict = data_preprocessor.prediction_preprocess(toPredit)
 #endregion
 #region ANN
-avg = 30
-epoc = 30
+avg = 1
+epoc = 1
 for i in range(0,avg):
     ann = neuralnet.neuralnet(x.shape[1])
     ann.train(x,y,epoc)

@@ -23,21 +23,24 @@ def apply_indexes(y_pred, y_test):
 data=repo.main_table.select_all()
 #upcoming_games = repo.upcoming_games()
 
-BundesligaUpcomingGames = repo.upcoming_games.select_by_league_name_limited("Bundesliga",1)
-eredivisiteUpcomingGames = repo.upcoming_games.select_by_league_name_limited("Eredivisie",1)
-jupilerUpcomingGames = repo.upcoming_games.select_by_league_name_limited("Jupiler",1)
-laligaUpcomingGames = repo.upcoming_games.select_by_league_name_limited("Laliga",1)
-ligue1UpcomingGames = repo.upcoming_games.select_by_league_name_limited("Ligue1",1)
-premierLeagueUpcomingGames = repo.upcoming_games.select_by_league_name_limited("PremierLeague",1)
-serieUpcomingGames = repo.upcoming_games.select_by_league_name_limited("Serie",1)
+#BundesligaUpcomingGames = repo.upcoming_games.select_by_league_name_limited("Bundesliga",1)
+#eredivisiteUpcomingGames = repo.upcoming_games.select_by_league_name_limited("Eredivisie",1)
+#jupilerUpcomingGames = repo.upcoming_games.select_by_league_name_limited("Jupiler",1)
+#laligaUpcomingGames = repo.upcoming_games.select_by_league_name_limited("Laliga",1)
+#ligue1UpcomingGames = repo.upcoming_games.select_by_league_name_limited("Ligue1",1)
+#premierLeagueUpcomingGames = repo.upcoming_games.select_by_league_name_limited("PremierLeague",1)
+#serieUpcomingGames = repo.upcoming_games.select_by_league_name_limited("Serie",1)
 
-toPredit = [BundesligaUpcomingGames,eredivisiteUpcomingGames,jupilerUpcomingGames,laligaUpcomingGames,
-            ligue1UpcomingGames,premierLeagueUpcomingGames,serieUpcomingGames]
-toPredit = pd.concat(toPredit,ignore_index=False)
-toPredit.to_csv('test.csv',index=False)
+#toPredit = [BundesligaUpcomingGames,eredivisiteUpcomingGames,jupilerUpcomingGames,laligaUpcomingGames,
+#            ligue1UpcomingGames,premierLeagueUpcomingGames,serieUpcomingGames]
+#toPredit = pd.concat(toPredit,ignore_index=False)
+#toPredit.to_csv('test.csv',index=False)
+
+upcoming_games=repo.upcoming_games.select_by_league_by_round(1);
+upcoming_games.to_csv('test.csv',index=False);
 
 x,y = data_preprocessor.train_preprocess(data)
-to_predict = data_preprocessor.prediction_preprocess(toPredit)
+to_predict = data_preprocessor.prediction_preprocess(upcoming_games)
 #endregion
 #region ANN
 avg = 1
@@ -59,8 +62,8 @@ for line in range(lines):
         avgPrediction[line, cell] = sum/avg
 #endregion
 #region Converting avgPrediction to pandas DataFrame
-y_pred, indexes =apply_indexes(avgPrediction,toPredit)
-details=toPredit.iloc[indexes]
+y_pred, indexes =apply_indexes(avgPrediction,upcoming_games)
+details=upcoming_games.iloc[indexes]
 details=details[['league','date','home_team_name','away_team_name']]
 final = pd.concat([details,y_pred],axis=1,sort=False)
 

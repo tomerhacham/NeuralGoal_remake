@@ -123,6 +123,11 @@ class upcoming_games:
         parameters = [league,round]
         return return_as_dataframe(query,self._conn,parameters)
 
+    def select_by_league_by_round(self,round):
+        query = """ SELECT * FROM upcoming_games WHERE round=(?) """
+        parameters = [round]
+        return return_as_dataframe(query,self._conn,parameters)
+
     def select_by_league_name(self,league,as_dataframe=True):
         query="""
             SELECT * FROM upcoming_games WHERE league=(?)

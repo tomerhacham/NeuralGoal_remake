@@ -5,6 +5,8 @@ import pandas as pd
 from Persistent.repository import Repository
 from NeuralNetwork.DataProccess import data_preprocessor
 from NeuralNetwork import neuralnet
+import platform
+
 predictions=[]
 repo=Repository()
 
@@ -38,8 +40,8 @@ x,y = data_preprocessor.train_preprocess(data)
 to_predict = data_preprocessor.prediction_preprocess(toPredit)
 #endregion
 #region ANN
-avg = 1
-epoc = 10
+avg = 30
+epoc = 30
 for i in range(0,avg):
     ann = neuralnet.neuralnet(x.shape[1])
     ann.train(x,y,epoc)
@@ -61,7 +63,12 @@ y_pred, indexes =apply_indexes(avgPrediction,toPredit)
 details=toPredit.iloc[indexes]
 details=details[['league','date','home_team_name','away_team_name']]
 final = pd.concat([details,y_pred],axis=1,sort=False)
-final.to_csv('outputs\\predictions-{}.csv'.format((int)(time.time())),index=False)
+
+slashDirection = "\\"
+if platform.system() == "Darwin":
+    slashDirection = "//"
+
+final.to_csv('outputs{}predictions-{}.csv'.format(slashDirection,(int)(time.time())),index=False)
 #endregion
 
 

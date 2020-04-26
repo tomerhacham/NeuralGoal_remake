@@ -119,7 +119,7 @@ class upcoming_games:
         self._conn.commit()
 
     def select_by_league_name_limited(self, league,round):
-        query = """ SELECT * FROM upcoming_games WHERE league=(?) LIMIT (?) """
+        query = """ SELECT * FROM upcoming_games WHERE league=(?) AND round=(?) """
         parameters = [league,round]
         return return_as_dataframe(query,self._conn,parameters)
 

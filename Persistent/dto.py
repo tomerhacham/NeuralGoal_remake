@@ -9,7 +9,7 @@ class match:
                  home_def, away_def,
                  home_mid, away_mid,
                  home_odds_n, draw_odds_n, away_odds_n,
-                 result):
+                 result,home_odds_nn,draw_odds_nn,away_odds_nn):
         self.league = league
         self.date = date
         self.round = round
@@ -31,6 +31,9 @@ class match:
         self.draw_odds_n = draw_odds_n
         self.away_odds_n = away_odds_n
         self.result = result
+        self.home_odds_nn = home_odds_nn
+        self.draw_odds_nn = draw_odds_nn
+        self.away_odds_nn = away_odds_nn
 
 
 class match_odds:

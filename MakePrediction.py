@@ -19,59 +19,47 @@ def apply_indexes(y_pred, y_test):
     return y_pred_df,indexes
 
 
-#region Data
-data=repo.main_table.select_all()
-#upcoming_games = repo.upcoming_games()
+def makePredictions(round):
+    #region Data
+    data=repo.main_table.select_all()
+    upcoming_games=repo.upcoming_games.select_by_league_by_round(round)
 
-#BundesligaUpcomingGames = repo.upcoming_games.select_by_league_name_limited("Bundesliga",1)
-#eredivisiteUpcomingGames = repo.upcoming_games.select_by_league_name_limited("Eredivisie",1)
-#jupilerUpcomingGames = repo.upcoming_games.select_by_league_name_limited("Jupiler",1)
-#laligaUpcomingGames = repo.upcoming_games.select_by_league_name_limited("Laliga",1)
-#ligue1UpcomingGames = repo.upcoming_games.select_by_league_name_limited("Ligue1",1)
-#premierLeagueUpcomingGames = repo.upcoming_games.select_by_league_name_limited("PremierLeague",1)
-#serieUpcomingGames = repo.upcoming_games.select_by_league_name_limited("Serie",1)
+    x,y = data_preprocessor.train_preprocess(data)
+    to_predict = data_preprocessor.prediction_preprocess(upcoming_games)
+    #endregion
+    #region ANN
+    avg = 30
+    epoc = 30
+    for i in range(0,avg):
+        ann = neuralnet.neuralnet(x.shape[1])
+        ann.train(x,y,epoc)
+        predictions.append(ann.predict(to_predict))
+    #endregion
+    #region Calculate avg of predictions
+    lines = predictions[0].shape[0]
+    columns = predictions[0].shape[1]
+    avgPrediction = np.zeros((lines, columns))
+    for line in range(lines):
+        for cell in range(columns):
+            sum = 0
+            for prediction in predictions:
+                sum = sum + prediction[line, cell]
+            avgPrediction[line, cell] = sum/avg
+    #endregion
+    #region Converting avgPrediction to pandas DataFrame
+    y_pred, indexes =apply_indexes(avgPrediction,upcoming_games)
+    details=upcoming_games.iloc[indexes]
+    details=details[['league','date','home_team_name','away_team_name','home_odds_nn','draw_odds_nn','away_odds_nn']]
+    final = pd.concat([details,y_pred],axis=1,sort=False)
 
-#toPredit = [BundesligaUpcomingGames,eredivisiteUpcomingGames,jupilerUpcomingGames,laligaUpcomingGames,
-#            ligue1UpcomingGames,premierLeagueUpcomingGames,serieUpcomingGames]
-#toPredit = pd.concat(toPredit,ignore_index=False)
-#toPredit.to_csv('test.csv',index=False)
+    slashDirection = "\\"
+    if platform.system() == "Darwin":
+        slashDirection = "//"
 
-upcoming_games=repo.upcoming_games.select_by_league_by_round(1);
-upcoming_games.to_csv('test.csv',index=False);
+    pathToSave = 'outputs{}predictions-Week-{}.csv'.format(slashDirection,round)
+    final.to_csv(pathToSave,index=False)
 
-x,y = data_preprocessor.train_preprocess(data)
-to_predict = data_preprocessor.prediction_preprocess(upcoming_games)
-#endregion
-#region ANN
-avg = 1
-epoc = 1
-for i in range(0,avg):
-    ann = neuralnet.neuralnet(x.shape[1])
-    ann.train(x,y,epoc)
-    predictions.append(ann.predict(to_predict))
-#endregion
-#region Calculate avg of predictions
-lines = predictions[0].shape[0]
-columns = predictions[0].shape[1]
-avgPrediction = np.zeros((lines, columns))
-for line in range(lines):
-    for cell in range(columns):
-        sum = 0
-        for prediction in predictions:
-            sum = sum + prediction[line, cell]
-        avgPrediction[line, cell] = sum/avg
-#endregion
-#region Converting avgPrediction to pandas DataFrame
-y_pred, indexes =apply_indexes(avgPrediction,upcoming_games)
-details=upcoming_games.iloc[indexes]
-details=details[['league','date','home_team_name','away_team_name']]
-final = pd.concat([details,y_pred],axis=1,sort=False)
-
-slashDirection = "\\"
-if platform.system() == "Darwin":
-    slashDirection = "//"
-
-final.to_csv('outputs{}predictions-{}.csv'.format(slashDirection,(int)(time.time())),index=False)
-#endregion
+    return upcoming_games
+    #endregion
 
 

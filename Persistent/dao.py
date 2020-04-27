@@ -3,6 +3,7 @@
 from .dto import *
 import pandas as pd
 
+
 class main_table:
     def __init__(self, conn):
         self._conn = conn
@@ -18,68 +19,69 @@ class main_table:
                                     home_att,away_att,
                                     home_def,away_def,
                                     home_mid,away_mid,
-                                    home_odds_n,draw_odds_n,away_odds_n,result)
-                                    VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)
+                                    home_odds_n,draw_odds_n,away_odds_n,result,home_odds_nn,draw_odds_nn,away_odds_nn)
+                                    VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)
                                     """,
-        [match.league,match.date,match.round,
-        match.home_team_name,match.away_team_name,
-        match.home_team_rank,match.away_team_rank,
-        match.home_team_scored,match.away_team_scored,
-        match.home_team_received,match.away_team_received,
-        match.home_att,match.away_att,
-        match.home_def,match.away_def,
-        match.home_mid,match.away_mid,
-        match.home_odds_n,match.draw_odds_n,match.away_odds_n,match.result])
+                           [match.league, match.date, match.round,
+                            match.home_team_name, match.away_team_name,
+                            match.home_team_rank, match.away_team_rank,
+                            match.home_team_scored, match.away_team_scored,
+                            match.home_team_received, match.away_team_received,
+                            match.home_att, match.away_att,
+                            match.home_def, match.away_def,
+                            match.home_mid, match.away_mid,
+                            match.home_odds_n, match.draw_odds_n, match.away_odds_n, match.result,
+                            match.home_odds_nn, match.draw_odds_nn, match.away_odds_nn])
         self._conn.commit()
 
-    def update(self, date,home_team_name,away_team_name,result):
+    def update(self, date, home_team_name, away_team_name, result):
         c = self._conn.cursor()
         c.execute("""
               UPDATE main_table SET result=(?) WHERE date=(?) AND home_team_name=(?) AND away_team_name=(?) AND result=NULL
-          """, [result,date,home_team_name,away_team_name])
+          """, [result, date, home_team_name, away_team_name])
         self._conn.commit()
 
-    def select_by_league_name(self,league,as_dataframe=True):
-        query="""
+    def select_by_league_name(self, league, as_dataframe=True):
+        query = """
             SELECT *  FROM main_table WHERE league=(?) 
                 """
-        parameters=[league]
-        if as_dataframe==True:
-            return return_as_dataframe(query,self._conn,parameters)
+        parameters = [league]
+        if as_dataframe == True:
+            return return_as_dataframe(query, self._conn, parameters)
         else:
-            return return_as_tuple(query,self._conn,parameters)
+            return return_as_tuple(query, self._conn, parameters)
 
-    def select_by_league_name_last_seasons(self,league,number_of_seasons=3,as_dataframe=True):
-        query="""
+    def select_by_league_name_last_seasons(self, league, number_of_seasons=3, as_dataframe=True):
+        query = """
             SELECT *  FROM main_table WHERE league=(?) ORDER BY date DESC LIMIT 380*(?) 
                 """
-        parameters=[league,number_of_seasons]
-        if as_dataframe==True:
-            return return_as_dataframe(query,self._conn,parameters)
+        parameters = [league, number_of_seasons]
+        if as_dataframe == True:
+            return return_as_dataframe(query, self._conn, parameters)
         else:
-            return return_as_tuple(query,self._conn,parameters)
+            return return_as_tuple(query, self._conn, parameters)
 
-    #@param: league= the league of the game
-    #@param: date= from date until 'NOW'
-    #@return: return the matched from @league that has took plave between @date to 'NOW'
-    def select_by_date(self,league,date,as_dataframe=True):
-        query="""
+    # @param: league= the league of the game
+    # @param: date= from date until 'NOW'
+    # @return: return the matched from @league that has took plave between @date to 'NOW'
+    def select_by_date(self, league, date, as_dataframe=True):
+        query = """
             SELECT * FROM main_table WHERE league=(?) AND date<=DATE('NOW') AND date>=(?)
             """
-        parameters = [league,date]
-        if as_dataframe==True:
-            return return_as_dataframe(query,self._conn,parameters)
+        parameters = [league, date]
+        if as_dataframe == True:
+            return return_as_dataframe(query, self._conn, parameters)
         else:
-            return return_as_tuple(query,self._conn,parameters)
+            return return_as_tuple(query, self._conn, parameters)
 
-    def select_all(self,as_dataframe=True):
-        query="""
+    def select_all(self, as_dataframe=True):
+        query = """
             SELECT * FROM main_table
             """
-        if as_dataframe==True:
-            return return_as_dataframe(query,self._conn)
+        if as_dataframe == True:
+            return return_as_dataframe(query, self._conn)
         else:
-            return return_as_tuple(query,self._conn)
+            return return_as_tuple(query, self._conn)
 
 
 class upcoming_games:
@@ -97,59 +99,68 @@ class upcoming_games:
                                     home_att,away_att,
                                     home_def,away_def,
                                     home_mid,away_mid,
-                                    home_odds_n,draw_odds_n,away_odds_n)
-                                    VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)
+                                    home_odds_n,draw_odds_n,away_odds_n,home_odds_nn,draw_odds_nn,away_odds_nn)
+                                    VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)
                                     """,
-        [match.league,match.date,match.round,
-        match.home_team_name,match.away_team_name,
-        match.home_team_rank,match.away_team_rank,
-        match.home_team_scored,match.away_team_scored,
-        match.home_team_received,match.away_team_received,
-        match.home_att,match.away_att,
-        match.home_def,match.away_def,
-        match.home_mid,match.away_mid,
-        match.home_odds_n,match.draw_odds_n,match.away_odds_n])
+                           [match.league, match.date, match.round,
+                            match.home_team_name, match.away_team_name,
+                            match.home_team_rank, match.away_team_rank,
+                            match.home_team_scored, match.away_team_scored,
+                            match.home_team_received, match.away_team_received,
+                            match.home_att, match.away_att,
+                            match.home_def, match.away_def,
+                            match.home_mid, match.away_mid,
+                            match.home_odds_n, match.draw_odds_n, match.away_odds_n,
+                            match.home_odds_nn, match.draw_odds_nn, match.away_odds_nn])
         self._conn.commit()
 
-    def update(self, date,home_team_name,away_team_name,result):
+    def update(self, date, home_team_name, away_team_name, result):
         c = self._conn.cursor()
         c.execute("""
               UPDATE upcoming_games SET result=(?) WHERE date=(?) AND home_team_name=(?) AND away_team_name=(?) AND result=NULL
-          """, [result,date,home_team_name,away_team_name])
+          """, [result, date, home_team_name, away_team_name])
         self._conn.commit()
 
-    def select_by_league_name_limited(self, league,round):
+    def select_by_league_name_limited(self, league, round):
         query = """ SELECT * FROM upcoming_games WHERE league=(?) AND round=(?) """
-        parameters = [league,round]
-        return return_as_dataframe(query,self._conn,parameters)
+        parameters = [league, round]
+        return return_as_dataframe(query, self._conn, parameters)
 
-    def select_by_league_by_round(self,round):
+    def select_by_league_by_round(self, round):
         query = """ SELECT * FROM upcoming_games WHERE round=(?) """
         parameters = [round]
-        return return_as_dataframe(query,self._conn,parameters)
+        return return_as_dataframe(query, self._conn, parameters)
 
-    def select_by_league_name(self,league,as_dataframe=True):
-        query="""
+    def delete(self, date, home_team_name, away_team_name):
+        c = self._conn.cursor()
+        c.execute("""
+                    DELETE FROM upcoming_games WHERE date=(?) AND home_team_name=(?) AND away_team_name=(?)
+                  """, [date, home_team_name, away_team_name])
+        self._conn.commit()
+
+    def select_by_league_name(self, league, as_dataframe=True):
+        query = """
             SELECT * FROM upcoming_games WHERE league=(?)
             """
-        parameters=[league]
-        if as_dataframe==True:
-            return return_as_dataframe(query,self._conn,parameters)
+        parameters = [league]
+        if as_dataframe == True:
+            return return_as_dataframe(query, self._conn, parameters)
         else:
-            return return_as_tuple(query,self._conn,parameters)
+            return return_as_tuple(query, self._conn, parameters)
 
-    #@param: league= the league of the game
-    #@param: date= from date until 'NOW'
-    #@return: return the matched from @league that has took plave between @date to 'NOW'
-    def select_by_date(self,league,date,as_dataframe=True):
-        query="""
+    # @param: league= the league of the game
+    # @param: date= from date until 'NOW'
+    # @return: return the matched from @league that has took plave between @date to 'NOW'
+    def select_by_date(self, league, date, as_dataframe=True):
+        query = """
             SELECT * FROM upcoming_games WHERE league=(?) AND date<=DATE('NOW') AND date>=(?)
             """
-        parameters=[league,date]
-        if as_dataframe==True:
-            return return_as_dataframe(query,self._conn,parameters)
+        parameters = [league, date]
+        if as_dataframe == True:
+            return return_as_dataframe(query, self._conn, parameters)
         else:
-            return return_as_tuple(query,self._conn,parameters)
+            return return_as_tuple(query, self._conn, parameters)
+
 
 class odds_details:
     def __init__(self, conn):
@@ -161,20 +172,22 @@ class odds_details:
                INSERT INTO odds_details (home_odds,draw_odds,away_oods,home_oods_plus1,away_odds_plus1)
                                     VALUES (?,?,?,?,?)
                                     """,
-        [match_odds.home_odds,match_odds.draw_odds,match_odds.away_oods,match_odds.home_oods_plus1,match_odds.away_odds_plus1])
+                           [match_odds.home_odds, match_odds.draw_odds, match_odds.away_oods,
+                            match_odds.home_oods_plus1, match_odds.away_odds_plus1])
         self._conn.commit()
 
-def return_as_dataframe(command,connection,parameters=None):
-    if parameters is None:
-        return pd.read_sql_query(command,connection)
-    else:
-        return pd.read_sql_query(command,connection,params=parameters)
 
-def return_as_tuple(command,connection,parameters=None):
+def return_as_dataframe(command, connection, parameters=None):
+    if parameters is None:
+        return pd.read_sql_query(command, connection)
+    else:
+        return pd.read_sql_query(command, connection, params=parameters)
+
+
+def return_as_tuple(command, connection, parameters=None):
     c = connection.cursor()
     if parameters is None:
         c.execute(command)
     else:
-        c.execute(command,parameters)
+        c.execute(command, parameters)
     return c.fetchall()
-

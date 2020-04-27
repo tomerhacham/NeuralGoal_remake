@@ -11,7 +11,7 @@ class Repository():
     main_table= None
     upcoming_games = None
     odds_details=None;
-    
+
     def __init__(self):
         currentDirectory = os.getcwd()
         slashDirection = "\\"
@@ -20,8 +20,8 @@ class Repository():
         if not os.path.isfile(currentDirectory + '{}Persistent{}NeuralGoal.db'.format(slashDirection,slashDirection)):
             db = open(currentDirectory + '{}Persistent{}NeuralGoal.db'.format(slashDirection,slashDirection), "w")
             db.close()
-            print("Creating Database")
-            #self.conn = sqlite3.connect(currentDirectory + '\\NeuralGoal.db')
+            #print("Creating Database")
+            #self.conn = sqlite3.connect(currentDirectory + '{}Persistent{}NeuralGoal.db'.format(slashDirection,slashDirection))
             #self.create_tables()
         self.conn = sqlite3.connect(currentDirectory + '{}Persistent{}NeuralGoal.db'.format(slashDirection,slashDirection))
 
@@ -59,6 +59,9 @@ class Repository():
             draw_odds_n  FLOAT   NOT NULL   ,
             away_odds_n  FLOAT   NOT NULL   ,
             result  CHAR  NOT NULL    ,
+            home_odds_nn  FLOAT  NOT NULL   ,
+            draw_odds_nn  FLOAT   NOT NULL   ,
+            away_odds_nn  FLOAT   NOT NULL   ,
             PRIMARY KEY("date","home_team_name","away_team_name")
         );
  
@@ -83,6 +86,9 @@ class Repository():
             home_odds_n  FLOAT     NOT NULL,
             draw_odds_n  FLOAT     NOT NULL,
             away_odds_n  FLOAT     NOT NULL,
+            home_odds_nn  FLOAT  NOT NULL,
+            draw_odds_nn  FLOAT   NOT NULL,
+            away_odds_nn  FLOAT   NOT NULL,
             PRIMARY KEY("date","home_team_name","away_team_name")
         );
  

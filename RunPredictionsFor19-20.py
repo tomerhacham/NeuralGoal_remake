@@ -140,91 +140,164 @@ def Sort_Tuple(tup):
                 tup[j + 1] = temp
     return tup
 
+# for prediction in range(rounds_to_predict):
+#     prediction = prediction + 1
+#     path = currentDirectory + '{}outputs{}predictions-Week-{}.csv'.format(slashDirection, slashDirection, prediction)
+#     tableToRead = pandas.read_csv(path, parse_dates=True)
+#
+#     tableToRead['----------------------------'] = ''
+#     tableToRead['Max Probability'] = ''
+#     tableToRead['Module Prediction'] = ''
+#     tableToRead['Winner Prediction'] = ''
+#     tableToRead['Win'] = ''
+#     tableToRead['Expectancy of variance'] = ''
+#
+#     listOfGames = []
+#     TrueCounter = 0
+#     totalGames = 0
+#     for index, row in tableToRead.iterrows():
+#         # By module - 0 < x < 1
+#         maxP = maxPrediction([float(row[8]), float(row[9]), float(row[10])])
+#         tableToRead['Max Probability'][index] = maxP
+#         pair = (index, maxP)
+#         listOfGames.append(pair)
+#         # By Max Prob - 1 X 2
+#         mPred = indexOfMaxPrediction([float(row[8]), float(row[9]), float(row[10])])
+#         tableToRead['Module Prediction'][index] = mPred
+#         # By Module Prob - x > 0
+#         WP = row[int(nnOds([float(row[8]), float(row[9]), float(row[10])]))]
+#         tableToRead['Winner Prediction'][index] = WP
+#         # By module - TRUE FALSE
+#         aw = AW(row[11], indexOfMaxPrediction([float(row[8]), float(row[9]), float(row[10])]))
+#         if aw == 'True':
+#             TrueCounter = TrueCounter + 1
+#         tableToRead['Win'][index] = aw
+#         # ΩΘ-1
+#         FinalP = float(WP * maxP) - 1
+#         tableToRead['Expectancy of variance'][index] = FinalP
+#
+#         totalGames = index + 1
+#
+#     sortedTuples = Sort_Tuple(listOfGames)
+#     sortedTuples.reverse()
+#     x = 1
+#
+#     tableToRead['--------------------------'] = ''
+#     index = 0
+#     total_stake = 0
+#     total_prize = 0
+#     price_rate = 0
+#     tableToRead['Serial Number'] = ''
+#     tableToRead['Probability'] = ''
+#     tableToRead['W Prediction'] = ''
+#     tableToRead['Odds'] = ''
+#     tableToRead['Bet'] = ''
+#     tableToRead['Prize'] = ''
+#     for pair in sortedTuples:
+#         tableToRead['Serial Number'][index] = pair[0]
+#         tableToRead['Probability'][index] = pair[1]
+#         tableToRead['W Prediction'][index] = tableToRead['Module Prediction'][pair[0]]
+#         tableToRead['Odds'][index] = tableToRead['Winner Prediction'][pair[0]]
+#         tableToRead['Bet'][index] = 10
+#         total_stake = total_stake + tableToRead['Bet'][index]
+#         if(tableToRead['Win'][pair[0]] == 'True'):
+#             tableToRead['Prize'][index] = tableToRead['Bet'][index] * tableToRead['Odds'][index]
+#             total_prize = total_prize + tableToRead['Prize'][index]
+#         else:
+#             tableToRead['Prize'][index] = 0
+#
+#         index = index+1
+#
+#     tableToRead['-------------------------'] = ''
+#
+#     tableToRead.loc[5, '__'] = "Winning rate"
+#     tableToRead.loc[5, '_'] = float(TrueCounter/totalGames)
+#
+#     tableToRead.loc[6, '__'] = "Total bet"
+#     tableToRead.loc[6, '_'] = int(total_stake)
+#
+#     tableToRead.loc[7, '__'] = "Total prize"
+#     tableToRead.loc[7, '_'] = int(total_prize)
+#
+#     tableToRead.loc[8, '__'] = "Prize rate"
+#     tableToRead.loc[8, '_'] = float(total_prize / total_stake)
+#
+#
+#
+#
+#
+#     tableToRead.to_csv(
+#         str(currentDirectory) + '{}outputs{}predictions-Week-{}.csv'.format(slashDirection, slashDirection, prediction))
+
+TSTACK_06 = 0
+TEARINING_06 = 0
+
+TSTACK_065 = 0
+TEARINING_065 = 0
+
+TSTACK_07 = 0
+TEARINING_07 = 0
+
+TSTACK_075 = 0
+TEARINING_075 = 0
+
+TSTACK_08 = 0
+TEARINING_08 = 0
+
+TSTACK_085 = 0
+TEARINING_085 = 0
+
+TS = 0
+TE = 0
+
 for prediction in range(rounds_to_predict):
     prediction = prediction + 1
     path = currentDirectory + '{}outputs{}predictions-Week-{}.csv'.format(slashDirection, slashDirection, prediction)
     tableToRead = pandas.read_csv(path, parse_dates=True)
 
-    tableToRead['----------------------------'] = ''
-    tableToRead['Max Probability'] = ''
-    tableToRead['Module Prediction'] = ''
-    tableToRead['Winner Prediction'] = ''
-    tableToRead['Win'] = ''
-    tableToRead['Expectancy of variance'] = ''
-
-    listOfGames = []
-    TrueCounter = 0
-    totalGames = 0
     for index, row in tableToRead.iterrows():
-        # By module - 0 < x < 1
-        maxP = maxPrediction([float(row[8]), float(row[9]), float(row[10])])
-        tableToRead['Max Probability'][index] = maxP
-        pair = (index, maxP)
-        listOfGames.append(pair)
-        # By Max Prob - 1 X 2
-        mPred = indexOfMaxPrediction([float(row[8]), float(row[9]), float(row[10])])
-        tableToRead['Module Prediction'][index] = mPred
-        # By Module Prob - x > 0
-        WP = row[int(nnOds([float(row[8]), float(row[9]), float(row[10])]))]
-        tableToRead['Winner Prediction'][index] = WP
-        # By module - TRUE FALSE
-        aw = AW(row[11], indexOfMaxPrediction([float(row[8]), float(row[9]), float(row[10])]))
-        if aw == 'True':
-            TrueCounter = TrueCounter + 1
-        tableToRead['Win'][index] = aw
-        # ΩΘ-1
-        FinalP = float(WP * maxP) - 1
-        tableToRead['Expectancy of variance'][index] = FinalP
+        TS = TS + 10
+        if row[17]:
+            TE = TE + 10 * row[23]
 
-        totalGames = index + 1
+        if row[14] > 0.6:
+            TSTACK_06 = TSTACK_06 + 10
+            cond = row[23]
+            if row[17]:
+                TEARINING_06 = TEARINING_06 + 10 * row[23]
 
-    sortedTuples = Sort_Tuple(listOfGames)
-    sortedTuples.reverse()
-    x = 1
+        if row[14] > 0.65:
+            TSTACK_065 = TSTACK_065 + 10
+            if row[17]:
+                TEARINING_065 = TEARINING_065 + 10 * row[23]
 
-    tableToRead['--------------------------'] = ''
-    index = 0
-    total_stake = 0
-    total_prize = 0
-    price_rate = 0
-    tableToRead['Serial Number'] = ''
-    tableToRead['Probability'] = ''
-    tableToRead['W Prediction'] = ''
-    tableToRead['Odds'] = ''
-    tableToRead['Bet'] = ''
-    tableToRead['Prize'] = ''
-    for pair in sortedTuples:
-        tableToRead['Serial Number'][index] = pair[0]
-        tableToRead['Probability'][index] = pair[1]
-        tableToRead['W Prediction'][index] = tableToRead['Module Prediction'][pair[0]]
-        tableToRead['Odds'][index] = tableToRead['Winner Prediction'][pair[0]]
-        tableToRead['Bet'][index] = 10
-        total_stake = total_stake + tableToRead['Bet'][index]
-        if(tableToRead['Win'][pair[0]] == 'True'):
-            tableToRead['Prize'][index] = tableToRead['Bet'][index] * tableToRead['Odds'][index]
-            total_prize = total_prize + tableToRead['Prize'][index]
-        else:
-            tableToRead['Prize'][index] = 0
+        if row[14] > 0.7:
+            TSTACK_07 = TSTACK_07 + 10
+            if row[17]:
+                TEARINING_07 = TEARINING_07 + 10 * row[23]
 
-        index = index+1
+        if row[14] > 0.75:
+            TSTACK_075 = TSTACK_075 + 10
+            if row[17]:
+                TEARINING_075 = TEARINING_075 + 10 * row[23]
 
-    tableToRead['-------------------------'] = ''
+        if row[14] > 0.8:
+            TSTACK_08 = TSTACK_08 + 10
+            if row[17]:
+                TEARINING_08 = TEARINING_08 + 10 * row[23]
 
-    tableToRead.loc[5, '__'] = "Winning rate"
-    tableToRead.loc[5, '_'] = float(TrueCounter/totalGames)
-
-    tableToRead.loc[6, '__'] = "Total bet"
-    tableToRead.loc[6, '_'] = int(total_stake)
-
-    tableToRead.loc[7, '__'] = "Total prize"
-    tableToRead.loc[7, '_'] = int(total_prize)
-
-    tableToRead.loc[8, '__'] = "Prize rate"
-    tableToRead.loc[8, '_'] = float(total_prize / total_stake)
+        if row[14] > 0.85:
+            TSTACK_085 = TSTACK_085 + 10
+            if row[17]:
+                TEARINING_085 = TEARINING_085 + 10 * row[23]
 
 
 
-
-
-    tableToRead.to_csv(
-        str(currentDirectory) + '{}outputs{}predictions-Week-{}.csv'.format(slashDirection, slashDirection, prediction))
+totalPre06 = TEARINING_06 / TSTACK_06
+totalPre065 = TEARINING_065 / TSTACK_065
+totalPre07 = TEARINING_07 / TSTACK_07
+totalPre075 = TEARINING_075 / TSTACK_075
+totalPre08 = TEARINING_08 / TSTACK_08
+totalPre05 = TEARINING_085 / TSTACK_085
+totaltotal = TE / TS
+x = 5

@@ -4,8 +4,7 @@ from Persistent.repository import Repository
 import platform
 import pandas
 import os
-
-repo=Repository()
+import time
 currentDirectory = os.getcwd()
 
 slashDirection = "\\"
@@ -26,9 +25,9 @@ def resultForGame(_date,home_team_name,away_team_name,league):
     return -1
 
 
-for round in range(20):
-    round = round +1
-    gamesToMainTable = makePredictions(round)
+for _round in range(3):
+    _round = _round + 1
+    gamesToMainTable = makePredictions(_round)
     for ind in gamesToMainTable.index:
 
         leagueName = gamesToMainTable['league'][ind]
@@ -77,9 +76,16 @@ for round in range(20):
                               _away_def,
                               _home_mid, _away_mid, _home_odds_n, _draw_odds_n, _away_odds_n, _result,
                               _home_odds_nn, _draw_odds_nn, _away_odds_nn)
-
+        repo = Repository()
         repo.upcoming_games.delete(_date,_home_team_name,_away_team_name)
         repo.main_table.insert(gameToAdd)
+
+for prediction in range(1):
+    prediction = prediction + 1
+    path = currentDirectory + '{}outputs{}predictions-Week-{}.csv'.format(slashDirection,slashDirection,prediction)
+    tableToRead = pandas.read_csv(path, parse_dates=True)
+
+
 
 
 

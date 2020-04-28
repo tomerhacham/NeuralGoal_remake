@@ -126,9 +126,9 @@ class upcoming_games:
         parameters = [league, round]
         return return_as_dataframe(query, self._conn, parameters)
 
-    def select_by_league_by_round(self, round):
+    def select_by_league_by_round(self, _round):
         query = """ SELECT * FROM upcoming_games WHERE round=(?) """
-        parameters = [round]
+        parameters = [_round]
         return return_as_dataframe(query, self._conn, parameters)
 
     def delete(self, date, home_team_name, away_team_name):

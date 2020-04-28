@@ -7,8 +7,6 @@ from NeuralNetwork.DataProccess import data_preprocessor
 from NeuralNetwork import neuralnet
 import platform
 
-predictions=[]
-repo=Repository()
 
 
 #y_pred is numpy array
@@ -19,17 +17,19 @@ def apply_indexes(y_pred, y_test):
     return y_pred_df,indexes
 
 
-def makePredictions(round):
+def makePredictions(_round):
+    predictions = []
+    repo = Repository()
     #region Data
     data=repo.main_table.select_all()
-    upcoming_games=repo.upcoming_games.select_by_league_by_round(round)
+    upcoming_games=repo.upcoming_games.select_by_league_by_round(_round)
 
     x,y = data_preprocessor.train_preprocess(data)
     to_predict = data_preprocessor.prediction_preprocess(upcoming_games)
     #endregion
     #region ANN
-    avg = 30
-    epoc = 30
+    avg = 1
+    epoc = 10
     for i in range(0,avg):
         ann = neuralnet.neuralnet(x.shape[1])
         ann.train(x,y,epoc)
@@ -56,7 +56,7 @@ def makePredictions(round):
     if platform.system() == "Darwin":
         slashDirection = "//"
 
-    pathToSave = 'outputs{}predictions-Week-{}.csv'.format(slashDirection,round)
+    pathToSave = 'outputs{}predictions-Week-{}.csv'.format(slashDirection,_round)
     final.to_csv(pathToSave,index=False)
 
     return upcoming_games

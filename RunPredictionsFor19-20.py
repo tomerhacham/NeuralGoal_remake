@@ -149,6 +149,7 @@ def Sort_Tuple(tup):
 def Sort_Tuple_Doubles(tup):
     return (sorted(tup, key=lambda x: x[5]))
 
+
 def Sort_Tuple_Triples(tup):
     return (sorted(tup, key=lambda x: x[6]))
 
@@ -439,8 +440,8 @@ def byEVdoubles(rounds_to_predict):
         for index_1, row_1 in tableToRead.iterrows():
             for index_2, row_2 in tableToRead.iterrows():
                 if index_1 > index_2:
-                    probabiltyGame1 =tableToRead['Max Probability'][index_1]
-                    probabiltyGame2 =tableToRead['Max Probability'][index_2]
+                    probabiltyGame1 = tableToRead['Max Probability'][index_1]
+                    probabiltyGame2 = tableToRead['Max Probability'][index_2]
 
                     probabilty = probabiltyGame1 * probabiltyGame2
                     odds = tableToRead['Winner Prediction'][index_1] * tableToRead['Winner Prediction'][index_2]
@@ -489,7 +490,8 @@ def byEVdoubles(rounds_to_predict):
                     if game == 0:
                         tupleDoublesWithRep = (0, 0)
                     else:
-                        tupleDoublesWithRep = (listOfTuplesWithRepitions[game - 1][0], listOfTuplesWithRepitions[game - 1][1])
+                        tupleDoublesWithRep = (
+                        listOfTuplesWithRepitions[game - 1][0], listOfTuplesWithRepitions[game - 1][1])
                 listOfTuplesWithRepitions.append(tupleDoublesWithRep)
         doubleIndex = doubleIndex + 2
 
@@ -510,7 +512,6 @@ def byEVdoubles(rounds_to_predict):
                 tableToRead['Odds Double'][doubleIndex] = sortedT[CounterIndex][3]
                 tableToRead['Win Double'][doubleIndex] = sortedT[CounterIndex][4]
                 tableToRead['Expectancy of variance Double'][doubleIndex] = sortedT[CounterIndex][5]
-
 
                 toCheck = sortedT[CounterIndex]
                 # tuplesDouble
@@ -606,7 +607,8 @@ def byEVtripples(rounds_to_predict):
                             probabiltyGame3 = tableToRead['Max Probability'][index_3]
 
                             probabilty = probabiltyGame1 * probabiltyGame2 * probabiltyGame3
-                            odds = tableToRead['Winner Prediction'][index_1] * tableToRead['Winner Prediction'][index_2] * tableToRead['Winner Prediction'][index_3]
+                            odds = tableToRead['Winner Prediction'][index_1] * tableToRead['Winner Prediction'][
+                                index_2] * tableToRead['Winner Prediction'][index_3]
                             isWin = 'False'
                             if tableToRead['Win'][index_1] == 1:
                                 if tableToRead['Win'][index_2] == 1:
@@ -656,7 +658,7 @@ def byEVtripples(rounds_to_predict):
                         tupleDoublesWithRep = (0, 0)
                     else:
                         tupleDoublesWithRep = (
-                        listOfTuplesWithRepitions[game - 1][0], listOfTuplesWithRepitions[game - 1][1])
+                            listOfTuplesWithRepitions[game - 1][0], listOfTuplesWithRepitions[game - 1][1])
                 listOfTuplesWithRepitions.append(tupleDoublesWithRep)
         doubleIndex = doubleIndex + 2
 
@@ -756,7 +758,6 @@ def byEVtripples(rounds_to_predict):
 
 
 def winRateToAllSeason(rounds_to_predict):
-
     finalTable = []
     df = pandas.DataFrame(finalTable)
     for prediction in range(rounds_to_predict):
@@ -769,17 +770,18 @@ def winRateToAllSeason(rounds_to_predict):
         double = tableToRead.iloc[:, 37:39].copy()
         triple = tableToRead.iloc[:, 48:50].copy()
 
-        df["Week {} Single {}---->".format(prediction,prediction)] = ""
-        df = pandas.concat([df,single],axis=1,sort=False)
+        df["Week {} Single {}---->".format(prediction, prediction)] = ""
+        df = pandas.concat([df, single], axis=1, sort=False)
         df["Double {} ------------>".format(prediction)] = ""
-        df = pandas.concat([df,double],axis=1,sort=False)
+        df = pandas.concat([df, double], axis=1, sort=False)
         df["Triple {} ------------>".format(prediction)] = ""
-        df = pandas.concat([df,triple],axis=1,sort=False)
+        df = pandas.concat([df, triple], axis=1, sort=False)
 
-    df.to_csv(currentDirectory + '{}outputs{}Avg.csv'.format(slashDirection, slashDirection),index=False)
+    df.to_csv(currentDirectory + '{}outputs{}Avg.csv'.format(slashDirection, slashDirection), index=False)
+
 
 if __name__ == '__main__':
-    #byEVsingle(23)
-    #byEVdoubles(23)
-    #byEVtripples(23)
+    # byEVsingle(23)
+    # byEVdoubles(23)
+    # byEVtripples(23)
     winRateToAllSeason(23)

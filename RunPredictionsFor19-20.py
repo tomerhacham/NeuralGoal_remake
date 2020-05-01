@@ -161,182 +161,6 @@ def byProbabilityOnly(rounds_to_predict):
                                                                               prediction)
         tableToRead = pandas.read_csv(path, parse_dates=True)
 
-        tableToRead['----------------------------'] = ''
-        tableToRead['Max Probability'] = ''
-        tableToRead['Module Prediction'] = ''
-        tableToRead['Winner Prediction'] = ''
-        tableToRead['Win'] = ''
-        tableToRead['Expectancy of variance'] = ''
-
-        listOfGames = []
-        TrueCounter = 0
-        totalGames = 0
-        for index, row in tableToRead.iterrows():
-            # By module - 0 < x < 1
-            maxP = maxPrediction([float(row[8]), float(row[9]), float(row[10])])
-            tableToRead['Max Probability'][index] = maxP
-            pair = (index, maxP)
-            listOfGames.append(pair)
-            # By Max Prob - 1 X 2
-            mPred = indexOfMaxPrediction([float(row[8]), float(row[9]), float(row[10])])
-            tableToRead['Module Prediction'][index] = mPred
-            # By Module Prob - x > 0
-            WP = row[int(nnOds([float(row[8]), float(row[9]), float(row[10])]))]
-            tableToRead['Winner Prediction'][index] = WP
-            # By module - TRUE FALSE
-            aw = AW(row[11], indexOfMaxPrediction([float(row[8]), float(row[9]), float(row[10])]))
-            if aw == 'True':
-                TrueCounter = TrueCounter + 1
-            tableToRead['Win'][index] = aw
-            # ΩΘ-1
-            FinalP = float(WP * maxP) - 1
-            tableToRead['Expectancy of variance'][index] = FinalP
-
-            totalGames = index + 1
-
-        sortedTuples = Sort_Tuple(listOfGames)
-        sortedTuples.reverse()
-
-        tableToRead['--------------------------'] = ''
-        index = 0
-        total_stake = 0
-        total_prize = 0
-        tableToRead['Serial Number'] = ''
-        tableToRead['Probability'] = ''
-        tableToRead['W Prediction'] = ''
-        tableToRead['Odds'] = ''
-        tableToRead['Bet'] = ''
-        tableToRead['Prize'] = ''
-        for pair in sortedTuples:
-            tableToRead['Serial Number'][index] = pair[0]
-            tableToRead['Probability'][index] = pair[1]
-            tableToRead['W Prediction'][index] = tableToRead['Module Prediction'][pair[0]]
-            tableToRead['Odds'][index] = tableToRead['Winner Prediction'][pair[0]]
-            tableToRead['Bet'][index] = 10
-            total_stake = total_stake + tableToRead['Bet'][index]
-            if (tableToRead['Win'][pair[0]] == 'True'):
-                tableToRead['Prize'][index] = tableToRead['Bet'][index] * tableToRead['Odds'][index]
-                total_prize = total_prize + tableToRead['Prize'][index]
-            else:
-                tableToRead['Prize'][index] = 0
-
-            index = index + 1
-
-        tableToRead['-------------------------'] = ''
-
-        tableToRead.loc[5, '__'] = "Winning rate"
-        tableToRead.loc[5, '_'] = float(TrueCounter / totalGames)
-
-        tableToRead.loc[6, '__'] = "Total bet"
-        tableToRead.loc[6, '_'] = int(total_stake)
-
-        tableToRead.loc[7, '__'] = "Total prize"
-        tableToRead.loc[7, '_'] = int(total_prize)
-
-        tableToRead.loc[8, '__'] = "Prize rate"
-        tableToRead.loc[8, '_'] = float(total_prize / total_stake)
-
-        TSTACK_06 = 0
-        TEARINING_06 = 0
-        ToalGames_06 = 0
-        TotalWins_06 = 0
-
-        TSTACK_065 = 0
-        TEARINING_065 = 0
-        ToalGames_065 = 0
-        TotalWins_065 = 0
-
-        TSTACK_07 = 0
-        TEARINING_07 = 0
-        ToalGames_07 = 0
-        TotalWins_07 = 0
-
-        TSTACK_075 = 0
-        TEARINING_075 = 0
-        ToalGames_075 = 0
-        TotalWins_075 = 0
-
-        TSTACK_08 = 0
-        TEARINING_08 = 0
-        ToalGames_08 = 0
-        TotalWins_08 = 0
-
-        for index, row in tableToRead.iterrows():
-
-            if row[14] > 0.6:
-                TSTACK_06 = TSTACK_06 + 10
-                ToalGames_06 = ToalGames_06 + 1
-                if row[17]:
-                    TotalWins_06 = TotalWins_06 + 1
-                    TEARINING_06 = TEARINING_06 + 10 * row[23]
-
-            if row[14] > 0.65:
-                TSTACK_065 = TSTACK_065 + 10
-                ToalGames_065 = ToalGames_065 + 1
-                if row[17]:
-                    TotalWins_065 = TotalWins_065 + 1
-                    TEARINING_065 = TEARINING_065 + 10 * row[23]
-
-            if row[14] > 0.7:
-                TSTACK_07 = TSTACK_07 + 10
-                ToalGames_07 = ToalGames_07 + 1
-                if row[17]:
-                    TotalWins_07 = TotalWins_07 + 1
-                    TEARINING_07 = TEARINING_07 + 10 * row[23]
-
-            if row[14] > 0.75:
-                TSTACK_075 = TSTACK_075 + 10
-                ToalGames_075 = ToalGames_075 + 1
-                if row[17]:
-                    TotalWins_075 = TotalWins_075 + 1
-                    TEARINING_075 = TEARINING_075 + 10 * row[23]
-
-            if row[14] > 0.8:
-                test1 = row[17]
-                TSTACK_08 = TSTACK_08 + 10
-                ToalGames_08 = ToalGames_08 + 1
-                if row[17]:
-                    TotalWins_08 = TotalWins_08 + 1
-                    TEARINING_08 = TEARINING_08 + 10 * row[23]
-
-        totalPre06 = TEARINING_06 / TSTACK_06
-        totalPre065 = TEARINING_065 / TSTACK_065
-        totalPre07 = TEARINING_07 / TSTACK_07
-        totalPre075 = TEARINING_075 / TSTACK_075
-        totalPre08 = TEARINING_08 / TSTACK_08
-
-        tableToRead.loc[10, '__'] = "Prize rate >0.6 is"
-        tableToRead.loc[10, '_'] = totalPre06
-
-        tableToRead.loc[11, '__'] = "Win rate >0.6 is"
-        tableToRead.loc[11, '_'] = str(float(TotalWins_06 / ToalGames_06) * 100) + "%"
-
-        tableToRead.loc[12, '__'] = "Prize rate >0.65 is"
-        tableToRead.loc[12, '_'] = totalPre065
-
-        tableToRead.loc[13, '__'] = "Win rate >0.65 is"
-        tableToRead.loc[13, '_'] = str(float(TotalWins_065 / ToalGames_065) * 100) + "%"
-
-        tableToRead.loc[14, '__'] = "Prize rate >0.7 is"
-        tableToRead.loc[14, '_'] = totalPre07
-
-        tableToRead.loc[15, '__'] = "Win rate >0.7 is"
-        tableToRead.loc[15, '_'] = str(float(TotalWins_07 / ToalGames_07) * 100) + "%"
-
-        tableToRead.loc[16, '__'] = "Prize rate >0.75 is"
-        tableToRead.loc[16, '_'] = totalPre075
-
-        tableToRead.loc[17, '__'] = "Win rate >0.75 is"
-        tableToRead.loc[17, '_'] = str(float(TotalWins_075 / ToalGames_075) * 100) + "%"
-
-        tableToRead.loc[18, '__'] = "Prize rate >0.8 is"
-        tableToRead.loc[18, '_'] = totalPre08
-
-        tableToRead.loc[19, '__'] = "Win rate >0.8 is"
-        tableToRead.loc[19, '_'] = str(float(TotalWins_08 / ToalGames_08) * 100) + "%"
-
-        tableToRead['----------------------------'] = ''
-
         tableToRead.to_csv(
             str(currentDirectory) + '{}outputs{}predictions-Week-{}.csv'.format(slashDirection, slashDirection,
                                                                                 prediction))
@@ -345,18 +169,51 @@ def byProbabilityOnly(rounds_to_predict):
 def byEVsingle(rounds_to_predict):
     for prediction in range(rounds_to_predict):
 
+
         prediction = prediction + 1
         path = currentDirectory + '{}outputs{}predictions-Week-{}.csv'.format(slashDirection, slashDirection,
                                                                               prediction)
         tableToRead = pandas.read_csv(path, parse_dates=True)
+
+
+        tableToRead['----------------------------'] = ''
+        tableToRead['Max Probability'] = ''
+        tableToRead['Module Prediction'] = ''
+        tableToRead['Winner Prediction'] = ''
+        tableToRead['Win'] = ''
+        tableToRead['Expectancy of variance'] = ''
+        tableToRead['Serial Number'] = ''
+
+        for index, row in tableToRead.iterrows():
+            # By module - 0 < x < 1
+            listOfProbs = [float(row[9]), float(row[10]), float(row[11])]
+            maxP = maxPrediction(listOfProbs)
+            tableToRead['Max Probability'][index] = maxP
+            # By Max Prob - 1 X 2
+            mPred = indexOfMaxPrediction(listOfProbs)
+            tableToRead['Module Prediction'][index] = mPred
+            # By Module Prob - x > 0
+            WP = row[int(nnOds(listOfProbs))+1]
+            tableToRead['Winner Prediction'][index] = WP
+            # By module - TRUE FALSE
+            aw = AW(row[12], indexOfMaxPrediction(listOfProbs))
+            tableToRead['Win'][index] = aw
+            # ΩΘ-1
+            FinalP = float(WP * maxP) - 1
+            tableToRead['Expectancy of variance'][index] = FinalP
+            tableToRead['Serial Number'][index] = index
+
+
         listOfGames = []
         for index, row in tableToRead.iterrows():
             Omega = tableToRead['Expectancy of variance'][index]
-            pair = (index, Omega)
+            indexOfGame = tableToRead['Serial Number'][index]
+            pair = (indexOfGame, Omega)
             listOfGames.append(pair)
 
         sortedTuples = Sort_Tuple(listOfGames)
         sortedTuples.reverse()
+
         tableToRead['------> Single - by expectancy of variance'] = ''
         index = 0
         tableToRead['Serial Number EV'] = ''
@@ -379,7 +236,8 @@ def byEVsingle(rounds_to_predict):
             tableToRead['Odds EV'][index] = tableToRead['Winner Prediction'][pair[0]]
             tableToRead['Win EV'][index] = tableToRead['Win'][pair[0]]
             tableToRead['Bet EV'][index] = 10
-            if tableToRead['Win'][pair[0]] == 1:
+            conditionToCheck = tableToRead['Win'][pair[0]]
+            if conditionToCheck == 'True':
                 gameTrueCounter = gameTrueCounter + 1
                 if index < 20:
                     if index == 0:
@@ -420,6 +278,7 @@ def byEVsingle(rounds_to_predict):
 
                 gamesIndexx = gamesIndexx + 1
                 excelIndex = excelIndex + 3
+
 
         tableToRead.to_csv(
             str(currentDirectory) + '{}outputs{}predictions-Week-{}.csv'.format(slashDirection, slashDirection,
@@ -781,7 +640,7 @@ def winRateToAllSeason(rounds_to_predict):
 
 
 if __name__ == '__main__':
-    # byEVsingle(23)
+    byEVsingle(23)
     # byEVdoubles(23)
     # byEVtripples(23)
-    winRateToAllSeason(23)
+    # winRateToAllSeason(23)

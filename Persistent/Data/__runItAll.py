@@ -7,12 +7,13 @@ from Persistent.Data import _GetCorrentRound  # 6
 # from Persistent.Data import _UpcomingBettingOddsWithAPI  # 7
 from Persistent.Data import _updateFiles  # 8
 from Persistent.Data import newLeagueValidation  # for adding new leagues
+from Persistent.Data.utils import getRoundPerLeague
 import os
 
 leagues = ["Serie", "PremierLeague", "Bundesliga", "Laliga", "Ligue1", "Jupiler", "Eredivisie"]
 # leagues = ["Serie"]
 
-years = [5, 6, 7, 8, 910, 11, 12, 13, 14, 15, 16, 17, 18, 19]
+years = [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19]
 # years = [9,10]
 
 for League in leagues:
@@ -24,18 +25,7 @@ for League in leagues:
             endYear_C = endYear
 
             league = str(League)
-            _round = 0
-            if league == "Bundesliga":
-                _round = 34
-            elif league == "Eredivisie":
-                _round = 34
-            elif league == "Jupiler":
-                if startYear <= 8:
-                    _round = 34
-                else:
-                    _round = 30
-            else:
-                _round = 38
+            _round = getRoundPerLeague(league,startYear)
 
             if startYear < 10:
                 startYear_C = "0" + str(startYear)

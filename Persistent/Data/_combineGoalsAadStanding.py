@@ -4,6 +4,7 @@ import numpy
 from bs4 import BeautifulSoup
 import requests
 import time
+from Persistent.Data.utils import getRoundPerLeague
 
 def run(leagueName,round,startYear,endYear):
 
@@ -22,16 +23,7 @@ def run(leagueName,round,startYear,endYear):
 
         for index, row in team_standing.iterrows():
             rows.append(row)
-        _Range = 0
-        if leagueName == "Bundesliga" or leagueName == "Eredivisie":
-            _Range = 36
-        elif leagueName == "Jupiler":
-            if startYear <= 8:
-                _Range = 36
-            else:
-                _Range = 32
-        else:
-            _Range = 40
+        _Range = getRoundPerLeague(leagueName,startYear) + 2
         t = []
         counter = 0
         for row in rows:

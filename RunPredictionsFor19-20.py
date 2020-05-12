@@ -640,7 +640,7 @@ def winRateToAllSeason(rounds_to_predict):
 
 
 if __name__ == '__main__':
-    byEVsingle(23)
+    #byEVsingle(23)
     # byEVdoubles(23)
     # byEVtripples(23)
-    # winRateToAllSeason(23)
+    winRateToAllSeason(23)

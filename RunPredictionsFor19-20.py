@@ -1,3 +1,5 @@
+import math
+
 from MakePrediction import makePredictions
 from Persistent import dto
 from Persistent.repository import Repository
@@ -36,58 +38,62 @@ def resultForGame(_date, home_team_name, away_team_name, league):
 
 
 def MakePredictionsAndMoveTheGamesFromUpToMainTable(rounds_to_predict):
-    for _round in range(rounds_to_predict):
-        _round = _round + 1
-        gamesToMainTable = makePredictions(_round)
-        for ind in gamesToMainTable.index:
+    #for _round in range(rounds_to_predict):
+    #_round = _round + 1
+    _round = rounds_to_predict
+    gamesToMainTable = makePredictions(_round)
+    if gamesToMainTable is None:
+        print('No games left')
+        return False
+    for ind in gamesToMainTable.index:
 
-            leagueName = gamesToMainTable['league'][ind]
-            _date = gamesToMainTable['date'][ind]
-            gameCounter = int(gamesToMainTable['round'][ind])
+        leagueName = gamesToMainTable['league'][ind]
+        _date = gamesToMainTable['date'][ind]
+        gameCounter = int(gamesToMainTable['round'][ind])
 
-            _home_team_name = gamesToMainTable['home_team_name'][ind]
-            _away_team_name = gamesToMainTable['away_team_name'][ind]
+        _home_team_name = gamesToMainTable['home_team_name'][ind]
+        _away_team_name = gamesToMainTable['away_team_name'][ind]
 
-            _home_team_rank = int(gamesToMainTable['home_team_rank'][ind])
-            _away_team_rank = int(gamesToMainTable['away_team_rank'][ind])
+        _home_team_rank = int(gamesToMainTable['home_team_rank'][ind])
+        _away_team_rank = int(gamesToMainTable['away_team_rank'][ind])
 
-            _home_team_scored = gamesToMainTable['home_team_scored'][ind]
-            _away_team_scored = gamesToMainTable['away_team_scored'][ind]
+        _home_team_scored = gamesToMainTable['home_team_scored'][ind]
+        _away_team_scored = gamesToMainTable['away_team_scored'][ind]
 
-            _home_team_received = gamesToMainTable['home_team_received'][ind]
-            _away_team_received = gamesToMainTable['away_team_received'][ind]
+        _home_team_received = gamesToMainTable['home_team_received'][ind]
+        _away_team_received = gamesToMainTable['away_team_received'][ind]
 
-            _home_att = int(gamesToMainTable['home_att'][ind])
-            _away_att = int(gamesToMainTable['away_att'][ind])
+        _home_att = int(gamesToMainTable['home_att'][ind])
+        _away_att = int(gamesToMainTable['away_att'][ind])
 
-            _home_def = int(gamesToMainTable['home_def'][ind])
-            _away_def = int(gamesToMainTable['away_def'][ind])
+        _home_def = int(gamesToMainTable['home_def'][ind])
+        _away_def = int(gamesToMainTable['away_def'][ind])
 
-            _home_mid = int(gamesToMainTable['home_mid'][ind])
-            _away_mid = int(gamesToMainTable['away_mid'][ind])
+        _home_mid = int(gamesToMainTable['home_mid'][ind])
+        _away_mid = int(gamesToMainTable['away_mid'][ind])
 
-            _home_odds_n = gamesToMainTable['home_odds_n'][ind]
-            _draw_odds_n = gamesToMainTable['draw_odds_n'][ind]
-            _away_odds_n = gamesToMainTable['away_odds_n'][ind]
+        _home_odds_n = gamesToMainTable['home_odds_n'][ind]
+        _draw_odds_n = gamesToMainTable['draw_odds_n'][ind]
+        _away_odds_n = gamesToMainTable['away_odds_n'][ind]
 
-            _home_odds_nn = gamesToMainTable['home_odds_nn'][ind]
-            _draw_odds_nn = gamesToMainTable['draw_odds_nn'][ind]
-            _away_odds_nn = gamesToMainTable['away_odds_nn'][ind]
+        _home_odds_nn = gamesToMainTable['home_odds_nn'][ind]
+        _draw_odds_nn = gamesToMainTable['draw_odds_nn'][ind]
+        _away_odds_nn = gamesToMainTable['away_odds_nn'][ind]
 
-            _result = resultForGame(_date, _home_team_name, _away_team_name, leagueName)
+        _result = resultForGame(_date, _home_team_name, _away_team_name, leagueName)
 
-            if _result == -1:
-                print("Cant find")
+        if _result == -1:
+            print("Cant find")
 
-            gameToAdd = dto.match(leagueName, _date, gameCounter, _home_team_name, _away_team_name,
-                                  _home_team_rank, _away_team_rank, _home_team_scored, _away_team_scored,
-                                  _home_team_received, _away_team_received, _home_att, _away_att, _home_def,
-                                  _away_def,
-                                  _home_mid, _away_mid, _home_odds_n, _draw_odds_n, _away_odds_n, _result,
-                                  _home_odds_nn, _draw_odds_nn, _away_odds_nn)
-            repo = Repository()
-            repo.upcoming_games.delete(_date, _home_team_name, _away_team_name)
-            repo.main_table.insert(gameToAdd)
+        gameToAdd = dto.match(leagueName, _date, gameCounter, _home_team_name, _away_team_name,
+                              _home_team_rank, _away_team_rank, _home_team_scored, _away_team_scored,
+                              _home_team_received, _away_team_received, _home_att, _away_att, _home_def,
+                              _away_def,
+                              _home_mid, _away_mid, _home_odds_n, _draw_odds_n, _away_odds_n, _result,
+                              _home_odds_nn, _draw_odds_nn, _away_odds_nn)
+        repo = Repository()
+        repo.upcoming_games.delete(_date, _home_team_name, _away_team_name)
+        repo.main_table.insert(gameToAdd)
 
 
 def addResultColumnToExcels(rounds_to_predict):
@@ -186,17 +192,21 @@ def byEVsingle(rounds_to_predict):
 
         for index, row in tableToRead.iterrows():
             # By module - 0 < x < 1
-            listOfProbs = [float(row[9]), float(row[10]), float(row[11])]
+            pred1 = row[8]
+            pred2 = row[9]
+            predx = row[10]
+            listOfProbs = [float(pred1), float(pred2), float(predx)]
             maxP = maxPrediction(listOfProbs)
             tableToRead['Max Probability'][index] = maxP
             # By Max Prob - 1 X 2
             mPred = indexOfMaxPrediction(listOfProbs)
             tableToRead['Module Prediction'][index] = mPred
             # By Module Prob - x > 0
-            WP = row[int(nnOds(listOfProbs))+1]
+            WP = row[int(nnOds(listOfProbs))]
             tableToRead['Winner Prediction'][index] = WP
             # By module - TRUE FALSE
-            aw = AW(row[12], indexOfMaxPrediction(listOfProbs))
+            result=row[11]
+            aw = AW(result, indexOfMaxPrediction(listOfProbs))
             tableToRead['Win'][index] = aw
             # ΩΘ-1
             FinalP = float(WP * maxP) - 1
@@ -303,14 +313,15 @@ def byEVdoubles(rounds_to_predict):
                     probabiltyGame2 = tableToRead['Max Probability'][index_2]
 
                     probabilty = probabiltyGame1 * probabiltyGame2
-                    odds = tableToRead['Winner Prediction'][index_1] * tableToRead['Winner Prediction'][index_2]
-                    isWin = 'False'
-                    if tableToRead['Win'][index_1] == 1:
-                        if tableToRead['Win'][index_2] == 1:
-                            isWin = 'True'
-                    ExpectancyOfVariance = probabilty * odds - 1
-                    touple = (index_2, index_1, probabilty, odds, isWin, ExpectancyOfVariance)
-                    listOfDoubles.append(touple)
+                    if not math.isnan(probabilty):
+                        odds = tableToRead['Winner Prediction'][index_1] * tableToRead['Winner Prediction'][index_2]
+                        isWin = 'False'
+                        if tableToRead['Win'][index_1] == 1:
+                            if tableToRead['Win'][index_2] == 1:
+                                isWin = 'True'
+                        ExpectancyOfVariance = probabilty * odds - 1
+                        touple = (index_2, index_1, probabilty, odds, isWin, ExpectancyOfVariance)
+                        listOfDoubles.append(touple)
 
         tableToRead['Serial Number Game1'] = ''
         tableToRead['Serial Number Game2'] = ''
@@ -359,7 +370,8 @@ def byEVdoubles(rounds_to_predict):
         difCounter = 0
         CounterIndex = 0
         listOfSn = []
-        while (difCounter < 10):
+        sizeoSorted = len(sortedT)
+        while (difCounter < 10 and CounterIndex < sizeoSorted):
             sn1 = sortedT[CounterIndex][0]
             sn2 = sortedT[CounterIndex][1]
             if sn1 not in listOfSn and sn2 not in listOfSn:
@@ -638,9 +650,18 @@ def winRateToAllSeason(rounds_to_predict):
 
     df.to_csv(currentDirectory + '{}outputs{}Avg.csv'.format(slashDirection, slashDirection), index=False)
 
+def startPredict():
+    ans = True
+    counter = 1
+    while ans is not False:
+        print('Counter {}'.format(counter))
+        ans = MakePredictionsAndMoveTheGamesFromUpToMainTable(counter)
+        counter = counter + 1
 
 if __name__ == '__main__':
-    #byEVsingle(23)
-    # byEVdoubles(23)
+    # addResultColumnToExcels(42)
+    #byEVsingle(42)
+    #byEVdoubles(42)
     # byEVtripples(23)
-    winRateToAllSeason(23)
+    winRateToAllSeason(42)
+    #startPredict()

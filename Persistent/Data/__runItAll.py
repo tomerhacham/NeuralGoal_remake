@@ -4,17 +4,17 @@ from Persistent.Data import _teamsGoalsScoredReceivedNormal  # 3
 from Persistent.Data import _combineStanding  # 4
 from Persistent.Data import _combineGoalsAadStanding  # 5
 from Persistent.Data import _GetCorrentRound  # 6
-# from Persistent.Data import _UpcomingBettingOddsWithAPI  # 7
+from Persistent.Data import _UpcomingBettingOddsWithAPI  # 7
 from Persistent.Data import _updateFiles  # 8
 from Persistent.Data import newLeagueValidation  # for adding new leagues
 from Persistent.Data.utils import getRoundPerLeague
 import os
 
-leagues = ["Serie", "PremierLeague", "Bundesliga", "Laliga", "Ligue1", "Jupiler", "Eredivisie"]
-# leagues = ["Serie"]
+#leagues = ["Serie", "PremierLeague", "Bundesliga", "Laliga", "Ligue1", "Jupiler", "Eredivisie"]
+leagues = ["Eredivisie"]
 
-years = [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19]
-# years = [9,10]
+#years = [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19]
+years = [20]
 
 for League in leagues:
     for year in years:
@@ -45,16 +45,16 @@ for League in leagues:
             # print(list(set(listOfNamesToConvert)), sep='\n')
             # TODO : END OF NEW LEAGUE
 
-            _updateFiles.run(League, startYear_C, endYear_C)
-            _BettingStats.run(League, _round, startYear, endYear)
-            _teamsGoalsScoredReceived.run(League, _round, startYear, endYear)
-            _teamsGoalsScoredReceivedNormal.run(League, _round, startYear, endYear)
-            _combineStanding.run(League, _round, startYear, endYear)
-            _combineGoalsAadStanding.run(League, _round, startYear, endYear)
-            # _GetCorrentRound.run(League,_round)    #TODO : only for prdicet
-            # _UpcomingBettingOddsWithAPI.run(League,_round) #TODO : only for prdicet
-            _updateFiles.combineToFinal(League, startYear, endYear)
-            _updateFiles.cleanAllFile(League, startYear, endYear)
+            # _updateFiles.run(League, startYear_C, endYear_C)
+            # _BettingStats.run(League, _round, startYear, endYear)
+            # _teamsGoalsScoredReceived.run(League, _round, startYear, endYear)
+            # _teamsGoalsScoredReceivedNormal.run(League, _round, startYear, endYear)
+            # _combineStanding.run(League, _round, startYear, endYear)
+            # _combineGoalsAadStanding.run(League, _round, startYear, endYear)
+            _GetCorrentRound.run(League,startYear)  
+            #_UpcomingBettingOddsWithAPI.run(League,_round) 
+            # _updateFiles.combineToFinal(League, startYear, endYear)
+            # _updateFiles.cleanAllFile(League, startYear, endYear)
 
             os.remove(League + "-" + str(startYear_C) + "-" + str(endYear_C) + ".csv")
 

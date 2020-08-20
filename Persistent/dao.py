@@ -131,6 +131,10 @@ class upcoming_games:
         parameters = [_round]
         return return_as_dataframe(query, self._conn, parameters)
 
+    def select_all_games_by_week(self):
+        query = """SELECT * FROM upcoming_games WHERE date BETWEEN datetime((select date from upcoming_games order by date ASC limit 1), '-1 days') AND datetime((select date from upcoming_games order by date ASC limit 1), '+6 days');"""
+        return return_as_dataframe(query,self._conn)
+
     def delete(self, date, home_team_name, away_team_name):
         c = self._conn.cursor()
         c.execute("""

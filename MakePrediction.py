@@ -22,13 +22,16 @@ def makePredictions(_round):
     repo = Repository()
     #region Data
     data=repo.main_table.select_all()
-    upcoming_games=repo.upcoming_games.select_by_league_by_round(_round)
+    #upcoming_games=repo.upcoming_games.select_by_league_by_round(_round)
+    upcoming_games=repo.upcoming_games.select_all_games_by_week()
+    if upcoming_games.empty:
+        return None
 
     x,y = data_preprocessor.train_preprocess(data)
     to_predict = data_preprocessor.prediction_preprocess(upcoming_games)
     #endregion
     #region ANN
-    avg = 30
+    avg = 20
     epoc = 30
     for i in range(0,avg):
         ann = neuralnet.neuralnet(x.shape[1])

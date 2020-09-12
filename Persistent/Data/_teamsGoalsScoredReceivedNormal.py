@@ -35,10 +35,16 @@ def run(leagueName,round,startYear,endYear):
             if leagueName == "Bundesliga" or leagueName == "Eredivisie":
                 _range = 41-4
             elif leagueName == "Jupiler":
-                if startYear <= 8:
+                _range = 41-4
+            elif leagueName == "Scotish":
+                _range = 25
+            elif leagueName == "Portugal":
+                if int(sY) <= 5:
                     _range = 41-4
+                elif int(sY) <= 13:
+                    _range = 41-4-4
                 else:
-                    _range = 41-8
+                    _range = 41-4
             else:
                 _range =41
             for counter in range(1,_range):

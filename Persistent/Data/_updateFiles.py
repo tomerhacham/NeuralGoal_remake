@@ -28,16 +28,15 @@ def run(leagueName, startYear, endYear):
         url = baseURL + "{}{}/B1.csv".format(startYear, endYear)
     if leagueName == "Eredivisie":
         url = baseURL + "{}{}/N1.csv".format(startYear,endYear)
+    if leagueName == "Scotish":
+        url = baseURL + "{}{}/SC0.csv".format(startYear,endYear)
+    if leagueName == "Portugal":
+        url = baseURL + "{}{}/P1.csv".format(startYear,endYear)
 
     startYear = str(startYear)
     endYear = str(endYear)
 
     urllib.request.urlretrieve(url, str(currentDirectory) + "//" + leagueName + "-" + startYear + "-" + endYear + ".csv")
-
-    #df = pd.read_csv(leagueName + "-" + startYear + "-" + endYear + ".csv")
-    #if startYear == "19":
-    #    df.drop('Time', axis=1, inplace=True)
-    #df.to_csv(leagueName + "-" + startYear + "-" + endYear + ".csv", index=False)
 
 
 def cleanAllFile(leagueName, startYear, endYear):

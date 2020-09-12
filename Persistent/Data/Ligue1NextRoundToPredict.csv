@@ -1,8 +1,0 @@
-,league,date,round,home_team_name,away_team_name,home_team_rank,away_team_rank,home_team_scored,home_team_received,away_team_scored,away_team_received,home_att,away_att,home_def,away_def,home_mid,away_mid,home_odds_n,draw_odds_n,away_odds_n,home_odds_nn,draw_odds_nn,away_odds_nn
-0,Ligue1,21/08/2020,1,Bordeaux,Nantes,12,13,1.3,0.333333333,1,1.333333333,75,75,76,74,75,73,,,,,,
-1,Ligue1,22/08/2020,1,Dijon,Angers,16,11,1,2,1.333333333,0,72,74,70,74,72,75,,,,,,
-2,Ligue1,22/08/2020,1,Lille,Rennes,4,3,1.666666667,0,1.333333333,0.666666667,77,76,76,76,77,77,,,,,,
-3,Ligue1,23/08/2020,1,Monaco,Reims,9,6,1,1.333333333,1,0.666666667,80,71,76,73,78,73,,,,,,
-4,Ligue1,23/08/2020,1,Nimes,Brest,18,14,1.333333333,2.333333333,0.666666667,1.333333333,72,72,72,72,70,72,,,,,,
-5,Ligue2,23/08/2020,1,Lorient,Strasbourg,19,10,1,1,0.333333333,1.333333333,72,75,72,74,72,74,,,,,,
-6,Ligue3,23/08/2020,1,Nice,Lens,5,20,1.666666667,1.333333333,1,1,72,74,72,74,72,76,,,,,,

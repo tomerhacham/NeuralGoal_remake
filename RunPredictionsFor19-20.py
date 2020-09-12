@@ -17,7 +17,7 @@ rounds_to_predict = 23
 
 
 def resultForGame(_date, home_team_name, away_team_name, league):
-    filePath = currentDirectory + '{}Persistent{}Data{}{} stats{}Final{}{}-19-20-Final.csv'.format(slashDirection,
+    filePath = currentDirectory + '{}Persistent{}Data{}{} stats{}Final{}{}-20-21-Final.csv'.format(slashDirection,
                                                                                                    slashDirection,
                                                                                                    slashDirection,
                                                                                                    league,
@@ -36,12 +36,8 @@ def resultForGame(_date, home_team_name, away_team_name, league):
                     return row[13]
     return -1
 
+def fromUpComingToMainTable(gamesToMainTable):
 
-def MakePredictionsAndMoveTheGamesFromUpToMainTable(rounds_to_predict):
-    #for _round in range(rounds_to_predict):
-    #_round = _round + 1
-    _round = rounds_to_predict
-    gamesToMainTable = makePredictions(_round)
     if gamesToMainTable is None:
         print('No games left')
         return False
@@ -94,6 +90,14 @@ def MakePredictionsAndMoveTheGamesFromUpToMainTable(rounds_to_predict):
         repo = Repository()
         repo.upcoming_games.delete(_date, _home_team_name, _away_team_name)
         repo.main_table.insert(gameToAdd)
+
+def MakePredictionsAndMoveTheGamesFromUpToMainTable(rounds_to_predict):
+    #for _round in range(rounds_to_predict):
+    #_round = _round + 1
+    _round = rounds_to_predict
+    gamesToMainTable = makePredictions(_round)
+    #fromUpComingToMainTable(gamesToMainTable)
+
 
 
 def addResultColumnToExcels(rounds_to_predict):
@@ -651,17 +655,16 @@ def winRateToAllSeason(rounds_to_predict):
     df.to_csv(currentDirectory + '{}outputs{}Avg.csv'.format(slashDirection, slashDirection), index=False)
 
 def startPredict():
-    ans = True
     counter = 1
-    while ans is not False:
+    while counter <= 1:
         print('Counter {}'.format(counter))
-        ans = MakePredictionsAndMoveTheGamesFromUpToMainTable(counter)
+        MakePredictionsAndMoveTheGamesFromUpToMainTable(counter)
         counter = counter + 1
 
 if __name__ == '__main__':
-    # addResultColumnToExcels(42)
-    #byEVsingle(42)
-    #byEVdoubles(42)
+    #addResultColumnToExcels(4)
+    #byEVsingle(2)
+    #byEVdoubles(2)
     # byEVtripples(23)
-    winRateToAllSeason(42)
-    #startPredict()
+    #winRateToAllSeason(42)
+    startPredict()

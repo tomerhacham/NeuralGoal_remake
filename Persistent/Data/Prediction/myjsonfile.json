@@ -1,0 +1,174 @@
+{
+    "table": [
+        [
+            {
+                "HomeTeam": "מונפלייה"
+            },
+            {
+                "AwayTeam": "ניס"
+            },
+            {
+                "HomeTeamOdds": "2.00"
+            },
+            {
+                "DrawOdds": "2.90"
+            },
+            {
+                "AwayTeamOdds": "3.00"
+            }
+        ],
+        [
+            {
+                "HomeTeam": "סט. אטיין"
+            },
+            {
+                "AwayTeam": "ראסינג שטראסבורג"
+            },
+            {
+                "HomeTeamOdds": "1.85"
+            },
+            {
+                "DrawOdds": "3.00"
+            },
+            {
+                "AwayTeamOdds": "3.30"
+            }
+        ],
+        [
+            {
+                "HomeTeam": "ליל"
+            },
+            {
+                "AwayTeam": "מץ"
+            },
+            {
+                "HomeTeamOdds": "1.40"
+            },
+            {
+                "DrawOdds": "3.50"
+            },
+            {
+                "AwayTeamOdds": "5.70"
+            }
+        ],
+        [
+            {
+                "HomeTeam": "אנז'ר"
+            },
+            {
+                "AwayTeam": "ריימס"
+            },
+            {
+                "HomeTeamOdds": "2.15"
+            },
+            {
+                "DrawOdds": "2.75"
+            },
+            {
+                "AwayTeamOdds": "2.90"
+            }
+        ],
+        [
+            {
+                "HomeTeam": "לוריין"
+            },
+            {
+                "AwayTeam": "לאנס"
+            },
+            {
+                "HomeTeamOdds": "1.95"
+            },
+            {
+                "DrawOdds": "2.95"
+            },
+            {
+                "AwayTeamOdds": "3.10"
+            }
+        ],
+        [
+            {
+                "HomeTeam": "נים"
+            },
+            {
+                "AwayTeam": "ראן"
+            },
+            {
+                "HomeTeamOdds": "3.00"
+            },
+            {
+                "DrawOdds": "2.90"
+            },
+            {
+                "AwayTeamOdds": "2.00"
+            }
+        ],
+        [
+            {
+                "HomeTeam": "דיז'ון"
+            },
+            {
+                "AwayTeam": "ברסט"
+            },
+            {
+                "HomeTeamOdds": "2.20"
+            },
+            {
+                "DrawOdds": "2.80"
+            },
+            {
+                "AwayTeamOdds": "2.75"
+            }
+        ],
+        [
+            {
+                "HomeTeam": "מונאקו"
+            },
+            {
+                "AwayTeam": "נאנט"
+            },
+            {
+                "HomeTeamOdds": "1.65"
+            },
+            {
+                "DrawOdds": "3.30"
+            },
+            {
+                "AwayTeamOdds": "3.75"
+            }
+        ],
+        [
+            {
+                "HomeTeam": "מונפלייה"
+            },
+            {
+                "AwayTeam": "ליון"
+            },
+            {
+                "HomeTeamOdds": "3.10"
+            },
+            {
+                "DrawOdds": "3.00"
+            },
+            {
+                "AwayTeamOdds": "1.95"
+            }
+        ],
+        [
+            {
+                "HomeTeam": "פאריס סן ז'רמן"
+            },
+            {
+                "AwayTeam": "מץ"
+            },
+            {
+                "HomeTeamOdds": "1.05"
+            },
+            {
+                "DrawOdds": "6.50"
+            },
+            {
+                "AwayTeamOdds": "13.75"
+            }
+        ]
+    ]
+}

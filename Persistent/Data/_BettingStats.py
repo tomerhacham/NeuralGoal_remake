@@ -17,10 +17,6 @@ def run(leagueName,round,startYear,endYear):
     startY =[startYear]
     endY = [endYear]
 
-    #startY =[14,15,16,17,18]
-    #endY = [15,16,17,18,19]
-
-
     for index in range(len(startY)):
 
         current_league = leagueName
@@ -56,8 +52,9 @@ def run(leagueName,round,startYear,endYear):
                 return '@@@@@@@@@@@'
 
 
+
         try:
-            team_stat = pandas.read_csv(current_league + "-" + str(start_year) + "-" + str(end_year) + ".csv",parse_dates=True)
+            team_stat = pandas.read_csv(current_league + "-" + str(start_year) + "-" + str(end_year) + ".csv",parse_dates=True ,encoding = "ISO-8859-1")
         except:
             print(str(start_year) + " " + str(end_year) + " Curropt")
             continue

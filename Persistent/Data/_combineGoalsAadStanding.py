@@ -1,10 +1,13 @@
+import os
+
 import pandas
 import csv
 import numpy
 from bs4 import BeautifulSoup
 import requests
 import time
-from Persistent.Data.utils import getRoundPerLeague
+from Persistent.Data.utils import getRoundPerLeague, getLastYearRound
+
 
 def run(leagueName,round,startYear,endYear):
 
@@ -16,30 +19,79 @@ def run(leagueName,round,startYear,endYear):
         sY = str(startY[x])
         eY = str(endY[x])
 
+        sYL = str(startY[x]-1)
+        eYL = str(endY[x]-1)
+
         table = []
         rows = []
 
         team_standing = pandas.read_csv("standing-" + sY + "-" + eY + "-AVG.csv")
 
+        if sY != "5":
+            currentWD = os.getcwd()
+            destinationPath = currentWD + "\\" + leagueName + " stats\\Stats For {}-{}\\".format(sYL,eYL) + "standing-" + sYL + "-" + eYL + "-AVG.csv"
+            team_standing_lastYear = pandas.read_csv(destinationPath)
+            lastRoundIndex = team_standing_lastYear.shape[0]-1
         for index, row in team_standing.iterrows():
             rows.append(row)
-        _Range = getRoundPerLeague(leagueName,startYear) + 2
+
+        _Range = getLastYearRound(leagueName,int(sY)) + 2
         t = []
         counter = 0
+
+
         for row in rows:
             d = {}
+            # First round - Take the average of the last 3 games of last year
+            # if no data - "-1" will be entered
             if(counter == 0):
                 for x in range(0,_Range):
-                    name = list(team_standing.columns)[x+1]
-                    d[name] = row[x+1]
+                    try:
+                        if sY is "5":
+                            name = list(team_standing.columns)[x + 1]
+                            d[name] = 1
+                        else:
+                            name = list(team_standing.columns)[x + 1]
+                            lastRoundForTeam = team_standing_lastYear[name][lastRoundIndex]
+                            lastRoundForTeamMinus1 = team_standing_lastYear[name][lastRoundIndex-1]
+                            lastRoundForTeamMinus2 = team_standing_lastYear[name][lastRoundIndex-2]
+                            d[name] = ((lastRoundForTeam+lastRoundForTeamMinus1+lastRoundForTeamMinus2)/3)
+                    except:
+                        continue
+            # Second round - Take the average of the last 2 games of last year and the first round of the current year
             elif(counter == 1):
                 for x in range(0,_Range):
-                    name = list(team_standing.columns)[x+1]
-                    d[name] = (row[x+1] + rows[counter-1][x+1])/2
+                    try:
+                        if sY is "5":
+                            name = list(team_standing.columns)[x + 1]
+                            d[name] = 1
+                        else:
+                            name = list(team_standing.columns)[x+1]
+                            lastRoundForTeam = team_standing_lastYear[name][lastRoundIndex]
+                            lastRoundForTeamMinus1 = team_standing_lastYear[name][lastRoundIndex - 1]
+                            d[name] = (row[x+1] + lastRoundForTeam + lastRoundForTeamMinus1)/3
+                    except:
+                        continue
+            # Third round - Take the average of the last game of last year and the first 2 rounds of the current year
+            elif(counter==2):
+                for x in range(0,_Range):
+                    try:
+                        if sY is "5":
+                            name = list(team_standing.columns)[x + 1]
+                            d[name] = 1
+                        else:
+                            name = list(team_standing.columns)[x+1]
+                            d[name] = (row[x+1] + rows[counter-1][x+1] + team_standing_lastYear[name][lastRoundIndex])/3
+                    except:
+                        continue
+            # Fourth and Greater - Take last 3 games
             else:
                 for x in range(0,_Range):
-                    name = list(team_standing.columns)[x+1]
-                    d[name] = (row[x+1] + rows[counter-1][x+1] + rows[counter-2][x+1])/3
+                    try:
+                        name = list(team_standing.columns)[x+1]
+                        d[name] = (row[x+1] + rows[counter-1][x+1] + rows[counter-2][x+1])/3
+                    except:
+                        continue
             counter = counter+1
             t.append(d)
 
@@ -84,6 +136,17 @@ def run(leagueName,round,startYear,endYear):
             _leaguRound = 0
             if leagueName == "Bundesliga" or leagueName == "Eredivisie":
                 _leaguRound = 9
+
+            elif leagueName == "Portugal":
+                if startYear <= 5:
+                    _leaguRound = 9
+                elif startYear <= 13:
+                    _leaguRound = 8
+                else:
+                    _leaguRound = 9
+            elif leagueName == "Scotish":
+                _leaguRound = 6
+
             elif leagueName == "Jupiler":
                 if startYear <= 8:
                     _leaguRound = 9

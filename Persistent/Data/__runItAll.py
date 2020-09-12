@@ -6,62 +6,83 @@ from Persistent.Data import _combineGoalsAadStanding  # 5
 from Persistent.Data import _GetCorrentRound  # 6
 from Persistent.Data import _UpcomingBettingOddsWithAPI  # 7
 from Persistent.Data import _updateFiles  # 8
+from Persistent.Data import _UpcomingFromWinner
 from Persistent.Data import newLeagueValidation  # for adding new leagues
 from Persistent.Data.utils import getRoundPerLeague
 import os
 
-#leagues = ["Serie", "PremierLeague", "Bundesliga", "Laliga", "Ligue1", "Jupiler", "Eredivisie"]
-leagues = ["Eredivisie"]
+#leagues = ["Serie", "PremierLeague", "Bundesliga", "Laliga", "Ligue1", "Jupiler", "Eredivisie" , "Scotish" , "Portugal"]
 
-#years = [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19]
+
+
+leagues = ["Ligue1"]
+
+#years = [5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]
 years = [20]
 
-for League in leagues:
-    for year in years:
-        try:
-            startYear = year
-            endYear = startYear + 1
-            startYear_C = startYear
-            endYear_C = endYear
 
-            league = str(League)
-            _round = getRoundPerLeague(league,startYear)
+for League in range(len(leagues)):
+    for year in range(len(years)):
+        startYear = years[year]
+        endYear = startYear + 1
+        startYear_C = startYear
+        endYear_C = endYear
 
-            if startYear < 10:
-                startYear_C = "0" + str(startYear)
-            if endYear < 10:
-                endYear_C = "0" + str(endYear)
+        league = str(leagues[League])
+        _round = getRoundPerLeague(league,startYear)
 
-            # TODO : FOR NEW LEAGUE
-            # listOfNotFound = []
-            # listOfNamesToConvert = []
-            # for year in range(5,20):
-            #     newLeagueValidation.run("Eredivisie",year,year+1,"N1")
-            #     if year != 7:
-            #         listOfNotFound.extend(newLeagueValidation.validate("Eredivisie",year,year+1))
-            # for Gyear in range(5, 20):
-            #     listOfNamesToConvert.extend(newLeagueValidation.getAllNames("ned-eredivisie-", Gyear, Gyear + 1))
-            #  print(list(set(listOfNotFound)))
-            # print(list(set(listOfNamesToConvert)), sep='\n')
-            # TODO : END OF NEW LEAGUE
+        if startYear < 10:
+            startYear_C = "0" + str(startYear)
+        if endYear < 10:
+            endYear_C = "0" + str(endYear)
 
-            # _updateFiles.run(League, startYear_C, endYear_C)
-            # _BettingStats.run(League, _round, startYear, endYear)
-            # _teamsGoalsScoredReceived.run(League, _round, startYear, endYear)
-            # _teamsGoalsScoredReceivedNormal.run(League, _round, startYear, endYear)
-            # _combineStanding.run(League, _round, startYear, endYear)
-            # _combineGoalsAadStanding.run(League, _round, startYear, endYear)
-            _GetCorrentRound.run(League,startYear)  
-            #_UpcomingBettingOddsWithAPI.run(League,_round) 
-            # _updateFiles.combineToFinal(League, startYear, endYear)
-            # _updateFiles.cleanAllFile(League, startYear, endYear)
+        # # TODO : FOR NEW LEAGUE
+        # listOfNotFound = []
+        # listOfNamesToConvert = []
+        # for year in range(5,20):
+        #     newLeagueValidation.run("Scotish",year,year+1,"SC0")
+        #     if year != 7:
+        #         listOfNotFound.extend(newLeagueValidation.validate("Scotish",year,year+1))
+        # for Gyear in range(5, 20):
+        #     listOfNamesToConvert.extend(newLeagueValidation.getAllNames("sco-premiership-", Gyear, Gyear + 1))
+        # print(list(set(listOfNotFound)))
+        # print(list(set(listOfNamesToConvert)), sep='\n')
+        # # TODO : END OF NEW LEAGUE
 
-            os.remove(League + "-" + str(startYear_C) + "-" + str(endYear_C) + ".csv")
 
-            print("Finished the run successfully !!!")
-            print("Finished the run successfully !!!")
-            print("Finished the run successfully !!!")
-            print("Finished the run successfully !!!")
-        except:
-            print(str(startYear) + " redo")
-            continue
+
+        # # Download All games until the current round from https://www.football-data.co.uk/
+        # _updateFiles.run(league, startYear_C, endYear_C)
+        # #
+        # # {League name}-20-21-Final-Stats
+        # _BettingStats.run(league, _round, startYear, endYear)
+        #
+        # # standing-20-21
+        # _teamsGoalsScoredReceived.run(league, _round, startYear, endYear)
+        #
+        # # standing-8-9-AVG
+        # _teamsGoalsScoredReceivedNormal.run(league, _round, startYear, endYear)
+        #
+        # # standing-8-9-Teams
+        # _combineStanding.run(league, _round, startYear, endYear)
+        #
+        # # {League}-8-9-Goals-AVG3
+        # _combineGoalsAadStanding.run(league, _round, startYear, endYear)
+
+
+        #_GetCorrentRound.run(league,startYear)
+        #_UpcomingBettingOddsWithAPI.run(league)
+        _UpcomingFromWinner.run(league)
+
+
+
+        # _updateFiles.combineToFinal(league, startYear, endYear)
+        # _updateFiles.cleanAllFile(league, startYear, endYear)
+
+        # os.remove(league + "-" + str(startYear_C) + "-" + str(endYear_C) + ".csv")
+
+        print("Finished the run successfully !!!")
+        print("Finished the run successfully !!!")
+        print("Finished the run successfully !!!")
+        print("Finished the run successfully !!!")
+

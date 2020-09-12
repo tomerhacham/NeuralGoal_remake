@@ -38,7 +38,8 @@ def run(leagueName,round,startYear,endYear):
             if leagueName == "Laliga" and sY == "16":
                 data = requests.get("https://www.worldfootball.net/schedule/" + _le + "20{}-20{}-spieltag_2/".format(sY,eY) + str(x))
             else:
-                data = requests.get("https://www.worldfootball.net/schedule/" + _le + "20{}-20{}-spieltag/".format(sY,eY) + str(x))
+                url = "https://www.worldfootball.net/schedule/" + _le + "20{}-20{}-spieltag/".format(sY,eY) + str(x)
+                data = requests.get(url)
             teamData = data.content
             d = {}
             teamData = BeautifulSoup(teamData,"html.parser").find_all("div",{"class":"box"})[1].find("table",{"class":"standard_tabelle"}).find_all("tr",{"":""})

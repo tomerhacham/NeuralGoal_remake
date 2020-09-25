@@ -1,35 +1,35 @@
 ,homeTeam,awayTeam,Home Team Rank,Away Team Rank,Home Team Scored Goals,Home Team Received Goals,Away Team Scored Goals,Away Team received Goals
-0,Paris SG,Metz,1,20,4.0,1.0,1.0,4.0
-1,Lille,Rennes,6,17,1.0,0.0,0.0,1.0
-2,Marseille,Bordeaux,18,3,0.0,2.0,2.0,0.0
-3,Nancy,Monaco,15,5,0.0,1.0,1.0,0.0
-4,Nantes,Lens,2,19,2.0,0.0,0.0,2.0
-5,Nice,Troyes,9,8,1.0,1.0,1.0,1.0
-6,Sochaux,Toulouse,16,7,0.0,1.0,1.0,0.0
-7,St Etienne,Ajaccio,12,10,0.0,0.0,0.0,0.0
-8,Strasbourg,Auxerre,13,11,0.0,0.0,0.0,0.0
-9,Le Mans,Lyon,14,4,1.0,2.0,2.0,1.0
-10,Ajaccio,Lille,10,6,0.0,0.0,1.0,0.0
-11,Bordeaux,Nancy,3,17,1.5,0.0,0.0,1.0
-12,Lens,Marseille,8,19,1.0,1.0,0.0,2.0
-13,Metz,Le Mans,16,14,0.5,2.0,0.5,1.0
-14,Monaco,Auxerre,9,6,0.5,1.0,1.0,0.0
-15,Sochaux,Paris SG,18,2,0.0,1.0,2.5,0.5
-16,Toulouse,Nice,10,5,0.5,1.0,1.5,0.5
-17,Troyes,St Etienne,12,13,0.5,0.5,0.0,0.0
-18,Lyon,Strasbourg,4,15,1.5,0.5,0.0,0.5
-19,Rennes,Nantes,20,1,0.0,2.0,2.5,0.0
-20,Auxerre,Bordeaux,6,3,1.0,0.0,1.5,0.0
-21,Le Mans,Rennes,11,20,1.6666666666666667,0.6666666666666666,0.0,2.6666666666666665
-22,Lille,Troyes,13,10,1.6666666666666667,1.6666666666666667,1.0,0.6666666666666666
-23,Nancy,Lens,19,6,0.3333333333333333,1.3333333333333333,1.3333333333333333,1.0
-24,Nantes,Ajaccio,4,8,1.6666666666666667,0.6666666666666666,1.6666666666666667,1.0
-25,Nice,Sochaux,12,14,1.3333333333333333,1.0,0.6666666666666666,1.0
-26,Paris SG,Toulouse,1,15,2.333333333333333,0.3333333333333333,0.3333333333333333,1.3333333333333333
-27,St Etienne,Metz,9,18,0.6666666666666666,0.0,0.3333333333333333,2.0
-28,Marseille,Lyon,17,3,0.3333333333333333,1.6666666666666667,1.3333333333333333,0.6666666666666666
-29,Strasbourg,Monaco,16,7,0.3333333333333333,1.0,1.0,1.0
-30,Ajaccio,Le Mans,8,11,1.6666666666666667,1.0,1.6666666666666667,0.6666666666666666
+0,Paris SG,Metz,16,16,,,,
+1,Lille,Rennes,16,16,,,,
+2,Marseille,Bordeaux,16,16,,,,
+3,Nancy,Monaco,16,16,,,,
+4,Nantes,Lens,16,16,,,,
+5,Nice,Troyes,16,16,,,,
+6,Sochaux,Toulouse,16,16,,,,
+7,St Etienne,Ajaccio,16,16,,,,
+8,Strasbourg,Auxerre,16,16,,,,
+9,Le Mans,Lyon,16,16,,,,
+10,Ajaccio,Lille,16,16,,,,
+11,Bordeaux,Nancy,16,16,,,,
+12,Lens,Marseille,16,16,,,,
+13,Metz,Le Mans,16,16,,,,
+14,Monaco,Auxerre,16,16,,,,
+15,Sochaux,Paris SG,16,16,,,,
+16,Toulouse,Nice,16,16,,,,
+17,Troyes,St Etienne,16,16,,,,
+18,Lyon,Strasbourg,16,16,,,,
+19,Rennes,Nantes,16,16,,,,
+20,Auxerre,Bordeaux,16,16,,,,
+21,Le Mans,Rennes,16,16,,,,
+22,Lille,Troyes,16,16,,,,
+23,Nancy,Lens,16,16,,,,
+24,Nantes,Ajaccio,16,16,,,,
+25,Nice,Sochaux,16,16,,,,
+26,Paris SG,Toulouse,16,16,,,,
+27,St Etienne,Metz,16,16,,,,
+28,Marseille,Lyon,16,16,,,,
+29,Strasbourg,Monaco,16,16,,,,
+30,Ajaccio,Le Mans,16,16,,,,
 31,Bordeaux,Monaco,4,10,0.6666666666666666,0.3333333333333333,0.6666666666666666,1.3333333333333333
 32,Lens,Auxerre,3,6,3.6666666666666665,0.3333333333333333,1.0,2.333333333333333
 33,Lyon,Nancy,2,20,1.0,0.3333333333333333,0.3333333333333333,1.3333333333333333

@@ -13,7 +13,8 @@ class Repository():
     odds_details=None;
 
     def __init__(self):
-        currentDirectory = os.getcwd()
+        #currentDirectory = os.getcwd()
+        currentDirectory = 'C:\\Users\\Andrey\\Documents\\NeuralGoal_remake'
         slashDirection = "\\"
         if platform.system() == "Darwin":
             slashDirection = "//"

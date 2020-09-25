@@ -1,32 +1,32 @@
 ,homeTeam,awayTeam,Home Team Rank,Away Team Rank,Home Team Scored Goals,Home Team Received Goals,Away Team Scored Goals,Away Team received Goals
-0,Club Brugge,Mouscron,4,15,2.0,0.0,0.0,2.0
-1,Anderlecht,Louvieroise,1,18,6.0,0.0,0.0,6.0
-2,Beveren,FC Brussels,17,5,0.0,2.0,2.0,0.0
-3,Gent,Waregem,12,3,1.0,3.0,3.0,1.0
-4,Lokeren,Genk,10,9,1.0,1.0,1.0,1.0
-5,St Truiden,Roeselare,8,11,1.0,0.0,0.0,1.0
-6,Standard,Lierse,2,13,3.0,1.0,1.0,3.0
-7,Westerlo,Cercle Brugge,6,14,2.0,0.0,0.0,2.0
-8,Charleroi,Germinal,7,16,2.0,0.0,0.0,2.0
-9,Louvieroise,Gent,18,12,0.0,6.0,1.0,3.0
-10,FC Brussels,Club Brugge,5,4,1.5,0.5,1.5,0.5
-11,Germinal,Westerlo,15,3,0.0,1.5,1.5,0.0
-12,Mouscron,Lokeren,18,6,0.0,2.0,1.5,0.5
-13,Cercle Brugge,Anderlecht,17,1,0.0,2.0,4.0,0.0
-14,Genk,Charleroi,12,7,0.5,0.5,1.0,0.0
-15,Lierse,St Truiden,11,10,1.0,1.5,0.5,0.5
-16,Roeselare,Beveren,9,16,0.5,0.5,0.0,1.5
-17,Waregem,Standard,8,2,2.0,1.5,2.5,1.0
-18,Anderlecht,Germinal,1,15,4.0,0.0,0.0,1.5
-19,Beveren,Lierse,10,14,1.3333333333333333,1.3333333333333333,1.0,2.333333333333333
-20,Charleroi,Mouscron,6,18,1.0,0.0,0.0,1.6666666666666667
-21,Club Brugge,Roeselare,3,12,1.3333333333333333,0.3333333333333333,0.3333333333333333,0.6666666666666666
-22,Gent,Cercle Brugge,9,17,1.0,1.3333333333333333,0.0,1.6666666666666667
-23,Waregem,Louvieroise,7,15,1.3333333333333333,1.0,0.3333333333333333,2.333333333333333
-24,Westerlo,Genk,4,11,1.3333333333333333,0.3333333333333333,0.6666666666666666,0.6666666666666666
-25,Lokeren,FC Brussels,5,8,1.3333333333333333,0.3333333333333333,1.0,0.6666666666666666
-26,Standard,St Truiden,2,13,2.333333333333333,0.6666666666666666,0.3333333333333333,1.0
-27,St Truiden,Beveren,13,10,0.3333333333333333,1.0,1.3333333333333333,1.3333333333333333
+0,Club Brugge,Mouscron,14,14,1.0,1.0,1.0,1.0
+1,Anderlecht,Louvieroise,14,14,1.0,1.0,1.0,1.0
+2,Beveren,FC Brussels,14,14,1.0,1.0,1.0,1.0
+3,Gent,Waregem,14,14,1.0,1.0,1.0,1.0
+4,Lokeren,Genk,14,14,1.0,1.0,1.0,1.0
+5,St Truiden,Roeselare,14,14,1.0,1.0,1.0,1.0
+6,Standard,Lierse,14,14,1.0,1.0,1.0,1.0
+7,Westerlo,Cercle Brugge,14,14,1.0,1.0,1.0,1.0
+8,Charleroi,Germinal,14,14,1.0,1.0,1.0,1.0
+9,Louvieroise,Gent,14,14,1.0,1.0,1.0,1.0
+10,FC Brussels,Club Brugge,14,14,1.0,1.0,1.0,1.0
+11,Germinal,Westerlo,14,14,1.0,1.0,1.0,1.0
+12,Mouscron,Lokeren,14,14,1.0,1.0,1.0,1.0
+13,Cercle Brugge,Anderlecht,14,14,1.0,1.0,1.0,1.0
+14,Genk,Charleroi,14,14,1.0,1.0,1.0,1.0
+15,Lierse,St Truiden,14,14,1.0,1.0,1.0,1.0
+16,Roeselare,Beveren,14,14,1.0,1.0,1.0,1.0
+17,Waregem,Standard,14,14,1.0,1.0,1.0,1.0
+18,Anderlecht,Germinal,14,14,1.0,1.0,1.0,1.0
+19,Beveren,Lierse,14,14,1.0,1.0,1.0,1.0
+20,Charleroi,Mouscron,14,14,1.0,1.0,1.0,1.0
+21,Club Brugge,Roeselare,14,14,1.0,1.0,1.0,1.0
+22,Gent,Cercle Brugge,14,14,1.0,1.0,1.0,1.0
+23,Waregem,Louvieroise,14,14,1.0,1.0,1.0,1.0
+24,Westerlo,Genk,14,14,1.0,1.0,1.0,1.0
+25,Lokeren,FC Brussels,14,14,1.0,1.0,1.0,1.0
+26,Standard,St Truiden,14,14,1.0,1.0,1.0,1.0
+27,St Truiden,Beveren,14,14,1.0,1.0,1.0,1.0
 28,Cercle Brugge,Waregem,18,5,0.6666666666666666,2.333333333333333,1.6666666666666667,1.3333333333333333
 29,FC Brussels,Charleroi,10,4,1.0,1.3333333333333333,1.0,0.6666666666666666
 30,Germinal,Gent,15,12,1.0,1.6666666666666667,1.0,1.0

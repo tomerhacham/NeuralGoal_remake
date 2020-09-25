@@ -1,0 +1,31 @@
+,0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15
+0,,,,,,,,,,,,,,,,
+1,,,,,,,,,,,,,,,,
+2,,,,,,,,,,,,,,,,
+3,Sp Braga,Porto,Benfica,Rio Ave,Sp Lisbon,Olhanense,Leiria,Guimaraes,Maritimo,Belenenses,Pacos Ferreira,Leixoes,Nacional,Academica,Naval,Setubal
+4,Sp Braga,Benfica,Porto,Sp Lisbon,Rio Ave,Olhanense,Leiria,Guimaraes,Maritimo,Leixoes,Nacional,Belenenses,Setubal,Pacos Ferreira,Academica,Naval
+5,Sp Braga,Benfica,Porto,Rio Ave,Sp Lisbon,Nacional,Leiria,Pacos Ferreira,Guimaraes,Olhanense,Maritimo,Belenenses,Leixoes,Naval,Setubal,Academica
+6,Sp Braga,Benfica,Porto,Sp Lisbon,Nacional,Rio Ave,Maritimo,Leixoes,Naval,Leiria,Pacos Ferreira,Guimaraes,Olhanense,Belenenses,Setubal,Academica
+7,Sp Braga,Benfica,Porto,Sp Lisbon,Maritimo,Rio Ave,Nacional,Leiria,Leixoes,Guimaraes,Olhanense,Belenenses,Naval,Setubal,Pacos Ferreira,Academica
+8,Sp Braga,Benfica,Porto,Rio Ave,Nacional,Sp Lisbon,Leiria,Maritimo,Naval,Belenenses,Leixoes,Guimaraes,Olhanense,Setubal,Pacos Ferreira,Academica
+9,Sp Braga,Benfica,Porto,Nacional,Maritimo,Rio Ave,Sp Lisbon,Leiria,Guimaraes,Naval,Pacos Ferreira,Olhanense,Belenenses,Leixoes,Setubal,Academica
+10,Sp Braga,Benfica,Porto,Nacional,Maritimo,Rio Ave,Sp Lisbon,Leiria,Guimaraes,Naval,Pacos Ferreira,Academica,Belenenses,Leixoes,Olhanense,Setubal
+11,Sp Braga,Benfica,Porto,Nacional,Maritimo,Sp Lisbon,Rio Ave,Naval,Leiria,Guimaraes,Pacos Ferreira,Academica,Belenenses,Leixoes,Olhanense,Setubal
+12,Sp Braga,Benfica,Porto,Nacional,Maritimo,Rio Ave,Sp Lisbon,Leiria,Guimaraes,Naval,Pacos Ferreira,Academica,Belenenses,Leixoes,Olhanense,Setubal
+13,Sp Braga,Benfica,Porto,Nacional,Sp Lisbon,Leiria,Maritimo,Rio Ave,Guimaraes,Naval,Pacos Ferreira,Academica,Leixoes,Setubal,Olhanense,Belenenses
+14,Sp Braga,Benfica,Porto,Sp Lisbon,Nacional,Guimaraes,Leiria,Maritimo,Rio Ave,Academica,Naval,Pacos Ferreira,Setubal,Olhanense,Belenenses,Leixoes
+15,Sp Braga,Benfica,Porto,Sp Lisbon,Nacional,Guimaraes,Leiria,Rio Ave,Maritimo,Academica,Pacos Ferreira,Naval,Olhanense,Leixoes,Setubal,Belenenses
+16,Sp Braga,Benfica,Porto,Sp Lisbon,Leiria,Nacional,Guimaraes,Maritimo,Rio Ave,Pacos Ferreira,Naval,Academica,Olhanense,Leixoes,Setubal,Belenenses
+17,Sp Braga,Benfica,Porto,Sp Lisbon,Leiria,Maritimo,Nacional,Rio Ave,Guimaraes,Pacos Ferreira,Academica,Naval,Olhanense,Setubal,Leixoes,Belenenses
+18,Sp Braga,Benfica,Porto,Sp Lisbon,Leiria,Maritimo,Nacional,Rio Ave,Guimaraes,Pacos Ferreira,Academica,Naval,Olhanense,Setubal,Leixoes,Belenenses
+19,Benfica,Sp Braga,Porto,Sp Lisbon,Guimaraes,Leiria,Maritimo,Nacional,Pacos Ferreira,Rio Ave,Academica,Naval,Olhanense,Setubal,Leixoes,Belenenses
+20,Benfica,Sp Braga,Porto,Sp Lisbon,Guimaraes,Nacional,Pacos Ferreira,Rio Ave,Leiria,Maritimo,Naval,Academica,Olhanense,Setubal,Leixoes,Belenenses
+21,Benfica,Sp Braga,Porto,Sp Lisbon,Guimaraes,Leiria,Nacional,Pacos Ferreira,Rio Ave,Maritimo,Naval,Academica,Olhanense,Setubal,Leixoes,Belenenses
+22,Benfica,Sp Braga,Porto,Sp Lisbon,Guimaraes,Pacos Ferreira,Leiria,Naval,Nacional,Rio Ave,Maritimo,Academica,Olhanense,Setubal,Leixoes,Belenenses
+23,Benfica,Sp Braga,Porto,Sp Lisbon,Guimaraes,Leiria,Pacos Ferreira,Maritimo,Naval,Nacional,Rio Ave,Academica,Olhanense,Setubal,Leixoes,Belenenses
+24,Benfica,Sp Braga,Porto,Sp Lisbon,Guimaraes,Leiria,Pacos Ferreira,Nacional,Maritimo,Naval,Rio Ave,Academica,Olhanense,Setubal,Leixoes,Belenenses
+25,Benfica,Sp Braga,Porto,Sp Lisbon,Guimaraes,Leiria,Nacional,Pacos Ferreira,Maritimo,Naval,Rio Ave,Academica,Olhanense,Setubal,Leixoes,Belenenses
+26,Benfica,Sp Braga,Porto,Sp Lisbon,Guimaraes,Nacional,Maritimo,Leiria,Naval,Pacos Ferreira,Rio Ave,Academica,Olhanense,Setubal,Leixoes,Belenenses
+27,Benfica,Sp Braga,Porto,Sp Lisbon,Guimaraes,Nacional,Maritimo,Leiria,Pacos Ferreira,Naval,Rio Ave,Academica,Olhanense,Setubal,Leixoes,Belenenses
+28,Benfica,Sp Braga,Porto,Sp Lisbon,Guimaraes,Maritimo,Nacional,Naval,Leiria,Pacos Ferreira,Rio Ave,Academica,Olhanense,Setubal,Leixoes,Belenenses
+29,Benfica,Sp Braga,Porto,Sp Lisbon,Maritimo,Guimaraes,Nacional,Naval,Leiria,Pacos Ferreira,Academica,Rio Ave,Olhanense,Setubal,Belenenses,Leixoes

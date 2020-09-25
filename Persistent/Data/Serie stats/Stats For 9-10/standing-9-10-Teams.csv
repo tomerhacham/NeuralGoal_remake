@@ -1,7 +1,7 @@
 ,0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19
-0,Genoa,Milan,Sampdoria,Palermo,Juventus,Lazio,Parma,Fiorentina,Bari,Bologna,Inter,Livorno,Udinese,Cagliari,Roma,Siena,Catania,Napoli,Atalanta,Chievo
-1,Sampdoria,Juventus,Genoa,Lazio,Inter,Parma,Fiorentina,Siena,Napoli,Palermo,Milan,Bari,Bologna,Livorno,Udinese,Cagliari,Catania,Atalanta,Roma,Chievo
-2,Genoa,Juventus,Sampdoria,Inter,Fiorentina,Lazio,Palermo,Parma,Milan,Udinese,Siena,Bari,Roma,Napoli,Chievo,Livorno,Bologna,Cagliari,Atalanta,Catania
+0,,,,,,,,,,,,,,,,,,,,
+1,,,,,,,,,,,,,,,,,,,,
+2,,,,,,,,,,,,,,,,,,,,
 3,Sampdoria,Juventus,Inter,Genoa,Parma,Fiorentina,Lazio,Milan,Bari,Roma,Chievo,Udinese,Palermo,Napoli,Siena,Bologna,Livorno,Catania,Cagliari,Atalanta
 4,Inter,Juventus,Sampdoria,Genoa,Fiorentina,Parma,Udinese,Roma,Lazio,Milan,Chievo,Bari,Palermo,Bologna,Siena,Napoli,Cagliari,Catania,Livorno,Atalanta
 5,Sampdoria,Juventus,Inter,Fiorentina,Udinese,Genoa,Parma,Roma,Lazio,Milan,Chievo,Bari,Napoli,Cagliari,Palermo,Bologna,Siena,Catania,Atalanta,Livorno

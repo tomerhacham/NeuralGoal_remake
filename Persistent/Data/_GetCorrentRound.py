@@ -47,7 +47,6 @@ def run(leagueName,sY):
 
     teamData = data.content
     games = BeautifulSoup(teamData,"html.parser").find_all("div",{"class":"box"})[0].find("table",{"class":"standard_tabelle"}).find_all("tr",{"":""})
-    xxxx = games[1].find_all("td",{"":""})[5].text
     if games[1].find_all("td",{"":""})[5].text.find('-:-') == -1 and games[1].find_all("td",{"":""})[5].text.find('resch.') == -1:
         _round = _round + 1
         data = requests.get("https://www.worldfootball.net/schedule/" + _le + "20{}-20{}-spieltag/{}/".format(sY, eY,_round))
@@ -75,6 +74,7 @@ def run(leagueName,sY):
             standing_teams.append(team_name)
         except:
             continue
+
     
     gameCounter = 0
     for teams in games:
@@ -82,21 +82,20 @@ def run(leagueName,sY):
             d = {}
             data = teams.find_all("td",{"":""})
             data = teams.find_all("a",{"":""})
-
+            CgameDate = teams.find("td", {"": ""}).text
+            if CgameDate is not "":
+                d["date"] = CgameDate
+                gameDate = CgameDate
+            else:
+                d["date"] = gameDate
             isGameGoing = teams.find_all("td",{"":""})[5].text
-            resss = isGameGoing.find('resch.')
             if isGameGoing.find('resch.') >= 0:
                 continue
             homeTeam = data[0].text
             AwayTeam = data[1].text
             homeTeam = getTeamName(homeTeam)
             AwayTeam = getTeamName(AwayTeam)
-            CgameDate = teams.find("td",{"":""}).text
-            if CgameDate is not "":
-                d["date"] = CgameDate
-                gameDate = CgameDate
-            else:
-                d["date"] = gameDate
+
             d["league"] = leagueName
             d["round"] = _round
             d["home_team_name"] = homeTeam

@@ -89,7 +89,12 @@ def fromUpComingToMainTable(gamesToMainTable):
                               _home_odds_nn, _draw_odds_nn, _away_odds_nn)
         repo = Repository()
         repo.upcoming_games.delete(_date, _home_team_name, _away_team_name)
-        repo.main_table.insert(gameToAdd)
+        try:
+            repo.main_table.insert(gameToAdd)
+            print('{} game added to main db - {} - {} vs {}'.format(_date, leagueName, _home_team_name, _away_team_name))
+        except:
+            print('cant add to main in db - {} - {} vs {}'.format(leagueName, _home_team_name, _away_team_name))
+            continue
 
 def MakePredictionsAndMoveTheGamesFromUpToMainTable(rounds_to_predict):
     #for _round in range(rounds_to_predict):
@@ -108,6 +113,7 @@ def addResultColumnToExcels(rounds_to_predict):
         tableToRead = pandas.read_csv(path, parse_dates=True)
         tableToRead['Result'] = 0
         for index, row in tableToRead.iterrows():
+
             gameResult = resultForGame(row[1], row[2], row[3], row[0])
             tableToRead['Result'][index] = str(gameResult)
         tableToRead.to_csv(

@@ -1,0 +1,31 @@
+,0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15
+0,,,,,,,,,,,,,,,,
+1,,,,,,,,,,,,,,,,
+2,,,,,,,,,,,,,,,,
+3,Porto,Sp Lisbon,Sp Braga,Estoril,Benfica,Maritimo,Guimaraes,Rio Ave,Gil Vicente,Arouca,Nacional,Academica,Olhanense,Setubal,Belenenses,Pacos Ferreira
+4,Porto,Sp Braga,Sp Lisbon,Benfica,Estoril,Rio Ave,Gil Vicente,Maritimo,Nacional,Guimaraes,Arouca,Olhanense,Setubal,Academica,Belenenses,Pacos Ferreira
+5,Porto,Sp Lisbon,Sp Braga,Estoril,Benfica,Nacional,Gil Vicente,Rio Ave,Maritimo,Guimaraes,Arouca,Setubal,Academica,Olhanense,Belenenses,Pacos Ferreira
+6,Porto,Sp Lisbon,Benfica,Nacional,Sp Braga,Estoril,Gil Vicente,Rio Ave,Guimaraes,Maritimo,Belenenses,Arouca,Setubal,Academica,Olhanense,Pacos Ferreira
+7,Porto,Sp Lisbon,Benfica,Estoril,Gil Vicente,Nacional,Guimaraes,Sp Braga,Rio Ave,Belenenses,Academica,Olhanense,Maritimo,Arouca,Setubal,Pacos Ferreira
+8,Porto,Sp Lisbon,Benfica,Gil Vicente,Nacional,Estoril,Rio Ave,Guimaraes,Sp Braga,Belenenses,Setubal,Olhanense,Arouca,Academica,Maritimo,Pacos Ferreira
+9,Porto,Sp Lisbon,Benfica,Estoril,Gil Vicente,Nacional,Guimaraes,Rio Ave,Setubal,Sp Braga,Academica,Maritimo,Belenenses,Olhanense,Arouca,Pacos Ferreira
+10,Sp Lisbon,Benfica,Porto,Gil Vicente,Estoril,Nacional,Guimaraes,Sp Braga,Academica,Rio Ave,Maritimo,Setubal,Belenenses,Olhanense,Arouca,Pacos Ferreira
+11,Sp Lisbon,Porto,Benfica,Estoril,Gil Vicente,Nacional,Guimaraes,Rio Ave,Setubal,Sp Braga,Maritimo,Academica,Belenenses,Arouca,Olhanense,Pacos Ferreira
+12,Sp Lisbon,Porto,Benfica,Estoril,Nacional,Guimaraes,Gil Vicente,Sp Braga,Rio Ave,Setubal,Maritimo,Academica,Belenenses,Arouca,Olhanense,Pacos Ferreira
+13,Sp Lisbon,Porto,Benfica,Estoril,Guimaraes,Nacional,Sp Braga,Gil Vicente,Rio Ave,Maritimo,Setubal,Academica,Belenenses,Arouca,Pacos Ferreira,Olhanense
+14,Benfica,Sp Lisbon,Porto,Estoril,Nacional,Guimaraes,Sp Braga,Rio Ave,Gil Vicente,Academica,Maritimo,Setubal,Arouca,Belenenses,Olhanense,Pacos Ferreira
+15,Benfica,Sp Lisbon,Porto,Estoril,Guimaraes,Nacional,Sp Braga,Rio Ave,Academica,Gil Vicente,Maritimo,Setubal,Arouca,Belenenses,Olhanense,Pacos Ferreira
+16,Benfica,Sp Lisbon,Porto,Nacional,Estoril,Guimaraes,Sp Braga,Academica,Rio Ave,Maritimo,Gil Vicente,Setubal,Arouca,Belenenses,Pacos Ferreira,Olhanense
+17,Benfica,Porto,Sp Lisbon,Nacional,Estoril,Guimaraes,Sp Braga,Rio Ave,Setubal,Academica,Maritimo,Gil Vicente,Arouca,Belenenses,Pacos Ferreira,Olhanense
+18,Benfica,Porto,Sp Lisbon,Estoril,Nacional,Guimaraes,Sp Braga,Maritimo,Academica,Rio Ave,Setubal,Gil Vicente,Arouca,Belenenses,Pacos Ferreira,Olhanense
+19,Benfica,Sp Lisbon,Porto,Estoril,Nacional,Guimaraes,Maritimo,Sp Braga,Setubal,Academica,Rio Ave,Arouca,Gil Vicente,Belenenses,Olhanense,Pacos Ferreira
+20,Benfica,Sp Lisbon,Porto,Estoril,Nacional,Guimaraes,Maritimo,Academica,Sp Braga,Setubal,Rio Ave,Gil Vicente,Arouca,Belenenses,Pacos Ferreira,Olhanense
+21,Benfica,Sp Lisbon,Porto,Estoril,Nacional,Guimaraes,Maritimo,Sp Braga,Academica,Setubal,Gil Vicente,Rio Ave,Arouca,Belenenses,Olhanense,Pacos Ferreira
+22,Benfica,Sp Lisbon,Porto,Estoril,Nacional,Sp Braga,Guimaraes,Maritimo,Setubal,Academica,Rio Ave,Gil Vicente,Arouca,Pacos Ferreira,Belenenses,Olhanense
+23,Benfica,Sp Lisbon,Porto,Estoril,Nacional,Sp Braga,Guimaraes,Setubal,Maritimo,Academica,Rio Ave,Gil Vicente,Arouca,Pacos Ferreira,Olhanense,Belenenses
+24,Benfica,Sp Lisbon,Porto,Estoril,Nacional,Academica,Sp Braga,Guimaraes,Rio Ave,Maritimo,Setubal,Gil Vicente,Arouca,Pacos Ferreira,Belenenses,Olhanense
+25,Benfica,Sp Lisbon,Porto,Estoril,Nacional,Sp Braga,Maritimo,Setubal,Academica,Guimaraes,Rio Ave,Gil Vicente,Arouca,Pacos Ferreira,Belenenses,Olhanense
+26,Benfica,Sp Lisbon,Porto,Estoril,Nacional,Sp Braga,Setubal,Maritimo,Academica,Guimaraes,Rio Ave,Gil Vicente,Arouca,Belenenses,Pacos Ferreira,Olhanense
+27,Benfica,Sp Lisbon,Porto,Estoril,Nacional,Maritimo,Sp Braga,Setubal,Academica,Guimaraes,Rio Ave,Arouca,Gil Vicente,Belenenses,Pacos Ferreira,Olhanense
+28,Benfica,Sp Lisbon,Porto,Estoril,Nacional,Maritimo,Sp Braga,Setubal,Academica,Guimaraes,Rio Ave,Arouca,Gil Vicente,Belenenses,Pacos Ferreira,Olhanense
+29,Benfica,Sp Lisbon,Porto,Estoril,Nacional,Maritimo,Setubal,Academica,Sp Braga,Guimaraes,Rio Ave,Arouca,Gil Vicente,Belenenses,Pacos Ferreira,Olhanense

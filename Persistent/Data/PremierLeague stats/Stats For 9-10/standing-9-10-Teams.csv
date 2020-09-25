@@ -1,7 +1,7 @@
 ,0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19
-0,Arsenal,Man City,Stoke,West Ham,Wigan,Chelsea,Tottenham,Fulham,Man United,Sunderland,Hull,Liverpool,Birmingham,Bolton,Aston Villa,Blackburn,Burnley,Wolves,Everton,Portsmouth
-1,Arsenal,Tottenham,Fulham,Chelsea,West Ham,Liverpool,Wigan,Man City,Birmingham,Man United,Sunderland,Burnley,Wolves,Stoke,Everton,Bolton,Aston Villa,Hull,Blackburn,Portsmouth
-2,Arsenal,Tottenham,Chelsea,Man United,West Ham,Fulham,Man City,Sunderland,Burnley,Birmingham,Stoke,Liverpool,Aston Villa,Wolves,Everton,Hull,Wigan,Bolton,Blackburn,Portsmouth
+0,,,,,,,,,,,,,,,,,,,,
+1,,,,,,,,,,,,,,,,,,,,
+2,,,,,,,,,,,,,,,,,,,,
 3,Chelsea,Tottenham,Arsenal,Man United,Man City,West Ham,Stoke,Liverpool,Aston Villa,Fulham,Sunderland,Everton,Burnley,Birmingham,Wolves,Hull,Wigan,Blackburn,Bolton,Portsmouth
 4,Chelsea,Man United,Tottenham,Man City,Arsenal,Liverpool,Sunderland,Aston Villa,Fulham,West Ham,Stoke,Everton,Wigan,Burnley,Birmingham,Blackburn,Wolves,Hull,Bolton,Portsmouth
 5,Chelsea,Man United,Arsenal,Liverpool,Aston Villa,Man City,Tottenham,Sunderland,Fulham,Everton,Burnley,Stoke,West Ham,Birmingham,Wolves,Wigan,Bolton,Blackburn,Hull,Portsmouth

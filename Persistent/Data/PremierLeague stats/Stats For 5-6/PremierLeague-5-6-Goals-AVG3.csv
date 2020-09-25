@@ -1,35 +1,35 @@
 ,homeTeam,awayTeam,Home Team Rank,Away Team Rank,Home Team Scored Goals,Home Team Received Goals,Away Team Scored Goals,Away Team received Goals
-0,Aston Villa,Bolton,7,8,2.0,2.0,2.0,2.0
-1,Everton,Man United,18,4,0.0,2.0,2.0,0.0
-2,Fulham,Birmingham,10,9,0.0,0.0,0.0,0.0
-3,Man City,West Brom,12,14,0.0,0.0,0.0,0.0
-4,Middlesbrough,Liverpool,13,11,0.0,0.0,0.0,0.0
-5,Portsmouth,Tottenham,20,5,0.0,2.0,2.0,0.0
-6,Sunderland,Charlton,17,1,1.0,3.0,3.0,1.0
-7,West Ham,Blackburn,2,16,3.0,1.0,1.0,3.0
-8,Arsenal,Newcastle,3,19,2.0,0.0,0.0,2.0
-9,Wigan,Chelsea,15,6,0.0,1.0,1.0,0.0
-10,Birmingham,Man City,9,12,0.0,0.0,0.0,0.0
-11,Blackburn,Fulham,10,15,1.5,2.0,0.5,1.0
-12,Charlton,Wigan,2,18,2.0,0.5,0.0,1.0
-13,Liverpool,Sunderland,8,20,0.5,0.0,0.5,2.0
-14,Man United,Aston Villa,3,12,1.5,0.0,1.0,1.5
-15,Newcastle,West Ham,17,5,0.0,1.0,1.5,0.5
-16,Tottenham,Middlesbrough,1,16,2.0,0.0,0.0,1.0
-17,West Brom,Portsmouth,7,19,1.0,0.5,0.5,2.0
-18,Bolton,Everton,13,11,1.0,1.5,0.5,1.0
-19,Chelsea,Arsenal,4,9,1.0,0.0,1.0,0.5
-20,Birmingham,Middlesbrough,14,16,0.5,1.0,0.0,1.0
-21,Portsmouth,Aston Villa,15,14,0.6666666666666666,1.6666666666666667,1.0,1.3333333333333333
-22,Sunderland,Man City,19,6,0.6666666666666666,2.0,1.3333333333333333,0.6666666666666666
-23,Arsenal,Fulham,7,16,2.0,0.6666666666666666,0.6666666666666666,2.0
-24,Blackburn,Tottenham,10,4,1.0,1.3333333333333333,1.3333333333333333,0.0
-25,Bolton,Newcastle,8,18,1.3333333333333333,1.0,0.0,1.3333333333333333
-26,Chelsea,West Brom,2,12,2.0,0.0,0.6666666666666666,1.6666666666666667
-27,Aston Villa,Blackburn,14,10,1.0,1.3333333333333333,1.0,1.3333333333333333
-28,Fulham,Everton,16,13,0.6666666666666666,2.0,0.6666666666666666,1.3333333333333333
-29,Man City,Portsmouth,6,15,1.3333333333333333,0.6666666666666666,0.6666666666666666,1.6666666666666667
-30,Tottenham,Chelsea,4,2,1.3333333333333333,0.0,2.0,0.0
+0,Aston Villa,Bolton,16,16,,,,
+1,Everton,Man United,16,16,,,,
+2,Fulham,Birmingham,16,16,,,,
+3,Man City,West Brom,16,16,,,,
+4,Middlesbrough,Liverpool,16,16,,,,
+5,Portsmouth,Tottenham,16,16,,,,
+6,Sunderland,Charlton,16,16,,,,
+7,West Ham,Blackburn,16,16,,,,
+8,Arsenal,Newcastle,16,16,,,,
+9,Wigan,Chelsea,16,16,,,,
+10,Birmingham,Man City,16,16,,,,
+11,Blackburn,Fulham,16,16,,,,
+12,Charlton,Wigan,16,16,,,,
+13,Liverpool,Sunderland,16,16,,,,
+14,Man United,Aston Villa,16,16,,,,
+15,Newcastle,West Ham,16,16,,,,
+16,Tottenham,Middlesbrough,16,16,,,,
+17,West Brom,Portsmouth,16,16,,,,
+18,Bolton,Everton,16,16,,,,
+19,Chelsea,Arsenal,16,16,,,,
+20,Birmingham,Middlesbrough,16,16,,,,
+21,Portsmouth,Aston Villa,16,16,,,,
+22,Sunderland,Man City,16,16,,,,
+23,Arsenal,Fulham,16,16,,,,
+24,Blackburn,Tottenham,16,16,,,,
+25,Bolton,Newcastle,16,16,,,,
+26,Chelsea,West Brom,16,16,,,,
+27,Aston Villa,Blackburn,16,16,,,,
+28,Fulham,Everton,16,16,,,,
+29,Man City,Portsmouth,16,16,,,,
+30,Tottenham,Chelsea,16,16,,,,
 31,West Brom,Birmingham,15,13,1.3333333333333333,2.6666666666666665,1.3333333333333333,2.333333333333333
 32,West Ham,Bolton,6,5,1.0,1.0,1.3333333333333333,0.6666666666666666
 33,Wigan,Sunderland,17,20,0.3333333333333333,1.6666666666666667,0.3333333333333333,1.3333333333333333

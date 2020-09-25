@@ -1,7 +1,7 @@
 ,0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17
-0,Wolfsburg,Ein Frankfurt,Schalke 04,Dortmund,Hertha,M'gladbach,Bochum,Mainz,Leverkusen,Hoffenheim,Bayern Munich,Hamburg,Freiburg,Werder Bremen,Nurnberg,FC Koln,Hannover,Stuttgart
-1,Schalke 04,Wolfsburg,Hamburg,M'gladbach,Ein Frankfurt,Leverkusen,Stuttgart,Hertha,Dortmund,Mainz,Bayern Munich,Werder Bremen,Nurnberg,Hoffenheim,Hannover,Freiburg,Bochum,FC Koln
-2,Leverkusen,Hamburg,Schalke 04,Wolfsburg,Mainz,Ein Frankfurt,Werder Bremen,Hannover,Stuttgart,M'gladbach,Bochum,Dortmund,Hertha,Bayern Munich,Hoffenheim,Nurnberg,FC Koln,Freiburg
+0,,,,,,,,,,,,,,,,,,
+1,,,,,,,,,,,,,,,,,,
+2,,,,,,,,,,,,,,,,,,
 3,Hamburg,Leverkusen,Werder Bremen,Schalke 04,M'gladbach,Ein Frankfurt,Wolfsburg,Bayern Munich,Stuttgart,Hoffenheim,Mainz,Dortmund,Hannover,Bochum,Freiburg,Hertha,Nurnberg,FC Koln
 4,Hamburg,Leverkusen,Schalke 04,Ein Frankfurt,Bayern Munich,Werder Bremen,Hoffenheim,Mainz,M'gladbach,Wolfsburg,Hannover,Stuttgart,Nurnberg,Dortmund,Bochum,Freiburg,Hertha,FC Koln
 5,Hamburg,Leverkusen,Bayern Munich,Hoffenheim,Mainz,Ein Frankfurt,Schalke 04,Werder Bremen,Wolfsburg,M'gladbach,Freiburg,Hannover,Dortmund,Nurnberg,Stuttgart,FC Koln,Bochum,Hertha

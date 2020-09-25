@@ -1,35 +1,35 @@
 ,homeTeam,awayTeam,Home Team Rank,Away Team Rank,Home Team Scored Goals,Home Team Received Goals,Away Team Scored Goals,Away Team received Goals
-0,Alaves,Barcelona,10,11,0.0,0.0,0.0,0.0
-1,Ath Bilbao,Sociedad,1,19,3.0,0.0,0.0,3.0
-2,Valencia,Betis,6,16,1.0,0.0,0.0,1.0
-3,Ath Madrid,Zaragoza,9,12,0.0,0.0,0.0,0.0
-4,Cadiz,Real Madrid,13,4,1.0,2.0,2.0,1.0
-5,Celta,Malaga,2,18,2.0,0.0,0.0,2.0
-6,Espanol,Getafe,17,3,0.0,2.0,2.0,0.0
-7,Mallorca,La Coruna,15,5,0.0,1.0,1.0,0.0
-8,Osasuna,Villarreal,7,14,2.0,1.0,1.0,2.0
-9,Sevilla,Santander,8,20,1.0,0.0,0.0,1.0
-10,Betis,Osasuna,16,7,0.0,1.0,2.0,1.0
-11,La Coruna,Ath Madrid,2,17,1.0,0.0,0.0,0.5
-12,Real Madrid,Celta,8,1,2.0,2.0,2.5,1.0
-13,Barcelona,Mallorca,5,19,1.0,0.0,0.0,1.5
-14,Getafe,Ath Bilbao,4,3,1.5,0.5,2.0,0.5
-15,Malaga,Espanol,18,11,0.5,2.0,1.0,1.5
-16,Santander,Cadiz,20,9,0.0,1.0,1.0,1.0
-17,Sociedad,Alaves,13,16,1.0,2.0,0.5,1.0
-18,Villarreal,Sevilla,15,7,1.0,1.5,1.0,0.5
-19,Zaragoza,Valencia,14,6,1.0,1.0,1.5,1.0
-20,Mallorca,Sociedad,19,13,0.0,1.5,1.0,2.0
-21,Valencia,La Coruna,6,2,1.6666666666666667,1.3333333333333333,1.3333333333333333,0.6666666666666666
-22,Alaves,Getafe,20,1,1.3333333333333333,2.0,2.333333333333333,1.3333333333333333
-23,Ath Bilbao,Malaga,7,16,1.6666666666666667,1.0,1.0,1.6666666666666667
-24,Ath Madrid,Barcelona,10,8,0.6666666666666666,0.6666666666666666,1.0,0.6666666666666666
-25,Betis,Zaragoza,11,14,0.3333333333333333,0.3333333333333333,0.6666666666666666,0.6666666666666666
-26,Cadiz,Villarreal,9,19,1.0,1.0,1.0,1.3333333333333333
-27,Celta,Santander,3,18,1.6666666666666667,1.0,0.3333333333333333,0.6666666666666666
-28,Espanol,Real Madrid,4,15,1.0,1.0,1.3333333333333333,1.6666666666666667
-29,Osasuna,Sevilla,5,12,1.0,0.6666666666666666,0.6666666666666666,0.6666666666666666
-30,Barcelona,Valencia,8,6,1.0,0.6666666666666666,1.6666666666666667,1.3333333333333333
+0,Alaves,Barcelona,16,16,,,,
+1,Ath Bilbao,Sociedad,16,16,,,,
+2,Valencia,Betis,16,16,,,,
+3,Ath Madrid,Zaragoza,16,16,,,,
+4,Cadiz,Real Madrid,16,16,,,,
+5,Celta,Malaga,16,16,,,,
+6,Espanol,Getafe,16,16,,,,
+7,Mallorca,La Coruna,16,16,,,,
+8,Osasuna,Villarreal,16,16,,,,
+9,Sevilla,Santander,16,16,,,,
+10,Betis,Osasuna,16,16,,,,
+11,La Coruna,Ath Madrid,16,16,,,,
+12,Real Madrid,Celta,16,16,,,,
+13,Barcelona,Mallorca,16,16,,,,
+14,Getafe,Ath Bilbao,16,16,,,,
+15,Malaga,Espanol,16,16,,,,
+16,Santander,Cadiz,16,16,,,,
+17,Sociedad,Alaves,16,16,,,,
+18,Villarreal,Sevilla,16,16,,,,
+19,Zaragoza,Valencia,16,16,,,,
+20,Mallorca,Sociedad,16,16,,,,
+21,Valencia,La Coruna,16,16,,,,
+22,Alaves,Getafe,16,16,,,,
+23,Ath Bilbao,Malaga,16,16,,,,
+24,Ath Madrid,Barcelona,16,16,,,,
+25,Betis,Zaragoza,16,16,,,,
+26,Cadiz,Villarreal,16,16,,,,
+27,Celta,Santander,16,16,,,,
+28,Espanol,Real Madrid,16,16,,,,
+29,Osasuna,Sevilla,16,16,,,,
+30,Barcelona,Valencia,16,16,,,,
 31,Getafe,Mallorca,2,16,2.0,1.6666666666666667,2.0,1.6666666666666667
 32,La Coruna,Betis,3,13,1.3333333333333333,1.0,0.6666666666666666,0.3333333333333333
 33,Malaga,Alaves,18,19,1.0,1.0,1.3333333333333333,2.0

@@ -1,7 +1,7 @@
 ,0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15
-0,Anderlecht,Mechelen,Genk,Gent,Kortrijk,St Truiden,Cercle Brugge,Charleroi,Standard,Waregem,Germinal,Club Brugge,Westerlo,Lierse,Lokeren,Eupen
-1,Genk,Mechelen,Standard,Anderlecht,Kortrijk,Club Brugge,Westerlo,St Truiden,Gent,Cercle Brugge,Charleroi,Waregem,Germinal,Lokeren,Eupen,Lierse
-2,Genk,Mechelen,Anderlecht,Kortrijk,Gent,Standard,Cercle Brugge,Westerlo,Club Brugge,St Truiden,Waregem,Lokeren,Charleroi,Germinal,Eupen,Lierse
+0,,,,,,,,,,,,,,,,
+1,,,,,,,,,,,,,,,,
+2,,,,,,,,,,,,,,,,
 3,Genk,Mechelen,Anderlecht,Kortrijk,Gent,St Truiden,Waregem,Standard,Westerlo,Cercle Brugge,Club Brugge,Lokeren,Germinal,Charleroi,Lierse,Eupen
 4,Genk,Mechelen,Gent,Anderlecht,Kortrijk,Standard,St Truiden,Waregem,Club Brugge,Cercle Brugge,Westerlo,Charleroi,Lokeren,Germinal,Lierse,Eupen
 5,Genk,Anderlecht,Kortrijk,Mechelen,Gent,Standard,Waregem,Club Brugge,St Truiden,Lokeren,Cercle Brugge,Westerlo,Germinal,Charleroi,Lierse,Eupen

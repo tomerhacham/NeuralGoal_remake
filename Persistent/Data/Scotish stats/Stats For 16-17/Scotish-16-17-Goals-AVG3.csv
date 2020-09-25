@@ -198,3 +198,32 @@
 196,St Johnstone,Aberdeen,4,2,1.6666666666666667,0.6666666666666666,1.0,1.3333333333333333
 197,Ross County,Celtic,8,1,1.6666666666666667,1.3333333333333333,2.0,1.3333333333333333
 198,Ross County,Inverness C,8,12,1.6666666666666667,1.3333333333333333,0.6666666666666666,2.6666666666666665
+199,Aberdeen,St Johnstone,9,9,-1.0,-1.0,-1.0,-1.0
+200,Hamilton,Kilmarnock,9,9,-1.0,-1.0,-1.0,-1.0
+201,Hearts,Partick,9,9,-1.0,-1.0,-1.0,-1.0
+202,Motherwell,Dundee,9,9,-1.0,-1.0,-1.0,-1.0
+203,Rangers,Celtic,9,9,-1.0,-1.0,-1.0,-1.0
+204,Celtic,St Johnstone,9,9,-1.0,-1.0,-1.0,-1.0
+205,Inverness C,Hamilton,9,9,-1.0,-1.0,-1.0,-1.0
+206,Kilmarnock,Dundee,9,9,-1.0,-1.0,-1.0,-1.0
+207,Motherwell,Ross County,9,9,-1.0,-1.0,-1.0,-1.0
+208,Hearts,Aberdeen,9,9,-1.0,-1.0,-1.0,-1.0
+209,Partick,Rangers,9,9,-1.0,-1.0,-1.0,-1.0
+210,Aberdeen,Celtic,9,9,-1.0,-1.0,-1.0,-1.0
+211,Dundee,Ross County,9,9,-1.0,-1.0,-1.0,-1.0
+212,Hamilton,Motherwell,9,9,-1.0,-1.0,-1.0,-1.0
+213,Kilmarnock,Inverness C,9,9,-1.0,-1.0,-1.0,-1.0
+214,Rangers,Hearts,9,9,-1.0,-1.0,-1.0,-1.0
+215,St Johnstone,Partick,9,9,-1.0,-1.0,-1.0,-1.0
+216,Motherwell,Kilmarnock,9,9,-1.0,-1.0,-1.0,-1.0
+217,Ross County,Hamilton,9,9,-1.0,-1.0,-1.0,-1.0
+218,Dundee,Inverness C,9,9,-1.0,-1.0,-1.0,-1.0
+219,Rangers,Aberdeen,9,9,-1.0,-1.0,-1.0,-1.0
+220,St Johnstone,Hearts,9,9,-1.0,-1.0,-1.0,-1.0
+221,Partick,Celtic,9,9,-1.0,-1.0,-1.0,-1.0
+222,Hamilton,Dundee,9,9,-1.0,-1.0,-1.0,-1.0
+223,Inverness C,Motherwell,9,9,-1.0,-1.0,-1.0,-1.0
+224,Kilmarnock,Ross County,9,9,-1.0,-1.0,-1.0,-1.0
+225,Celtic,Hearts,9,9,-1.0,-1.0,-1.0,-1.0
+226,Partick,Aberdeen,9,9,-1.0,-1.0,-1.0,-1.0
+227,St Johnstone,Rangers,9,9,-1.0,-1.0,-1.0,-1.0

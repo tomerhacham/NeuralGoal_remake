@@ -18,7 +18,6 @@ obj.table = []
 
 var GameMatch = {}
 GameMatch.table = []
-//GameMatch.table = []
 
 /**
  * @type {Cypress.PluginConfig}
@@ -42,8 +41,9 @@ module.exports = (on, config) => {
   })
 
   on('task', {
-    saveJson () {
-      fs.writeFile('C:\\Users\\Andrey\\Documents\\NeuralGoal_remake\\Persistent\\Data\\Prediction\\myjsonfile.json', JSON.stringify(obj), 'utf8');
+    saveJson (jsonName) {
+      let path = 'C:\\Users\\Andrey\\Documents\\NeuralGoal_remake\\Persistent\\Data\\Prediction\\myJson.json'
+      fs.writeFile(path.replace(new RegExp('myJson',"g"),jsonName), JSON.stringify(obj), 'utf8');
       obj = {}
       obj.table = []
       return null

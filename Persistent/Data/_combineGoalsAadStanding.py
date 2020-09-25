@@ -6,7 +6,7 @@ import numpy
 from bs4 import BeautifulSoup
 import requests
 import time
-from Persistent.Data.utils import getRoundPerLeague, getLastYearRound
+from Persistent.Data.utils import getRoundPerLeague, getLastYearRound, gamesInRoundByLeagueName
 
 
 def run(leagueName,round,startYear,endYear):
@@ -27,7 +27,13 @@ def run(leagueName,round,startYear,endYear):
 
         team_standing = pandas.read_csv("standing-" + sY + "-" + eY + "-AVG.csv")
 
-        if sY != "5":
+        if leagueName == "Turkey":
+            if sY != '14' and sY != '6':
+                currentWD = os.getcwd()
+                destinationPath = currentWD + "\\" + leagueName + " stats\\Stats For {}-{}\\".format(sYL,eYL) + "standing-" + sYL + "-" + eYL + "-AVG.csv"
+                team_standing_lastYear = pandas.read_csv(destinationPath)
+                lastRoundIndex = team_standing_lastYear.shape[0] - 1
+        elif sY != "5":
             currentWD = os.getcwd()
             destinationPath = currentWD + "\\" + leagueName + " stats\\Stats For {}-{}\\".format(sYL,eYL) + "standing-" + sYL + "-" + eYL + "-AVG.csv"
             team_standing_lastYear = pandas.read_csv(destinationPath)
@@ -47,7 +53,7 @@ def run(leagueName,round,startYear,endYear):
             if(counter == 0):
                 for x in range(0,_Range):
                     try:
-                        if sY is "5":
+                        if sY == "5":
                             name = list(team_standing.columns)[x + 1]
                             d[name] = 1
                         else:
@@ -62,7 +68,7 @@ def run(leagueName,round,startYear,endYear):
             elif(counter == 1):
                 for x in range(0,_Range):
                     try:
-                        if sY is "5":
+                        if sY == "5":
                             name = list(team_standing.columns)[x + 1]
                             d[name] = 1
                         else:
@@ -76,7 +82,7 @@ def run(leagueName,round,startYear,endYear):
             elif(counter==2):
                 for x in range(0,_Range):
                     try:
-                        if sY is "5":
+                        if sY == "5":
                             name = list(team_standing.columns)[x + 1]
                             d[name] = 1
                         else:
@@ -89,6 +95,9 @@ def run(leagueName,round,startYear,endYear):
                 for x in range(0,_Range):
                     try:
                         name = list(team_standing.columns)[x+1]
+                        x11 = row[x+1]
+                        x22 = rows[counter-1][x+1]
+                        x33 = rows[counter-2][x+1]
                         d[name] = (row[x+1] + rows[counter-1][x+1] + rows[counter-2][x+1])/3
                     except:
                         continue
@@ -107,8 +116,8 @@ def run(leagueName,round,startYear,endYear):
         for index, row in team_stat.iterrows():
             d = {}
             
-            homeTeam = row[2]
-            awayTeam = row[3]
+            homeTeam = str(row[2]).rstrip()
+            awayTeam = str(row[3]).rstrip()
             
             try:
                 Hscored = team_standing_new.loc[roundCounter,str(homeTeam) + " scored"]
@@ -125,8 +134,14 @@ def run(leagueName,round,startYear,endYear):
             try:
                 d["homeTeam"] = homeTeam
                 d["awayTeam"] = awayTeam
-                d["Home Team Rank"] = int((team_rank == homeTeam).idxmax(axis=1)[roundCounter]) + 1
-                d["Away Team Rank"] = int((team_rank == awayTeam).idxmax(axis=1)[roundCounter]) + 1
+                try:
+                    d["Home Team Rank"] = int((team_rank == homeTeam).idxmax(axis=1)[roundCounter]) + 1
+                except:
+                    d["Home Team Rank"] = int(0.83*gamesInRoundByLeagueName(leagueName)*2)
+                try:
+                    d["Away Team Rank"] = int((team_rank == awayTeam).idxmax(axis=1)[roundCounter]) + 1
+                except:
+                    d["Away Team Rank"] = int(0.83*gamesInRoundByLeagueName(leagueName)*2)
                 d["Home Team Scored Goals"] = Hscored 
                 d["Home Team Received Goals"] = Hrecived
                 d["Away Team Scored Goals"] = Ascored
@@ -148,10 +163,7 @@ def run(leagueName,round,startYear,endYear):
                 _leaguRound = 6
 
             elif leagueName == "Jupiler":
-                if startYear <= 8:
-                    _leaguRound = 9
-                else:
-                    _leaguRound = 8
+                _leaguRound = 9
             else:
                 _leaguRound = 10
             if index % _leaguRound == 0 and index != 0:

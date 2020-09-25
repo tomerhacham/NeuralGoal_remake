@@ -9,7 +9,6 @@ from Persistent.Data.utils import gamesInRoundByLeagueName, mapTeamsOdds
 
 
 def run(leagueName):
-
     def getNormalOdds(Home, Draw, Away):
         _rH = 1 / float(Home)
         _rD = 1 / float(Draw)
@@ -89,6 +88,14 @@ def run(leagueName):
             ('region', 'uk'),
             ('sport', 'soccer_spl')
         )
+    # Turkey
+    if leagueName == "Turkey":
+        params = (
+            ('apiKey', '994c68fcabcb997afa737025a839e64b'),
+            ('mkt', 'h2h'),
+            ('region', 'uk'),
+            ('sport', 'soccer_turkey_super_league')
+        )
 
     response = requests.get('https://api.the-odds-api.com/v3/odds', params=params)
     table = []
@@ -100,11 +107,6 @@ def run(leagueName):
             homeTeam = res['data'][game]['teams'][0]
             awayTeam = res['data'][game]['teams'][1]
 
-            home_team = res['data'][game]['home_team']
-            if homeTeam != home_team:
-                awayTeam = homeTeam
-                homeTeam = home_team
-
             sitesCount = int(res['data'][game]['sites_count'])
 
             homeOdds = 0
@@ -113,17 +115,17 @@ def run(leagueName):
 
             for site in range(sitesCount):
                 homeOdds = homeOdds + res['data'][game]['sites'][site]['odds']['h2h'][0]
-                awayOdds = awayOdds + res['data'][game]['sites'][site]['odds']['h2h'][1]
-                drawOdds = drawOdds + res['data'][game]['sites'][site]['odds']['h2h'][2]
+                drawOdds = drawOdds + res['data'][game]['sites'][site]['odds']['h2h'][1]
+                awayOdds = awayOdds + res['data'][game]['sites'][site]['odds']['h2h'][2]
 
             homeOdds = homeOdds / sitesCount
-            awayOdds = awayOdds / sitesCount
             drawOdds = drawOdds / sitesCount
+            awayOdds = awayOdds / sitesCount
 
         except:
             continue
 
-        _R = getNormalOdds(homeOdds, awayOdds, drawOdds)
+        _R = getNormalOdds(homeOdds, drawOdds, awayOdds)
         HwinOdds = (1 / (homeOdds)) / _R
         DrawOds = (1 / (drawOdds)) / _R
         AwinOdds = (1 / (awayOdds)) / _R
@@ -143,13 +145,16 @@ def run(leagueName):
                 leagueName)):
         csvFilePath = name
 
-    currentLeagueGames = pandas.read_csv(csvFilePath, parse_dates=True,index_col=0)
+    currentLeagueGames = pandas.read_csv(csvFilePath, parse_dates=True, index_col=0)
 
     for currentLeagueGamesindex, currentLeagueGamesrow in currentLeagueGames.iterrows():
         for toConcatindex, toConcatrow in df.iterrows():
-            if currentLeagueGames['home_team_name'][currentLeagueGamesindex] == df['Home Team'][toConcatindex] and currentLeagueGames['away_team_name'][currentLeagueGamesindex] == df['Away Team'][toConcatindex]:
-                currentLeagueGames['home_odds_n'][currentLeagueGamesindex] = df["Home Team Win Odds"][
-                    toConcatindex]
+            if (currentLeagueGames['home_team_name'][currentLeagueGamesindex] == df['Home Team'][toConcatindex]
+                or currentLeagueGames['away_team_name'][currentLeagueGamesindex] == df['Home Team'][toConcatindex]) and \
+                    (currentLeagueGames['away_team_name'][currentLeagueGamesindex] == df['Away Team'][toConcatindex]
+                     or currentLeagueGames['home_team_name'][currentLeagueGamesindex] == df['Away Team'][
+                         toConcatindex]):
+                currentLeagueGames['home_odds_n'][currentLeagueGamesindex] = df["Home Team Win Odds"][toConcatindex]
                 currentLeagueGames['draw_odds_n'][currentLeagueGamesindex] = df["Draw Odds"][toConcatindex]
                 currentLeagueGames['away_odds_n'][currentLeagueGamesindex] = df["Away Team Win Odds"][
                     toConcatindex]

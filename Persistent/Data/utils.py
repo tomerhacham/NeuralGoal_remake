@@ -75,7 +75,7 @@ def getTeamName(nameToFind):
     if nameToFind == "AFC Bournemouth": return "Bournemouth"
     if nameToFind == "Huddersfield Town": return "Huddersfield"
     if nameToFind == "Brighton & Hove Albion": return "Brighton"
-    if nameToFind == "Leeds United": return "Leeds United"
+    if nameToFind == "Leeds United": return "Leeds"
     # Serie
     if nameToFind == "Juventus": return "Juventus"
     if nameToFind == "Inter": return "Inter"
@@ -238,7 +238,7 @@ def getTeamName(nameToFind):
     # Eredivisie
     if nameToFind == "NEC Nijmegen": return "Nijmegen"
     if nameToFind == "AFC Ajax": return "Ajax"
-    if nameToFind == "Roda JC Kerkrade": return "Roda"
+    if nameToFind == "Roda JC Kerkrade": return "Roda JC"
     if nameToFind == "PSV Eindhoven": return "PSV Eindhoven"
     if nameToFind == "AZ Alkmaar": return "AZ Alkmaar"
     if nameToFind == "Heracles Almelo": return "Heracles"
@@ -319,11 +319,62 @@ def getTeamName(nameToFind):
     if nameToFind == "FC Famalicão": return "Famalicao"
     if nameToFind == "CD Santa Clara": return "Santa Clara"
     if nameToFind == "SC Farense": return "Farense"
+    # Turkey
+    if nameToFind == "Galatasaray": return "Galatasaray"
+    if nameToFind == "Fenerbahçe": return "Fenerbahce"
+    if nameToFind == "Beşiktaş": return "Besiktas"
+    if nameToFind == "Trabzonspor": return "Trabzonspor"
+    if nameToFind == "Kayserispor": return "Kayserispor"
+    if nameToFind == "Gençlerbirliği": return "Genclerbirligi"
+    if nameToFind == "Konyaspor": return "Konyaspor"
+    if nameToFind == "Sivasspor": return "Sivasspor"
+    if nameToFind == "Çaykur Rizespor": return "Rizespor"
+    if nameToFind == "Erciyesspor": return "Erciyesspor"
+    if nameToFind == "Gaziantepspor": return "Gaziantepspor"
+    if nameToFind == "Vestel Manisaspor": return "Manisaspor"
+    if nameToFind == "MKE Ankaragücü": return "Ankaragucu"
+    if nameToFind == "Ankaraspor": return "Ankaraspor"
+    if nameToFind == "Denizlispor": return "Denizlispor"
+    if nameToFind == "Malatyaspor": return "Malatyaspor"
+    if nameToFind == "Samsunspor": return "Samsunspor"
+    if nameToFind == "Diyarbakırspor": return "Diyarbakirspor"
+    if nameToFind == "Bursaspor": return "Bursaspor"
+    if nameToFind == "Antalyaspor": return "Antalyaspor"
+    if nameToFind == "Sakaryaspor": return "Sakaryaspor"
+    if nameToFind == "Gençlerbirligi OFTAS": return "Oftasspor"
+    if nameToFind == "İstanbul BBSK": return "Buyuksehyr"
+    if nameToFind == "Kasımpaşa SK": return "Kasimpasa"
+    if nameToFind == "Eskişehirspor": return "Eskisehirspor"
+    if nameToFind == "Kocaelispor": return "Kocaelispor"
+    if nameToFind == "Hacettepe": return "Hacettepespor"
+    if nameToFind == "Manisaspor": return "Manisaspor"
+    if nameToFind == "Karabükspor": return "Karabukspor"
+    if nameToFind == "Bucaspor": return "Bucaspor"
+    if nameToFind == "Orduspor": return "Orduspor"
+    if nameToFind == "Mersin Idmanyurdu": return "Mersin Idman Yurdu"
+    if nameToFind == "Elazığspor": return "Elazigspor"
+    if nameToFind == "Akhisar Belediyespor": return "Akhisar Belediyespor"
+    if nameToFind == "Torku Konyaspor": return "Konyaspor"
+    if nameToFind == "Balıkesirspor": return "Balikesirspor"
+    if nameToFind == "Atiker Konyaspor": return "Konyaspor"
+    if nameToFind == "İstanbul Başakşehir": return "Buyuksehyr"
+    if nameToFind == "Osmanlıspor FK": return "Osmanlispor"
+    if nameToFind == "Adanaspor": return "Adanaspor"
+    if nameToFind == "Göztepe": return "Goztep"
+    if nameToFind == "Yeni Malatyaspor": return "Yeni Malatyaspor"
+    if nameToFind == "BB Erzurumspor": return "Erzurum BB"
+    if nameToFind == "Gaziantep FK": return "Gaziantep"
+    if nameToFind == "Fatih Karagümrük SK": return "Karagumruk"
+    if nameToFind == "Hatayspor": return "Hatayspor"
+    if nameToFind == "Alanyaspor": return "Alanyaspor"
+    if nameToFind == "Gazişehir Gaziantep FK": return "Gaziantep"
+
+
 
     return nameToFind + " not found"
 
 def mapTeamsOdds(fromAPI):
-    # France
+    # France - Done
     if fromAPI == "Bordeaux" : return "Bordeaux"
     if fromAPI == "Lyon" : return "Lyon"
     if fromAPI == "Montpellier" : return "Montpellier"
@@ -344,7 +395,7 @@ def mapTeamsOdds(fromAPI):
     if fromAPI == "Nantes" : return "Nantes"
     if fromAPI == "Paris Saint Germain" : return "Paris SG"
     if fromAPI == "Marseille" : return "Marseille"
-    # Eredivisie
+    # Eredivisie - Done
     if fromAPI == "Heerenveen" : return "Heerenveen"
     if fromAPI == "Willem II" : return "Willem II"
     if fromAPI == "FC Zwolle" : return "Zwolle"
@@ -363,14 +414,14 @@ def mapTeamsOdds(fromAPI):
     if fromAPI == "Vitesse Arnhem" : return "Vitesse"
     if fromAPI == "FC Utrecht" : return "Utrecht"
     if fromAPI == "AZ Alkmaar" : return "AZ Alkmaar"
-    # Spain
+    # Spain - Done
     if fromAPI == "Eibar" : return "Eibar"
     if fromAPI == "Celta Vigo" : return "Celta"
     if fromAPI == "Granada CF" : return "Granada"
     if fromAPI == "Athletic Bilbao" : return "Ath Bilbao"
-    if fromAPI == "CÃ¡diz CFa" : return "Cadiz"
+    if fromAPI == "Cádiz CF" : return "Cadiz"
     if fromAPI == "CA Osasuna" : return "Osasuna"
-    if fromAPI == "AlavÃ©s" : return "Alaves"
+    if fromAPI == "Alavés" : return "Alaves"
     if fromAPI == "Real Betis" : return "Betis"
     if fromAPI == "Valladolid" : return "Valladolid"
     if fromAPI == "Real Sociedad" : return "Sociedad"
@@ -380,13 +431,17 @@ def mapTeamsOdds(fromAPI):
     if fromAPI == "Levante" : return "Levante"
     if fromAPI == "Getafe" : return "Getafe"
     if fromAPI == "Valencia" : return "Valencia"
-    # England
+    if fromAPI == "Real Madrid" : return "Real Madrid"
+    if fromAPI == "Sevilla" : return "Sevilla"
+    if fromAPI == "Atlético Madrid" : return "Ath Madrid"
+    if fromAPI == "Barcelona" : return "Barcelona"
+    # England - Done
     if fromAPI == "Fulham" : return "Fulham"
     if fromAPI == "Arsenal" : return "Arsenal"
     if fromAPI == "Crystal Palace" : return "Crystal Palace"
     if fromAPI == "Southampton" : return "Southampton"
     if fromAPI == "Liverpool" : return "Liverpool"
-    if fromAPI == "Leeds United" : return "Leeds United"
+    if fromAPI == "Leeds United" : return "Leeds"
     if fromAPI == "West Ham United" : return "West Ham"
     if fromAPI == "Newcastle United" : return "Newcastle"
     if fromAPI == "West Bromwich Albion" : return "West Brom"
@@ -397,7 +452,11 @@ def mapTeamsOdds(fromAPI):
     if fromAPI == "Wolverhampton Wanderers" : return "Wolves"
     if fromAPI == "Brighton and Hove Albion" : return "Brighton"
     if fromAPI == "Chelsea" : return "Chelsea"
-    # Scotland
+    if fromAPI == "Manchester United": return "Man United"
+    if fromAPI == "Burnley": return "Burnley"
+    if fromAPI == "Aston Villa": return "Aston Villa"
+    if fromAPI == "Manchester City": return "Man City"
+    # Scotland - Done
     if fromAPI == "Aberdeen" : return "Aberdeen"
     if fromAPI == "Kilmarnock" : return "Kilmarnock"
     if fromAPI == "Motherwell" : return "Motherwell"
@@ -410,7 +469,7 @@ def mapTeamsOdds(fromAPI):
     if fromAPI == "Dundee United" : return "Dundee United"
     if fromAPI == "Ross County" : return "Ross County"
     if fromAPI == "Celtic" : return "Celtic"
-    # Germany
+    # Germany - Done
     if fromAPI == "Bayern Munich": return "Bayern Munich"
     if fromAPI == "Schalke 04": return "Schalke 04"
     if fromAPI == "Union Berlin": return "Union Berlin"
@@ -429,26 +488,26 @@ def mapTeamsOdds(fromAPI):
     if fromAPI == "FSV Mainz 05": return "Mainz"
     if fromAPI == "VfL Wolfsburg": return "Wolfsburg"
     if fromAPI == "Bayer Leverkusen": return "Leverkusen"
-    # Portugal
-    if fromAPI == "FamalicÃ£o": return ""
-    if fromAPI == "Benfica": return ""
-    if fromAPI == "Guimaraes": return ""
-    if fromAPI == "Belenenses": return ""
-    if fromAPI == "Nacional": return ""
-    if fromAPI == "Boavista Porto": return ""
-    if fromAPI == "Sporting Lisbon": return ""
-    if fromAPI == "Gil Vicente": return ""
-    if fromAPI == "FC Porto": return ""
-    if fromAPI == "Braga": return ""
-    if fromAPI == "Santa Clara": return ""
-    if fromAPI == "CS Maritimo": return ""
+    # Portugal - Missing
+    if fromAPI == "Famalicão": return "Famalicao"
+    if fromAPI == "Benfica": return "Benfica"
+    if fromAPI == "Guimaraes": return "Guimaraes"
+    if fromAPI == "Belenenses": return "Belenenses"
+    if fromAPI == "Nacional": return "Nacional"
+    if fromAPI == "Boavista Porto": return "Boavista"
+    if fromAPI == "Sporting Lisbon": return "Sp Lisbon"
+    if fromAPI == "Gil Vicente": return "Gil Vicente"
+    if fromAPI == "FC Porto": return "Porto"
+    if fromAPI == "Braga": return "Sp Braga"
+    if fromAPI == "Santa Clara": return "Santa Clara"
+    if fromAPI == "CS Maritimo": return "Maritimo"
     if fromAPI == "Moreirense FC": return ""
     if fromAPI == "Feirense": return ""
-    if fromAPI == "Tondela": return ""
-    if fromAPI == "Rio Ave FC": return ""
-    if fromAPI == "Portimonense": return ""
-    if fromAPI == "Pacos de Ferreira": return ""
-    # Jupiler
+    if fromAPI == "Tondela": return "Tondela"
+    if fromAPI == "Rio Ave FC": return "Rio Ave"
+    if fromAPI == "Portimonense": return "Portimonense"
+    if fromAPI == "Pacos de Ferreira": return "Pacos Ferreira"
+    # Jupiler - Done
     if fromAPI == "Eupen": return "Eupen"
     if fromAPI == "Gent": return "Gent"
     if fromAPI == "KV Mechelen": return "Mechelen"
@@ -467,7 +526,7 @@ def mapTeamsOdds(fromAPI):
     if fromAPI == "Royal Excel Mouscron": return "Mouscron"
     if fromAPI == "Beerschot Wilrijk": return "Beerschot"
     if fromAPI == "Genk": return "Genk"
-    # Italy
+    # Italy - Done
     if fromAPI == "Fiorentina": return "Fiorentina"
     if fromAPI == "Torino": return "Torino"
     if fromAPI == "Hellas Verona FC": return "Verona"
@@ -486,9 +545,31 @@ def mapTeamsOdds(fromAPI):
     if fromAPI == "Lazio": return "Lazio"
     if fromAPI == "Sampdoria": return "Sampdoria"
     if fromAPI == "Benevento": return "Benevento"
+    if fromAPI == "FC Internazionale": return "Inter"
+    if fromAPI == "Spezia": return "Spezia Calcio"
+    # Turkey - Missing
+    if fromAPI == "Erzurum BB": return "Erzurum BB"
+    if fromAPI == "Kayserispor": return "Kayserispor"
+    if fromAPI == "Hatayspor": return "Hatayspor"
+    if fromAPI == "Kasimpasa SK": return "Kasimpasa"
+    if fromAPI == "Gazişehir Gaziantep": return "Gaziantep"
+    if fromAPI == "Goztepe": return "Goztep"
+    if fromAPI == "Trabzonspor": return "Trabzonspor"
+    if fromAPI == "Yeni Malatyaspor": return "Yeni Malatyaspor"
+    if fromAPI == "Alanyaspor": return "Alanyaspor"
+    if fromAPI == "Çaykur Rizespor": return "Rizespor"
+    if fromAPI == "Ankaragücü": return "Ankaragucu"
+    if fromAPI == "Sivasspor": return "Sivasspor"
+    if fromAPI == "Besiktas JK": return "Besiktas"
+    if fromAPI == "Torku Konyaspor": return "Konyaspor"
+    if fromAPI == "Fenerbahce": return "Fenerbahce"
+    if fromAPI == "Galatasaray": return "Galatasaray"
+    if fromAPI == "Antalyaspor": return "Antalyaspor"
+    if fromAPI == "Denizlispor": return "Denizlispor"
+    if fromAPI == "": return ""
+    if fromAPI == "": return ""
+    if fromAPI == "": return ""
 
-
-# for fifaindex site
 def getNameToFifaIndex(homeNameTeam, awayNameTeam):
     # Bundesliga
     if homeNameTeam == "Ein Frankfurt":
@@ -724,15 +805,18 @@ def getNameToFifaIndex(homeNameTeam, awayNameTeam):
         awayNameTeam = "CD Feirense"
 
     if homeNameTeam == "Nacional":
-        homeNameTeam = "league=308&stars=3"
+        homeNameTeam = "league=308&name=al&order=desc"
     if awayNameTeam == "Nacional":
-        awayNameTeam = "league=308&stars=3"
+        awayNameTeam = "league=308&name=al&order=desc"
 
+    # Turkey
 
-
+    if homeNameTeam == "Buyuksehyr":
+        homeNameTeam = "Medipol"
+    if awayNameTeam == "Buyuksehyr":
+        awayNameTeam = "Medipol"
 
     return homeNameTeam, awayNameTeam
-
 
 def getLeagueNameForWorldFootball(leagueName, sY):
     _le = ""
@@ -755,9 +839,13 @@ def getLeagueNameForWorldFootball(leagueName, sY):
             _le = "bel-eerste-klasse-"
         else:
             _le = "bel-eerste-klasse-a-"
+    elif leagueName == "Turkey":
+        if int(sY) < 10:
+            _le = "tur-sueper-lig-"
+        else:
+            _le = "tur-sueperlig-"
     elif leagueName == "Eredivisie":
         _le = "ned-eredivisie-"
-
     elif leagueName == "Portugal":
         if int(sY) <= 9:
             _le = "por-superliga-"
@@ -767,16 +855,34 @@ def getLeagueNameForWorldFootball(leagueName, sY):
             _le = "por-liga-zon-sagres-"
         else:
             _le = "por-primeira-liga-"
-
     elif leagueName == "Scotish":
         if int(sY)<=13:
             _le = "sco-premier-league-"
         else:
             _le ="sco-premiership-"
-
-
     return _le
 
+def getLinkToFifaIndexTeamPage(homeTeam):
+    if homeTeam == "Diyarbakirspor" : return ""
+    if homeTeam == "Oftasspor" : return ""
+    if homeTeam == "Eskisehirspor" : return ""
+    if homeTeam == "Kocaelispor" : return ""
+    if homeTeam == "Hacettepespor" : return ""
+    if homeTeam == "Manisaspor" : return ""
+    if homeTeam == "Karabukspor" : return ""
+    if homeTeam == "Bucaspor" : return ""
+    if homeTeam == "Orduspor" : return ""
+    if homeTeam == "Mersin Idman Yurdu" : return ""
+    if homeTeam == "Elazigspor" : return ""
+    if homeTeam == "Akhisar Belediyespor" : return ""
+    if homeTeam == "Balikesirspor" : return ""
+    if homeTeam == "Buyuksehyr" : return ""
+    if homeTeam == "Osmanlispor" : return ""
+    if homeTeam == "Adanaspor" : return ""
+    if homeTeam == "Osmanlispor" : return ""
+    if homeTeam == "Erzurum BB" : return ""
+    if homeTeam == "Karagumruk" : return ""
+    if homeTeam == "Hatayspor" : return ""
 
 def getRoundPerLeague(league,year):
     _round = -1
@@ -786,6 +892,11 @@ def getRoundPerLeague(league,year):
         _round = 34
     elif league == "Scotish":
         _round = 33
+    elif league == "Turkey":
+        if int(year) <= 19: # start year
+            _round = 34
+        else:
+            _round = 42
     elif league == "Portugal":
         if int(year) == 5: # start year
             _round = 34
@@ -794,12 +905,16 @@ def getRoundPerLeague(league,year):
         else:
             _round = 34
     elif league == "Jupiler":
-        _round = 34
+        if int(year) <= 8:
+            _round = 34
+        elif int(year) <= 19:
+            _round = 30
+        else:
+            _round = 34
     else:
         _round = 38
 
     return _round
-
 
 def getLastYearRound(league,year):
     _round = -1
@@ -809,15 +924,22 @@ def getLastYearRound(league,year):
         _round = 34
     elif league == "Scotish":
         _round = 33
+    elif league == "Turkey":
+        if int(year) <= 19: # start year
+            _round = 34
+        else:
+            _round = 42
     elif league == "Portugal":
         if int(year) == 5: # start year
             _round = 34
         elif int(year) <= 13: # start year
             _round = 30
         else:
-            _round = 34
+            _round = 37
     elif league == "Jupiler":
-        if int(year) <= 19:
+        if int(year) <= 8:
+            _round = 34
+        elif int(year) <= 19:
             _round = 30
         else:
             _round = 34
@@ -825,7 +947,6 @@ def getLastYearRound(league,year):
         _round = 38
 
     return _round
-
 
 def gamesInRoundByLeagueName(league):
     if league == "Serie":
@@ -846,5 +967,243 @@ def gamesInRoundByLeagueName(league):
         _round = 6
     elif league == "Portugal":
         _round = 9
+    elif league == "Turkey":
+        _round = 9
 
     return _round
+
+def MapperWinnerToFifa(nameToConver):
+    # Serie
+    if nameToConver == "פיורנטינה" : return "Fiorentina"
+    if nameToConver == "טורינו" : return "Torino"
+    if nameToConver == "ורונה" : return "Verona"
+    if nameToConver == "רומא" : return "Roma"
+    if nameToConver == "פארמה" : return "Parma"
+    if nameToConver == "נאפולי" : return "Napoli"
+    if nameToConver == "גנואה" : return "Genoa"
+    if nameToConver == "קרוטונה" : return "Crotone"
+    if nameToConver == "ססואולו" : return "Sassuolo"
+    if nameToConver == "קליארי" : return "Cagliari"
+    if nameToConver == "יובנטוס" : return "Juventus"
+    if nameToConver == "סמפדוריה" : return "Sampdoria"
+    if nameToConver == "מילאן" : return "Milan"
+    if nameToConver == "בולוניה" : return "Bologna"
+    if nameToConver == "בנבנטו" : return "Benevento"
+    if nameToConver == "אינטר" : return "Inter"
+    if nameToConver == "לאציו" : return "Lazio"
+    if nameToConver == "אטאלנטה" : return "Atalanta"
+    if nameToConver == "ספציה" : return ""
+    if nameToConver == "אודינזה" : return "Udinese"
+
+    # PremierLeague
+    if nameToConver == "פולהאם" : return "Fulham"
+    if nameToConver == "ארסנל" : return "Arsenal"
+    if nameToConver == "קריסטל פאלאס" : return "Crystal Palace"
+    if nameToConver == "סאות'המפטון" : return "Southampton"
+    if nameToConver == "ליברפול" : return "Liverpool"
+    if nameToConver == "לידס" : return "Leeds"
+    if nameToConver == "ווסטהאם" : return "West Ham"
+    if nameToConver == "ניוקאסל" : return "Newcastle"
+    if nameToConver == "ווסט ברומיץ'" : return "West Brom"
+    if nameToConver == "לסטר" : return "Leicester"
+    if nameToConver == "טוטנהאם" : return "Tottenham"
+    if nameToConver == "אברטון" : return "Everton"
+    if nameToConver == "שפילד יונייטד" : return "Sheffield United"
+    if nameToConver == "וולבס" : return "Wolves"
+    if nameToConver == "ברייטון" : return "Brighton"
+    if nameToConver == "צ'לסי" : return "Chelsea"
+    if nameToConver == "מנצ'סטר יונייטד" : return "Man United"
+    if nameToConver == "ברנלי" : return "Burnley"
+    if nameToConver == "אסטון וילה" : return "Aston Villa"
+    if nameToConver == "מנצ'סטר סיטי" : return "Man City"
+
+    # Bundesliga
+    if nameToConver == "ביירן מינכן": return "Bayern Munich"
+    if nameToConver == "שאלקה 04": return "Schalke 04"
+    if nameToConver == "איינטרכט פרנקפורט": return "Ein Frankfurt"
+    if nameToConver == "ארמיניה בילפלד": return "Bielefeld"
+    if nameToConver == "אוניון ברלין": return "Union Berlin"
+    if nameToConver == "אוגסבורג": return "Augsburg"
+    if nameToConver == "פ.צ. קלן": return "FC Koln"
+    if nameToConver == "הופנהיים": return "Hoffenheim"
+    if nameToConver == "ורדר ברמן": return "Werder Bremen"
+    if nameToConver == "הרטה ברלין": return "Hertha"
+    if nameToConver == "שטוטגרט": return "Stuttgart"
+    if nameToConver == "פרייבורג": return "Freiburg"
+    if nameToConver == "בורוסיה דורטמונד": return "Dortmund"
+    if nameToConver == "בורוסיה מינשנגלדבאך": return "M'gladbach"
+    if nameToConver == "לייפציג": return "RB Leipzig"
+    if nameToConver == "מיינץ": return "Mainz"
+    if nameToConver == "וולפסבורג": return "Wolfsburg"
+    if nameToConver == "באייר לברקוזן": return "Leverkusen"
+
+    # Laliga
+    if nameToConver == "אייבר": return "Eibar"
+    if nameToConver == "סלטה ויגו": return "Celta"
+    if nameToConver == "גרנאדה": return "Granada"
+    if nameToConver == "אתלטיק בילבאו": return "Ath Bilbao"
+    if nameToConver == "קאדיס": return "Cadiz"
+    if nameToConver == "אוסאסונה": return "Osasuna"
+    if nameToConver == "ויאדוליד": return "Valladolid"
+    if nameToConver == "ריאל סוסיאדד": return "Sociedad"
+    if nameToConver == "ויאריאל": return "Villarreal"
+    if nameToConver == "הואסקה": return "Huesca"
+    if nameToConver == "ולנסיה": return "Valencia"
+    if nameToConver == "לבאנטה": return "Levante"
+    if nameToConver == "חטאפה": return "Getafe"
+    if nameToConver == "ריאל בטיס": return "Betis"
+    if nameToConver == "אלאבס": return "Alaves"
+    if nameToConver == "ריאל מדריד": return "Real Madrid"
+    if nameToConver == "אלצ'ה": return "Elche"
+    if nameToConver == "אתלטיקו מדריד": return "Ath Madrid"
+    if nameToConver == "סביליה": return "Sevilla"
+    if nameToConver == "ברצלונה": return "Barcelona"
+
+    # Ligue1
+    if nameToConver == "מונפלייה" : return "Montpellier"
+    if nameToConver == "ניס" : return "Nice"
+    if nameToConver == "סט. אטיין" : return "St Etienne"
+    if nameToConver == "ראסינג שטראסבורג" : return "Strasbourg"
+    if nameToConver == "ליל" : return "Lille"
+    if nameToConver == "מץ" : return "Metz"
+    if nameToConver == "אנז'ר" : return "Angers"
+    if nameToConver == "ריימס" : return "Reims"
+    if nameToConver == "לוריין" : return "Lorient"
+    if nameToConver == "לאנס" : return "Lens"
+    if nameToConver == "נים" : return "Nimes"
+    if nameToConver == "ראן" : return "Rennes"
+    if nameToConver == "דיז'ון" : return "Dijon"
+    if nameToConver == "ברסט" : return "Brest"
+    if nameToConver == "מונאקו" : return "Monaco"
+    if nameToConver == "נאנט" : return "Nantes"
+    if nameToConver == "ליון" : return "Lyon"
+    if nameToConver == "פאריס סן ז'רמן" : return "Paris SG"
+    if nameToConver == "בורדו" : return "Bordeaux"
+    if nameToConver == "מארסיי" : return "Marseille"
+
+    # Jupiler
+    if nameToConver == "מכלן" : return "Mechelen"
+    if nameToConver == "אוסטנד" : return "Oostende"
+    if nameToConver == "לובן" : return "Oud-Heverlee Leuven"
+    if nameToConver == "סטאנדרד ליאז'" : return "Standard"
+    if nameToConver == "קלאב ברוז'" : return "Club Brugge"
+    if nameToConver == "בוורן" : return "Waasland-Beveren"
+    if nameToConver == "אנדרלכט" : return "Anderlecht"
+    if nameToConver == "סרקל ברוז'" : return "Cercle Brugge"
+    if nameToConver == "סט טרוידן" : return "St Truiden"
+    if nameToConver == "אנטוורפן" : return "Antwerp"
+    if nameToConver == "זולטה וארגם" : return "Waregem"
+    if nameToConver == "שרלרואה" : return "Charleroi"
+    if nameToConver == "קורטריק" : return "Kortrijk"
+    if nameToConver == "מוסקרון" : return "Mouscron"
+    if nameToConver == "בירשחוט‪-‬וילרייק" : return "Beerschot VA"
+    if nameToConver == "גנק" : return "Genk"
+    if nameToConver == "גנט" : return "Gent"
+    if nameToConver == "יופן" : return "Eupen"
+
+    # Eredivisie
+    if nameToConver == "הירנביין": return "Heerenveen"
+    if nameToConver == "ווילם": return "Willem II"
+    if nameToConver == "זוולה": return "Zwolle"
+    if nameToConver == "פיינורד": return "Feyenoord"
+    if nameToConver == "טוונטה": return "Twente"
+    if nameToConver == "פורטונה סיטארד": return "For Sittard"
+    if nameToConver == "אמן": return "FC Emmen"
+    if nameToConver == "ונלו": return "VVV Venlo"
+    if nameToConver == "הראקלס": return "Heracles"
+    if nameToConver == "דן האג": return "Den Haag"
+    if nameToConver == "ספרטה רוטרדם": return "Sparta Rotterdam"
+    if nameToConver == "אייאקס": return "Ajax"
+    if nameToConver == "כרונינגן": return "Groningen"
+    if nameToConver == "איינדהובן": return "PSV Eindhoven"
+    if nameToConver == "ר.ק.ס": return "Waalwijk"
+    if nameToConver == "ויטסה ארנהיים": return "Vitesse"
+    if nameToConver == "אוטרכט": return "Utrecht"
+    if nameToConver == "אלקמאר": return "AZ Alkmaar"
+
+    # Scotish
+    if nameToConver == "סט. מירן": return "St Mirren"
+    if nameToConver == "היברניאן": return "Hibernian"
+    if nameToConver == "אברדין": return "Aberdeen"
+    if nameToConver == "קילמרנוק": return "Kilmarnock"
+    if nameToConver == "גלזגו ריינג'רס": return "Rangers"
+    if nameToConver == "דנדי יונייטד": return "Dundee United"
+    if nameToConver == "ליבינגסטון": return "Livingston"
+    if nameToConver == "המילטון": return "Hamilton"
+    if nameToConver == "רוס קאונטי": return "Ross County"
+    if nameToConver == "סלטיק": return "Celtic"
+    if nameToConver == "מאת'רוול": return "Motherwell"
+    if nameToConver == "סט. ג'ונסטון": return "St Johnstone"
+
+    # Portugal
+    if nameToConver == "פמליקאו": return "Famalicao"
+    if nameToConver == "בנפיקה ליסבון": return "Benfica"
+    if nameToConver == "ויטוריה גימראייש": return "Guimaraes"
+    if nameToConver == "בלננסש": return "Belenenses"
+    if nameToConver == "נאסיונל מדיירה": return "Nacional"
+    if nameToConver == "בואבישטה": return "Boavista"
+    if nameToConver == "ספורטינג ליסבון": return "Sp Lisbon"
+    if nameToConver == "ז'יל ויסנטה": return "Gil Vicente"
+    if nameToConver == "פורטו": return "Porto"
+    if nameToConver == "בראגה": return "Sp Braga"
+    if nameToConver == "סנטה קלרה": return "Santa Clara"
+    if nameToConver == "מאריטימו": return "Maritimo"
+    if nameToConver == "מוריירנסה": return "Moreirense"
+    if nameToConver == "ספורטינג פרנסה": return "Farense"
+    if nameToConver == "טונדלה": return "Tondela"
+    if nameToConver == "ריו אווה": return "Rio Ave"
+    if nameToConver == "פורטימוננסה": return "Portimonense"
+    if nameToConver == "פאקו פריירה": return "Pacos Ferreira"
+
+    # Turkey
+    if nameToConver == "פתיח קרגומרוק": return ""
+    if nameToConver == "איסטנבול בסאקסהיר": return ""
+    if nameToConver == "קייסריספור": return ""
+    if nameToConver == "ארזורומספור": return ""
+    if nameToConver == "גוזטפה": return "Goztep"
+    if nameToConver == "גאזישיר גאזיינטפ": return "Gaziantep"
+    if nameToConver == "אטאייספור": return ""
+    if nameToConver == "קסימפסה": return ""
+    if nameToConver == "טרבזונספור": return "Trabzonspor"
+    if nameToConver == "מלטיה ספור": return "Yeni Malatyaspor"
+    if nameToConver == "ריזאספור": return "Rizespor"
+    if nameToConver == "אלניהספור": return "Alanyaspor"
+    if nameToConver == "סיבאספור": return "Sivasspor"
+    if nameToConver == "אנקרגוצ'ו": return "Ankaragucu"
+    if nameToConver == "קוניאספור 1922": return "Konyaspor"
+    if nameToConver == "בשיקטאש": return "Besiktas"
+    if nameToConver == "גלאטסראיי": return "Galatasaray"
+    if nameToConver == "פנרבחצ'ה": return "Fenerbahce"
+    if nameToConver == "": return "Antalyaspor"
+    if nameToConver == "": return "Denizlispor"
+    if nameToConver == "": return ""
+
+def getScriptName(leagueName):
+    if leagueName == "Serie" : return "Italy"
+    if leagueName == "PremierLeague" : return "England"
+    if leagueName == "Bundesliga" : return "Germany"
+    if leagueName == "Laliga" : return "Spain"
+    if leagueName == "Ligue1" : return "France"
+    if leagueName == "Jupiler" : return "Belgium"
+    if leagueName == "Eredivisie" : return "Netherlands"
+    if leagueName == "Scotish" : return "Scotland"
+    if leagueName == "Portugal" : return "Portugal"
+    if leagueName == "Turkey" : return "Turkey"
+
+def getLinkToSpecialTeam(teamToFind):
+    if teamToFind == "Diyarbakirspor" : return "/101018/diyarbakırspor/"
+    if teamToFind == "Oftasspor" : return "/110775/genclerbirligi-oftaşspor/"
+    if teamToFind == "Eskisehirspor" : return "/111988/eskişehirspor/"
+    if teamToFind == "Kocaelispor" : return "/101032/kocaelispor/"
+    if teamToFind == "Hacettepespor" : return "/110775/hacettepe-sk/"
+    if teamToFind == "Manisaspor" : return "/101035/manisaspor/"
+    if teamToFind == "Karabukspor" : return "/112122/kardemir-karabükspor/"
+    if teamToFind == "Bucaspor" : return "/112232/bucaspor/"
+    if teamToFind == "Mersin Idman Yurdu" : return "/101036/mersin-i-dman-yurdu/"
+    if teamToFind == "Akhisar Belediyespor" : return "/111340/akhisar-belediyespor/"
+    if teamToFind == "Balikesirspor" : return "/112889/balıkesirspor/"
+    if teamToFind == "Buyuksehyr" : return "/101014/medipol-başakşehir-fk/"
+    if teamToFind == "Osmanlispor" : return "/112958/osmanlıspor/"
+    if teamToFind == "Adanaspor" : return "/110401/adanaspor/"
+    if teamToFind == "Erzurum BB" : return "/749/bb-erzurumspor/"
+    if teamToFind == "Karagumruk" : return "/326/fenerbahçe-sk/"

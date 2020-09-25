@@ -32,10 +32,21 @@ def run(leagueName,round,startYear,endYear):
         for index, row in team_standing_1.iterrows():
             d = {}
             _range = 0
+
             if leagueName == "Bundesliga" or leagueName == "Eredivisie":
                 _range = 41-4
             elif leagueName == "Jupiler":
-                _range = 41-4
+                if int(sY) <= 8:
+                    _range = 41-4
+                elif int(sY) <= 19:
+                    _range = 33
+                else:
+                    _range = 41-4
+            elif leagueName == "Turkey":
+                if int(sY) <= 19:
+                    _range = 41-4
+                else:
+                    _range = 43
             elif leagueName == "Scotish":
                 _range = 25
             elif leagueName == "Portugal":
@@ -44,15 +55,16 @@ def run(leagueName,round,startYear,endYear):
                 elif int(sY) <= 13:
                     _range = 41-4-4
                 else:
-                    _range = 41-4
+                    _range = 41-2
             else:
                 _range =41
+
+
             for counter in range(1,_range):
                 name = list(team_standing_1.columns)[counter]
                 if(index == 0):
                     d[name] = rows_1[0][counter]
                 else:
-
                     x = rows_1[index][counter]
                     y = rows_2[index-1][counter]
                     d[name] = int(x) - int(y)

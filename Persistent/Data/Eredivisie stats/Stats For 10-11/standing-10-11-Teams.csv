@@ -1,7 +1,7 @@
 ,0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17
-0,Graafschap,Heracles,Feyenoord,PSV Eindhoven,Vitesse,Nijmegen,Ajax,Groningen,AZ Alkmaar,Twente,Roda,NAC Breda,VVV Venlo,Den Haag,Utrecht,Heerenveen,Excelsior,Willem II
-1,PSV Eindhoven,Nijmegen,Ajax,Roda,Heracles,Feyenoord,Vitesse,Utrecht,VVV Venlo,Excelsior,Graafschap,Groningen,AZ Alkmaar,Twente,Heerenveen,NAC Breda,Den Haag,Willem II
-2,PSV Eindhoven,Ajax,Utrecht,Nijmegen,Excelsior,Twente,Groningen,Heracles,Feyenoord,Heerenveen,Roda,VVV Venlo,Den Haag,Vitesse,Graafschap,AZ Alkmaar,NAC Breda,Willem II
+0,,,,,,,,,,,,,,,,,,
+1,,,,,,,,,,,,,,,,,,
+2,,,,,,,,,,,,,,,,,,
 3,Ajax,PSV Eindhoven,Twente,Groningen,Feyenoord,Nijmegen,Roda,Excelsior,Utrecht,Heerenveen,Heracles,Den Haag,NAC Breda,AZ Alkmaar,VVV Venlo,Vitesse,Graafschap,Willem II
 4,PSV Eindhoven,Ajax,Twente,Groningen,Roda,Excelsior,Heerenveen,Feyenoord,Nijmegen,NAC Breda,Utrecht,Den Haag,Heracles,Graafschap,AZ Alkmaar,VVV Venlo,Vitesse,Willem II
 5,Ajax,PSV Eindhoven,Groningen,Twente,Roda,Excelsior,Utrecht,Heerenveen,Den Haag,Feyenoord,NAC Breda,Nijmegen,Graafschap,AZ Alkmaar,Heracles,Vitesse,VVV Venlo,Willem II

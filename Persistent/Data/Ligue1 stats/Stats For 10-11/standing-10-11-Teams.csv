@@ -1,7 +1,7 @@
 ,0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19
-0,Paris SG,Toulouse,Nancy,Sochaux,Caen,Montpellier,Auxerre,Lorient,Lille,Rennes,Monaco,Nice,Lyon,Valenciennes,Arles,Marseille,Lens,Bordeaux,St Etienne,Brest
-1,Toulouse,Caen,Rennes,Paris SG,Valenciennes,Nice,Montpellier,Sochaux,Lens,St Etienne,Nancy,Auxerre,Lille,Monaco,Lorient,Lyon,Brest,Marseille,Arles,Bordeaux
-2,Toulouse,Caen,Rennes,Valenciennes,Nice,Montpellier,Paris SG,Sochaux,Lens,Lyon,St Etienne,Nancy,Marseille,Auxerre,Monaco,Lille,Bordeaux,Lorient,Brest,Arles
+0,,,,,,,,,,,,,,,,,,,,
+1,,,,,,,,,,,,,,,,,,,,
+2,,,,,,,,,,,,,,,,,,,,
 3,Toulouse,Rennes,Montpellier,Sochaux,St Etienne,Caen,Monaco,Nice,Valenciennes,Marseille,Lille,Lorient,Paris SG,Bordeaux,Brest,Lens,Lyon,Nancy,Auxerre,Arles
 4,Toulouse,Rennes,St Etienne,Nice,Montpellier,Caen,Paris SG,Lille,Monaco,Sochaux,Nancy,Valenciennes,Marseille,Lorient,Brest,Lyon,Auxerre,Bordeaux,Lens,Arles
 5,St Etienne,Toulouse,Rennes,Caen,Sochaux,Lille,Nice,Marseille,Paris SG,Monaco,Brest,Montpellier,Bordeaux,Valenciennes,Nancy,Lorient,Lyon,Lens,Auxerre,Arles

@@ -1,0 +1,31 @@
+,0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15
+0,,,,,,,,,,,,,,,,
+1,,,,,,,,,,,,,,,,
+2,,,,,,,,,,,,,,,,
+3,Porto,Guimaraes,Academica,Sp Braga,Sp Lisbon,Pacos Ferreira,Olhanense,Nacional,Leiria,Beira Mar,Setubal,Portimonense,Benfica,Naval,Maritimo,Rio Ave
+4,Porto,Guimaraes,Olhanense,Academica,Sp Braga,Pacos Ferreira,Sp Lisbon,Benfica,Beira Mar,Setubal,Nacional,Leiria,Portimonense,Naval,Maritimo,Rio Ave
+5,Porto,Academica,Sp Braga,Guimaraes,Benfica,Olhanense,Setubal,Sp Lisbon,Leiria,Pacos Ferreira,Portimonense,Nacional,Beira Mar,Naval,Maritimo,Rio Ave
+6,Porto,Benfica,Olhanense,Guimaraes,Academica,Sp Braga,Leiria,Pacos Ferreira,Nacional,Sp Lisbon,Setubal,Beira Mar,Portimonense,Naval,Maritimo,Rio Ave
+7,Porto,Benfica,Academica,Sp Braga,Guimaraes,Olhanense,Sp Lisbon,Setubal,Pacos Ferreira,Leiria,Nacional,Beira Mar,Portimonense,Maritimo,Naval,Rio Ave
+8,Porto,Benfica,Guimaraes,Sp Lisbon,Academica,Sp Braga,Olhanense,Nacional,Setubal,Pacos Ferreira,Beira Mar,Leiria,Maritimo,Portimonense,Rio Ave,Naval
+9,Porto,Guimaraes,Benfica,Nacional,Academica,Sp Lisbon,Sp Braga,Olhanense,Beira Mar,Setubal,Leiria,Pacos Ferreira,Maritimo,Portimonense,Rio Ave,Naval
+10,Porto,Benfica,Guimaraes,Sp Lisbon,Nacional,Academica,Olhanense,Beira Mar,Leiria,Sp Braga,Setubal,Pacos Ferreira,Rio Ave,Maritimo,Portimonense,Naval
+11,Porto,Benfica,Guimaraes,Sp Lisbon,Academica,Leiria,Sp Braga,Nacional,Olhanense,Beira Mar,Pacos Ferreira,Rio Ave,Setubal,Maritimo,Portimonense,Naval
+12,Porto,Benfica,Sp Lisbon,Guimaraes,Leiria,Nacional,Academica,Sp Braga,Beira Mar,Maritimo,Olhanense,Pacos Ferreira,Rio Ave,Setubal,Portimonense,Naval
+13,Porto,Benfica,Sp Lisbon,Leiria,Guimaraes,Nacional,Sp Braga,Beira Mar,Academica,Maritimo,Olhanense,Pacos Ferreira,Rio Ave,Setubal,Portimonense,Naval
+14,Porto,Benfica,Sp Lisbon,Leiria,Guimaraes,Nacional,Sp Braga,Beira Mar,Olhanense,Academica,Maritimo,Pacos Ferreira,Setubal,Rio Ave,Portimonense,Naval
+15,Porto,Benfica,Sp Lisbon,Guimaraes,Nacional,Leiria,Sp Braga,Beira Mar,Maritimo,Olhanense,Pacos Ferreira,Academica,Setubal,Rio Ave,Portimonense,Naval
+16,Porto,Benfica,Sp Lisbon,Guimaraes,Nacional,Leiria,Sp Braga,Beira Mar,Olhanense,Pacos Ferreira,Maritimo,Academica,Setubal,Rio Ave,Portimonense,Naval
+17,Porto,Benfica,Sp Lisbon,Guimaraes,Sp Braga,Nacional,Olhanense,Leiria,Beira Mar,Pacos Ferreira,Academica,Maritimo,Setubal,Rio Ave,Portimonense,Naval
+18,Porto,Benfica,Sp Lisbon,Guimaraes,Leiria,Sp Braga,Olhanense,Pacos Ferreira,Nacional,Beira Mar,Academica,Maritimo,Setubal,Rio Ave,Naval,Portimonense
+19,Porto,Benfica,Sp Lisbon,Guimaraes,Pacos Ferreira,Leiria,Sp Braga,Olhanense,Nacional,Beira Mar,Maritimo,Rio Ave,Academica,Setubal,Naval,Portimonense
+20,Porto,Benfica,Sp Lisbon,Pacos Ferreira,Guimaraes,Nacional,Sp Braga,Leiria,Olhanense,Beira Mar,Rio Ave,Academica,Maritimo,Setubal,Naval,Portimonense
+21,Porto,Benfica,Sp Lisbon,Pacos Ferreira,Guimaraes,Sp Braga,Nacional,Leiria,Olhanense,Rio Ave,Beira Mar,Academica,Maritimo,Setubal,Naval,Portimonense
+22,Porto,Benfica,Sp Lisbon,Sp Braga,Pacos Ferreira,Guimaraes,Nacional,Leiria,Beira Mar,Olhanense,Rio Ave,Maritimo,Academica,Setubal,Portimonense,Naval
+23,Porto,Benfica,Sp Lisbon,Sp Braga,Guimaraes,Pacos Ferreira,Nacional,Leiria,Beira Mar,Maritimo,Olhanense,Rio Ave,Academica,Setubal,Portimonense,Naval
+24,Porto,Benfica,Sp Braga,Sp Lisbon,Guimaraes,Nacional,Pacos Ferreira,Maritimo,Rio Ave,Leiria,Beira Mar,Academica,Olhanense,Setubal,Naval,Portimonense
+25,Porto,Benfica,Sp Braga,Sp Lisbon,Nacional,Guimaraes,Rio Ave,Pacos Ferreira,Maritimo,Beira Mar,Leiria,Academica,Olhanense,Setubal,Naval,Portimonense
+26,Porto,Benfica,Sp Braga,Sp Lisbon,Guimaraes,Rio Ave,Nacional,Pacos Ferreira,Maritimo,Beira Mar,Leiria,Academica,Olhanense,Setubal,Naval,Portimonense
+27,Porto,Benfica,Sp Braga,Sp Lisbon,Nacional,Rio Ave,Guimaraes,Pacos Ferreira,Maritimo,Beira Mar,Leiria,Olhanense,Academica,Setubal,Naval,Portimonense
+28,Porto,Benfica,Sp Braga,Sp Lisbon,Guimaraes,Nacional,Pacos Ferreira,Rio Ave,Maritimo,Leiria,Beira Mar,Olhanense,Setubal,Academica,Portimonense,Naval
+29,Porto,Benfica,Sp Lisbon,Sp Braga,Guimaraes,Nacional,Pacos Ferreira,Rio Ave,Maritimo,Leiria,Olhanense,Setubal,Beira Mar,Academica,Portimonense,Naval
